@@ -319,6 +319,21 @@
         "public/fonts/localized-sources.json",
         "public/fonts/portfolio-fonts.css"
       ]
+    },
+    "brandMark": {
+      "image": "/brand/evan-logo.png",
+      "master": "/brand/evan-logo-master.png",
+      "favicon": "/brand/favicon.png",
+      "size": 48,
+      "mobileSize": 40,
+      "gap": 10,
+      "mobileNameFontSize": 22,
+      "hideVisualNameAt": 360,
+      "background": "transparent",
+      "palette": "neutral black/gray/white",
+      "source": "public/brand/sources.json",
+      "narrowNavigationGap": 12,
+      "narrowNavigationWrap": "nowrap"
     }
   },
   "components": [

@@ -68,7 +68,10 @@ export default function Portfolio({ locale, copy, autoSelectLanguage = false }: 
     <div className={styles.root}>
       <a className={styles.skipLink} href="#work">{copy.ui.skip}</a>
       <header className={styles.header}>
-        <a className={styles.wordmark} href={LOCALE_PATHS[locale]} aria-label={copy.nav.home}>Evan Yang</a>
+        <a className={styles.wordmark} href={LOCALE_PATHS[locale]} aria-label={copy.nav.home}>
+          <Image className={styles.brandMark} src="/brand/evan-logo.png" alt="" width={48} height={48} loading="eager" />
+          <span>Evan Yang</span>
+        </a>
         <nav aria-label={copy.nav.label}><a href="#work">{copy.nav.work}</a><a href="#about">{copy.nav.about}</a></nav>
         <div className={styles.headerActions}>
           <LanguageSelect locale={locale} label={copy.nav.language} />

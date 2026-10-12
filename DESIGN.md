@@ -73,6 +73,7 @@ rounded:
   pill: "999px"
   circle: "50%"
 spacing:
+  brand-gap: "10px"
   caption-gap: "8px"
   link-gap: "12px"
   action-gap: "14px"
@@ -90,6 +91,9 @@ spacing:
   project-column-gap: "clamp(24px, 2.5vw, 40px)"
   text-section-offset: "clamp(140px, 15vw, 230px)"
 components:
+  brand-mark:
+    size: "48px"
+    mobileSize: "40px"
   button-primary:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.paper}"
@@ -251,7 +255,7 @@ Compact black pills pair white labels with a small inline arrow where needed. Us
 
 ### Navigation
 
-Short text anchors lead to Work and About, with Contact as a separate filled action. Hover adds an underline with a 7px offset; keyboard focus uses the shared ink outline. The wordmark remains a 500-weight text link. Navigation has no fixed or sticky page overlay. A focus-revealed skip link leads to work.
+Short text anchors lead to Work and About, with Contact as a separate filled action. Hover adds an underline with a 7px offset; keyboard focus uses the shared ink outline. The home link pairs the user's monochrome star-and-orbit mark with the 500-weight Evan Yang name, separated by 10px. The transparent PNG mark is 48px on desktop and 40px on mobile; the mobile name is 22px. At 360px and below, the visual name is hidden to preserve room for navigation actions, while section links remain on one line with a 12px gap; the localized home-link accessible name remains. The same mark is the 96px PNG browser icon. Navigation has no fixed or sticky page overlay. A focus-revealed skip link leads to work.
 
 ### Native Language Selector
 
@@ -264,6 +268,8 @@ Routes are `/` for Simplified Chinese, `/zh-TW/`, `/en/`, and `/ja/`. Selection 
 The whole image-plus-caption group is a semantic button with an accessible project name and `aria-haspopup="dialog"`. It has no border, shadow, or background outside the stage. The image is centered and complete; title, short summary, and arrow sit on white below it. `ProjectCover` is the reusable featured, ordinary, and dialog pattern.
 
 `src/content/projects.ts` owns the project identities, assets, dimensions, and external targets. Current covers are `/images/logicduo-cover.png` (1280 × 720), `/images/allfeeds-cover.png` (1920 × 1057), and `/images/genchi-cover.png` (1280 × 720). `public/images/sources.json` records public product screenshots and the published AllFeeds repository screenshot, captured on 2026-10-12. The original screenshot language and colors remain unchanged. Generated images in `.impeccable/mocks/` are historical composition studies, not replacement UI or evidence of project performance.
+
+The user supplied the portfolio logo. `public/brand/evan-logo-master.png` preserves the imagegen monochrome edit at full resolution, with the original star/ribbon identity and transparent background; `evan-logo.png` and `favicon.png` are resized delivery assets. `public/brand/sources.json` records the source, editing prompt, and preparation sizes. Branding uses only neutral black/gray/white and retains transparent areas inside the orbits.
 
 ### Detail Dialog
 

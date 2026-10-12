@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-12",
+  "source": "User-provided ChatGPT 图像 2026年10月12日 17_42_04.png",
+  "editor": "built-in imagegen",
+  "prompt": "Use case: precise-object-edit / background-extraction. Edit target: the attached colored star-and-orbit logo. Create the same logo in black, white, and neutral grays for a white minimalist personal portfolio. Preserve the exact recognizable silhouette, proportions, curved star points, the small four-point sparkle to the upper left, both elliptical orbit ribbons, their perspective, their front/back overlaps and their relative positions. Change only the palette and clean the background/edges. Main tall four-point star and small sparkle should be near-black charcoal (#111111); the orbit ribbons should use medium/dark neutral gray with restrained light-gray highlights, preserving the ribbon depth and shape. Absolutely no purple, blue, cyan, or any colored fringing. Remove the black backdrop completely: output genuinely transparent background with clean antialiased alpha, including inside the orbits. Keep the mark centered and closely framed with a modest even margin, filling about 88% of the canvas width, suitable as a sharp website logo at 40–52px and as a favicon. Flat polished digital logo asset; no new ornament, no glow, no backdrop shadow, no text, no extra stars, no watermark. Output one standalone high-resolution square PNG logo.",
+  "assets": [
+    {
+      "file": "evan-logo-master.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "role": "transparent monochrome master"
+    },
+    {
+      "file": "evan-logo.png",
+      "dimensions": [
+        192,
+        192
+      ],
+      "role": "navigation delivery PNG"
+    },
+    {
+      "file": "favicon.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "role": "browser icon delivery PNG"
+    }
+  ],
+  "preparation": "Delivery assets resized with Sharp; no recoloring, new shapes, or background modification during preparation.",
+  "validation": "RGBA transparency confirmed; no visible pixels with RGB channel spread greater than 5 in the master."
+}

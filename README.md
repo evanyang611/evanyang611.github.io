@@ -29,6 +29,7 @@ npm run preview   # http://localhost:8071/
 - 中文首页 `/`；繁体 `/zh-TW/`；英文 `/en/`；日文 `/ja/`。`/zh-CN/` 和 `/portfolio/` 兼容既有入口，canonical 指向 `/`。
 - 每种语言生成独立 HTML、正确的 `html lang`、标题、描述和 hreflang。根入口依次采用有效的 `?lang=`、已保存的手动选择、浏览器语言偏好；无法匹配时默认简体中文。繁体地区及 `zh-Hant` 使用繁体；英文和日语地区变体使用对应语言。指定语言路径直接呈现对应内容。
 - 产品截图与字体均为本地资产，来源及字体许可证位于 `public/images/` 和 `public/fonts/`。
+- 导航和浏览器图标使用提供的星芒环轨 Logo 的透明底黑白灰版本。高清原图、网页尺寸和编辑提示词位于 `public/brand/`。
 
 ## 发布归属
 

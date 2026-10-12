@@ -14,7 +14,7 @@ export function portfolioMetadata(locale: Locale): Metadata {
       canonical: LOCALE_PATHS[locale],
       languages: { "zh-Hans": "/", "zh-Hant": "/zh-TW/", en: "/en/", ja: "/ja/", "x-default": "/" },
     },
-    icons: { icon: "/favicon.jpg" },
+    icons: { icon: { url: "/brand/favicon.png", type: "image/png", sizes: "96x96" } },
     openGraph: {
       title: copy.metadata.title, description: copy.metadata.description,
       url: LOCALE_PATHS[locale], locale: OG_LOCALES[locale],
