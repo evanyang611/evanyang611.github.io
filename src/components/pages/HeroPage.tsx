@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ScrollHint from "@/components/deck/ScrollHint";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 const SOCIALS = [
   {
@@ -23,13 +24,13 @@ const SOCIALS = [
 ];
 
 export default function HeroPage() {
-  const tags = ["二次元", "动漫", "游戏", "JPOP", "钢琴", "羽毛球"];
-  const roles = ["机器学习算法", "大模型应用算法", "独立开发者"];
-  const missions = ["AI for Investors", "AI for Developers", "AI for ACGers"];
+  const { messages } = useLocale();
+  const { tags, roles, missions } = messages.hero;
+  const socials = SOCIALS.map((social, index) => ({ ...social, name: ["Gitee", messages.links.bilibili, messages.links.xiaohongshu][index] }));
 
   return (
-    <div className="relative flex h-full w-full items-center px-5 py-12 sm:px-10 sm:py-16 lg:px-32 lg:py-28">
-      <div className="grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-16 lg:pr-[clamp(0rem,calc(56.25vw_-_45rem),9rem)]">
+    <div data-page-scroll className="relative flex h-full w-full flex-col items-center overflow-y-auto px-5 pb-20 pt-24 sm:px-10 sm:pb-24 sm:pt-28 lg:justify-center lg:px-32 lg:py-28">
+      <div className="my-auto grid w-full max-w-7xl shrink-0 items-center gap-8 sm:gap-12 lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-16 lg:pr-[clamp(0rem,calc(56.25vw_-_45rem),9rem)]">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
@@ -37,8 +38,8 @@ export default function HeroPage() {
           className="relative z-10 flex flex-col items-center text-center lg:items-start lg:pl-48 lg:text-left"
         >
           <p
-            className="mb-8 flex flex-wrap justify-center gap-x-3 gap-y-2 font-serif text-[15px] uppercase text-[var(--foreground-faint)] sm:text-base lg:flex-nowrap lg:justify-start"
-            style={{ letterSpacing: "0.18em" }}
+            className="mb-6 flex flex-wrap justify-center gap-x-3 gap-y-2 font-serif text-[15px] text-[var(--foreground-soft)] sm:mb-8 sm:text-base lg:justify-start"
+            style={{ letterSpacing: "0.04em" }}
           >
             {roles.slice(0, 2).map((role, index) => (
               <span key={role} className="inline-flex shrink-0 items-center gap-x-3">
@@ -53,6 +54,7 @@ export default function HeroPage() {
           </p>
 
           <h1
+            id="page-home-title"
             className="font-serif text-6xl font-semibold leading-none text-[#243746] sm:text-7xl lg:text-8xl"
             style={{
               textShadow: "0 16px 48px rgba(61,122,168,0.16)",
@@ -61,7 +63,7 @@ export default function HeroPage() {
             Evan Yang
           </h1>
 
-          <p className="mt-8 flex flex-wrap justify-center gap-x-3 gap-y-2 font-serif text-lg italic text-[var(--sky-deep)] sm:text-xl lg:flex-nowrap lg:justify-start">
+          <p className="mt-6 flex flex-wrap justify-center gap-x-3 gap-y-2 font-serif text-lg italic text-[var(--sky-deep)] sm:mt-8 sm:text-xl lg:justify-start">
             {missions.map((mission, index) => (
               <span key={mission} className="inline-flex shrink-0 items-center gap-x-3">
                 <span>{mission}</span>
@@ -76,7 +78,7 @@ export default function HeroPage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-16"
+            className="mt-8 sm:mt-12 lg:mt-16"
           >
             <ul className="flex flex-wrap justify-center gap-2 lg:justify-start">
               {tags.map((tag) => (
@@ -91,7 +93,7 @@ export default function HeroPage() {
           </motion.div>
         </motion.div>
 
-        <div className="flex min-w-0 flex-col items-center gap-14 sm:gap-16">
+        <div className="flex min-w-0 flex-col items-center gap-8 sm:gap-12 lg:gap-16">
           <div className="relative h-36 w-36 sm:h-44 sm:w-44 lg:h-52 lg:w-52">
             <motion.div
               aria-hidden
@@ -130,7 +132,7 @@ export default function HeroPage() {
             transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="flex items-center gap-4"
           >
-            {SOCIALS.map((social) => (
+            {socials.map((social) => (
               <li key={social.name}>
                 <a
                   href={social.href}

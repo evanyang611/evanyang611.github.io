@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import type { PageMeta } from "./usePageNav";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 type Props = {
   pages: PageMeta[];
@@ -11,6 +12,7 @@ type Props = {
 };
 
 export default function DotRail({ pages, index, onJump }: Props) {
+  const { messages } = useLocale();
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -64,7 +66,7 @@ export default function DotRail({ pages, index, onJump }: Props) {
 
   return (
     <nav
-      aria-label="Page navigation"
+      aria-label={messages.navigation.label}
       className={`fixed right-3 top-1/2 z-30 -translate-y-1/2 transition-[opacity,transform] duration-300 sm:right-6 lg:right-10 ${
         visible ? "opacity-100" : "pointer-events-none opacity-0 translate-x-2"
       }`}
@@ -76,10 +78,11 @@ export default function DotRail({ pages, index, onJump }: Props) {
             <li key={p.id}>
               <button
                 type="button"
-                aria-label={`Go to ${p.label}`}
+                aria-label={`${messages.navigation.goTo} ${p.label}`}
+                data-page-link={p.id}
                 aria-current={active ? "page" : undefined}
                 onClick={() => onJump(i)}
-                className="flex flex-col items-end gap-1"
+                className="flex min-h-6 min-w-8 flex-col items-end justify-center gap-1"
               >
                 <motion.span
                   layout
@@ -93,8 +96,8 @@ export default function DotRail({ pages, index, onJump }: Props) {
                   className="block h-[2px] rounded-full border"
                 />
                 <span
-                  className={`mono hidden text-[9px] tracking-[0.12em] transition-colors sm:block ${
-                    active ? "text-[var(--sky-deep)]" : "text-[var(--foreground-faint)]"
+                  className={`mono hidden text-[11px] tracking-[0.08em] transition-colors sm:block ${
+                    active ? "text-[var(--sky-ink)]" : "text-[var(--foreground-soft)]"
                   }`}
                 >
                   {p.label}

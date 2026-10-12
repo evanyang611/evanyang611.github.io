@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { BusuanziStatsText } from "@/components/stats/BusuanziStats";
 import PageLayout from "../deck/PageLayout";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 type Account = {
   name: string;
@@ -47,11 +48,13 @@ const item = {
 };
 
 export default function LinksPage() {
+  const { messages } = useLocale();
+  const accounts = ACCOUNTS.map((account, index) => ({ ...account, name: [messages.links.contact, "Gitee", messages.links.bilibili, messages.links.xiaohongshu][index] }));
   return (
     <div className="relative h-full w-full">
-      <PageLayout title="Links" subtitle="其他链接" compactMobile>
+      <PageLayout page="links" compactMobile>
         <p className="mb-6 max-w-2xl font-serif text-[15px] leading-8 text-[var(--foreground-soft)] sm:mb-8 sm:text-[16px]">
-          你可以通过以下方式联系我，欢迎关注我的社交账号。
+          {messages.links.intro}
         </p>
         <motion.div
           variants={stagger}
@@ -59,7 +62,7 @@ export default function LinksPage() {
           animate="show"
           className="grid w-full max-w-3xl grid-cols-1 gap-x-10 sm:grid-cols-2"
         >
-          {ACCOUNTS.map((account) => (
+          {accounts.map((account) => (
             <motion.a
               key={account.name}
               variants={item}

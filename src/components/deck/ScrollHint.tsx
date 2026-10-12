@@ -2,12 +2,14 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 const SWIPE_DURATION = 1.4;
 const SWIPES_PER_CYCLE = 3;
 const REST_DURATION = 5;
 
 export default function ScrollHint() {
+  const { messages } = useLocale();
   const [phase, setPhase] = useState<"hidden" | "visible">("hidden");
   const [mounted, setMounted] = useState(false);
 
@@ -44,7 +46,7 @@ export default function ScrollHint() {
             className="font-serif text-[11px] uppercase text-[var(--foreground-faint)]"
             style={{ letterSpacing: "0.28em" }}
           >
-            Scroll
+            {messages.common.scroll}
           </span>
           <motion.div
             className="flex flex-col items-center"

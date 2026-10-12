@@ -2,8 +2,10 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { usePlayer } from "./PlayerProvider";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 export default function MiniPlayer() {
+  const { messages } = useLocale();
   const { current, playing, toggle, next, prev, close, error, dismissError } = usePlayer();
   return (
     <AnimatePresence>
@@ -15,10 +17,11 @@ export default function MiniPlayer() {
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as const }}
           className="fixed bottom-4 left-1/2 z-50 flex w-[calc(100vw-1.5rem)] max-w-[28rem] -translate-x-1/2 items-center gap-3 rounded-lg border border-[var(--ink-rule)] bg-[var(--background)]/95 px-5 py-3 shadow-[0_18px_40px_-18px_rgba(15,30,50,0.45)] backdrop-blur sm:left-auto sm:right-6 sm:bottom-6 sm:w-auto sm:max-w-none sm:translate-x-0"
         >
-          <span className="font-serif text-[14px] text-[var(--foreground)]">{error}</span>
+          <span className="font-serif text-[14px] text-[var(--foreground)]">{messages.player.unavailable}</span>
           <button
             type="button"
             onClick={dismissError}
+            aria-label={messages.common.close}
             className="grid h-6 w-6 place-items-center rounded-full text-[var(--foreground-faint)] transition-colors hover:text-[var(--foreground)]"
           >
             ×
@@ -36,7 +39,7 @@ export default function MiniPlayer() {
           <div className="flex items-center gap-1">
             <button
               type="button"
-              aria-label="Previous"
+              aria-label={messages.player.previous}
               onClick={prev}
               className="grid h-7 w-7 place-items-center rounded-full text-[var(--foreground-soft)] transition-colors hover:text-[var(--sky-deep)]"
             >
@@ -47,7 +50,7 @@ export default function MiniPlayer() {
             </button>
             <button
               type="button"
-              aria-label={playing ? "Pause" : "Play"}
+              aria-label={playing ? messages.player.pause : messages.player.play}
               onClick={toggle}
               className="grid h-9 w-9 place-items-center rounded-full bg-[var(--sky-deep)] text-[var(--background)] transition-transform hover:scale-105"
             >
@@ -64,7 +67,7 @@ export default function MiniPlayer() {
             </button>
             <button
               type="button"
-              aria-label="Next"
+              aria-label={messages.player.next}
               onClick={next}
               className="grid h-7 w-7 place-items-center rounded-full text-[var(--foreground-soft)] transition-colors hover:text-[var(--sky-deep)]"
             >
@@ -84,7 +87,7 @@ export default function MiniPlayer() {
           </div>
           <button
             type="button"
-            aria-label="Close"
+            aria-label={messages.common.close}
             onClick={close}
             className="grid h-7 w-7 place-items-center rounded-full text-[var(--foreground-faint)] transition-colors hover:bg-[var(--sky-soft)] hover:text-[var(--foreground)]"
           >

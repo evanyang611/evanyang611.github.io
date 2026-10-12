@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import PageLayout from "../deck/PageLayout";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 const stagger = {
   hidden: {},
@@ -49,8 +50,10 @@ const CARDS: Card[] = [
 ];
 
 export default function WorkPage() {
+  const { messages } = useLocale();
+  const cards = CARDS.map((card, index) => ({ ...card, kicker: messages.hero.missions[index], body: messages.work.projects[index], cta: card.cta && { ...card.cta, label: card.cta.href ? card.cta.label : messages.common.comingSoon } }));
   return (
-    <PageLayout title="Work" subtitle="工作">
+    <PageLayout page="work">
       <motion.div
         variants={stagger}
         initial="hidden"
@@ -59,10 +62,10 @@ export default function WorkPage() {
       >
         <motion.section variants={item} className="space-y-5">
           <p className="font-serif text-[15px] leading-8 text-[var(--foreground-soft)] lg:text-[16px] lg:leading-9">
-            我的职业生涯始于机器学习，也伴随着大模型的发展逐渐转向 AI Agent。前期主要从事机器学习算法研发，涉及需求预测、运筹优化、计算机视觉等方向，积累了数据挖掘、特征工程、树模型及神经网络训练、线上算法优化等实践经验。近年来主要专注于大模型应用，参与模型后训练、Prompt Engineering、Query Understanding、Tool Calling、LLM Evaluation 等核心能力建设，并推动相关能力完成产品化、LLM 模型训练及工程化落地。
+            {messages.work.paragraphs[0]}
           </p>
           <p className="font-serif text-[15px] leading-8 text-[var(--foreground-soft)] lg:text-[16px] lg:leading-9">
-            工作之外，我也希望成为一名独立开发者，持续打造属于自己的 AI 产品。我始终认为，AI 不只是提升工作效率的工具，更是在不断降低创造价值的门槛。我相信，未来会有越来越多的人借助 AI 学习、创作、研究与投资，也会有越来越多的人利用 AI 开发属于自己的产品。我享受从一个想法开始，逐步完成产品设计、数据、算法、工程以及上线的整个过程，也希望持续打造真正能够解决实际问题，并被真实用户长期使用的 AI 产品。
+            {messages.work.paragraphs[1]}
           </p>
         </motion.section>
 
@@ -70,7 +73,7 @@ export default function WorkPage() {
           variants={item}
           className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5"
         >
-          {CARDS.map((card) => (
+          {cards.map((card) => (
             <ProjectCard key={card.kicker} card={card} />
           ))}
         </motion.div>
@@ -80,6 +83,7 @@ export default function WorkPage() {
 }
 
 function ProjectCard({ card }: { card: Card }) {
+  const { messages } = useLocale();
   const inner = (
     <>
       <div className="flex-1">
@@ -104,7 +108,7 @@ function ProjectCard({ card }: { card: Card }) {
       {card.links && (
         <div
           className="mt-6 flex items-center font-serif text-[13px] text-[var(--sky-deep)]"
-          aria-label={`${card.title} links`}
+          aria-label={`${card.title} ${messages.common.links}`}
         >
           {card.links.map((link, index) => (
             <span key={link.href} className="flex items-center">

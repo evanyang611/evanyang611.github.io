@@ -1,11 +1,24 @@
+import type { Locale } from "@/i18n/types";
+
+export type BlogId = "claude-code-memory" | "ai-agent-memory" | "mask2former" | "ai-tts";
+
 export type BlogMeta = {
-  id: string;
+  id: BlogId;
   title: string;
   date: string;
   tags: string[];
   summary?: string;
-  loadBody: () => Promise<string>;
+  loadBody: (locale: Locale) => Promise<string>;
 };
+
+function bodyLoader(id: BlogId, original: () => Promise<string>) {
+  return async (locale: Locale) => {
+    if (locale === "zh-CN") return original();
+    const response = await fetch(`/blogs/translations/${locale}/${id}.md`);
+    if (!response.ok) throw new Error(`Article unavailable: ${response.status}`);
+    return response.text();
+  };
+}
 
 export const BLOGS: BlogMeta[] = [
   {
@@ -15,7 +28,7 @@ export const BLOGS: BlogMeta[] = [
     tags: ["工作笔记", "行业调研", "AI Agent"],
     summary:
       "拆解 Claude Code 跨对话记忆系统的完整设计：纯文件系统实现、四类记忆分型、写入/读取双通道、时效性验证与冲突处理策略。",
-    loadBody: () => import("./blogs/claude-code-memory").then((m) => m.body),
+    loadBody: bodyLoader("claude-code-memory", () => import("./blogs/claude-code-memory").then((m) => m.body)),
   },
   {
     id: "ai-agent-memory",
@@ -24,7 +37,7 @@ export const BLOGS: BlogMeta[] = [
     tags: ["工作笔记", "行业调研", "AI Agent"],
     summary:
       "从背景、定义、行业进展与关键模块四个维度，系统梳理 AI Agent Memory 的技术路线与设计选择。",
-    loadBody: () => import("./blogs/ai-agent-memory").then((m) => m.body),
+    loadBody: bodyLoader("ai-agent-memory", () => import("./blogs/ai-agent-memory").then((m) => m.body)),
   },
   {
     id: "mask2former",
@@ -33,7 +46,7 @@ export const BLOGS: BlogMeta[] = [
     tags: ["工作笔记", "学术调研", "计算机视觉"],
     summary:
       "从图像分割任务的三种范式出发，梳理 DETR / MaskFormer / Mask2Former 的设计思路与演进关系。",
-    loadBody: () => import("./blogs/mask2former").then((m) => m.body),
+    loadBody: bodyLoader("mask2former", () => import("./blogs/mask2former").then((m) => m.body)),
   },
   {
     id: "ai-tts",
@@ -42,6 +55,6 @@ export const BLOGS: BlogMeta[] = [
     tags: ["分享讲稿", "学术调研", "语音合成"],
     summary:
       "以 2023 年 AI 孙燕姿现象为切入点，从声音信号基础走到 Tacotron / FastSpeech / VITS / VALL-E，梳理 TTS 三代范式演进。",
-    loadBody: () => import("./blogs/ai-tts").then((m) => m.body),
+    loadBody: bodyLoader("ai-tts", () => import("./blogs/ai-tts").then((m) => m.body)),
   },
 ];

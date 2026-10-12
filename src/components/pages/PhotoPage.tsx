@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import PageLayout from "../deck/PageLayout";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 const stagger = {
   hidden: {},
@@ -13,18 +14,11 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
-const shots = [
-  { label: "街头", note: "城市里顺手拍下的光影。" },
-  { label: "日常", note: "一些平静的瞬间。" },
-  { label: "夜色", note: "灯光和阴影交错的时刻。" },
-  { label: "Live", note: "现场演出里的片段。" },
-  { label: "旅行", note: "路上的风景和停顿。" },
-  { label: "待补充", note: "照片还在整理中。" },
-];
-
 export default function PhotoPage() {
+  const { messages } = useLocale();
+  const shots = messages.photo.shots.map(([label, note]) => ({label, note}));
   return (
-    <PageLayout title="Photo" subtitle="摄影记录">
+    <PageLayout page="photo">
       <div className="flex w-full max-w-5xl flex-col gap-8">
         <motion.div
           variants={stagger}
@@ -34,10 +28,10 @@ export default function PhotoPage() {
         >
           <motion.div variants={item} className="space-y-4">
             <p className="max-w-2xl font-serif text-[16px] leading-8 text-[var(--foreground-soft)] sm:text-[17px]">
-              这里会慢慢放一些我拍摄的照片。大多是路上的光线、现场演出、旅行途中和日常里值得停一下的瞬间。
+              {messages.photo.paragraphs[0]}
             </p>
             <p className="max-w-2xl font-serif text-[16px] leading-8 text-[var(--foreground-soft)] sm:text-[17px]">
-              目前页面先留一个照片墙骨架，后面把图片补进来后就能直接展示。
+              {messages.photo.paragraphs[1]}
             </p>
           </motion.div>
 
@@ -46,13 +40,13 @@ export default function PhotoPage() {
             className="rounded-md border border-[var(--ink-rule)] bg-white/35 p-5 backdrop-blur-sm"
           >
             <div className="mono text-[11px] tracking-[0.18em] text-[var(--foreground-faint)]">
-              方向
+              {messages.photo.direction}
             </div>
             <div className="mt-3 font-serif text-lg leading-8 text-[var(--foreground)]">
-              旅行、现场、街头、日常
+              {messages.photo.themes}
             </div>
             <p className="mt-3 font-serif text-[14px] leading-7 text-[var(--foreground-soft)]">
-              后续会按照时间与主题整理，让这一页更像一个安静的相册。
+              {messages.photo.note}
             </p>
           </motion.div>
         </motion.div>

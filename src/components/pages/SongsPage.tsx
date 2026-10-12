@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { SONGS, type SongEntry } from "@/content/songs";
 import { usePlayer } from "../songs/PlayerProvider";
 import PageLayout from "../deck/PageLayout";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 const stagger = {
   hidden: {},
@@ -26,13 +27,14 @@ function groupByArtist(songs: SongEntry[]) {
 }
 
 export default function SongsPage() {
+  const { messages } = useLocale();
   const groups = useMemo(() => groupByArtist(SONGS), []);
   const { play, playAll, current, playing, toggle } = usePlayer();
 
   return (
-    <PageLayout title="Songs" subtitle="歌曲推荐">
+    <PageLayout page="songs">
       <p className="mb-5 font-serif text-[12px] text-[var(--foreground-faint)] sm:text-[13px]">
-        音源来自 YouTube；若当前网络无法访问 YouTube，歌曲将无法播放。
+        {messages.player.notice}
       </p>
       <div className="mb-6 flex flex-wrap items-center gap-3">
         <button
@@ -43,7 +45,7 @@ export default function SongsPage() {
           <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor">
             <path d="M0 0v12l10-6L0 0z" />
           </svg>
-          PLAY ALL
+          {messages.player.playAll}
         </button>
         <button
           type="button"
@@ -57,7 +59,7 @@ export default function SongsPage() {
             <path d="M1 9h2.5l5-6H11M1 3h2.5l5 6H11M11 3v0M11 9v0" />
             <path d="M9.5 1.5L11 3l-1.5 1.5M9.5 7.5L11 9l-1.5 1.5" />
           </svg>
-          SHUFFLE
+          {messages.player.shuffle}
         </button>
       </div>
       <motion.div
@@ -97,7 +99,7 @@ export default function SongsPage() {
                         {s.title}
                         {isCurrent && (
                           <span className="mono ml-3 text-[10px] uppercase tracking-[0.24em] text-[var(--foreground-faint)]">
-                            {playing ? "playing" : "paused"}
+                            {playing ? messages.player.playing : messages.player.paused}
                           </span>
                         )}
                       </span>

@@ -1,6 +1,12 @@
+@import "./fonts.css";
 @import "tailwindcss";
 
 :root {
+  --font-cormorant: "Cormorant Garamond", "Cormorant Garamond Fallback";
+  --font-noto-serif-sc: "Noto Serif SC", "Noto Serif SC Fallback";
+  --font-noto-serif-tc: "Noto Serif TC", "Noto Serif TC Fallback";
+  --font-noto-serif-jp: "Noto Serif JP", "Noto Serif JP Fallback";
+  --font-jetbrains: "JetBrains Mono", "JetBrains Mono Fallback";
   --background: #ffffff;
   --paper: #f4f9fd;
   --foreground: #1a1a1a;
@@ -8,6 +14,7 @@
   --foreground-faint: #999;
   --sky: #7ab8e0;
   --sky-deep: #3d7aa8;
+  --sky-ink: #245c86;
   --sky-soft: #e6f1f9;
   --rule: #d8e6f0;
   --ink-rule: rgba(26, 26, 26, 0.10);
@@ -37,10 +44,25 @@ html, body {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-cormorant), var(--font-noto-serif-sc), Georgia, "Songti SC", serif;
+  font-family: var(--font-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+html[lang="zh-TW"] {
+  --font-serif: var(--font-cormorant), var(--font-noto-serif-tc), Georgia, "Songti TC", serif;
+}
+
+html[lang="ja"] {
+  --font-serif: var(--font-cormorant), var(--font-noto-serif-jp), Georgia, "Yu Mincho", serif;
+}
+
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--sky-deep);
+  outline-offset: 4px;
+}
+
+.blog-prose { overflow-wrap: anywhere; }
 
 /* Mono numerics */
 .mono {
@@ -96,7 +118,7 @@ body {
   margin-top: 6px;
 }
 .ab-label {
-  flex: 0 0 44px;
+  flex: 0 0 4.5rem;
   font-size: 12px;
   font-weight: 600;
   color: var(--foreground-soft);
@@ -104,6 +126,8 @@ body {
 }
 .ab-row audio {
   flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
   height: 32px;
   max-width: 360px;
 }

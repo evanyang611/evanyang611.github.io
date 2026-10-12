@@ -2,6 +2,9 @@
 
 基于 Next.js 16 构建的全屏翻页式个人站点。
 
+支持简体中文、繁體中文、English 和日本語。右上角切换语言，保留当前页面与音乐播放状态，
+并通过浏览器本地存储记住选择；`?lang=zh-CN`、`?lang=zh-TW`、`?lang=en`、`?lang=ja` 可分享指定语言。
+
 ## 页面结构
 
 | 页面 | 内容 |
@@ -30,6 +33,17 @@ npm run fetch:game   # 从 Bangumi 拉取游戏元数据 + 海报
 ```
 
 配置文件：`src/content/anime-ids.json`、`src/content/game-ids.json`
+
+## 多语言内容
+
+- 界面、个人介绍、作品与博客元数据：`src/i18n/messages/`。
+- 动漫、游戏的标题、简介、标签和点评：`src/i18n/catalog/`。新增作品时补齐四语言条目。
+- 简体中文博客正文：`src/content/blogs/`；英文、日文及繁体正文：`public/blogs/translations/`，按需加载。
+- 歌名、艺名、项目名与代码标识符保留原名；原图与音频沿用原始资源。
+
+修改简体文案或博客后运行 `npm run i18n:traditional` 更新繁体版本，补齐英文与日文，
+再运行 `npm run i18n:check`。发布流程会检查所有文案键、作品条目、文章章节以及图片、链接、公式和音频路径，
+防止遗漏翻译或损坏原有内容。
 
 ## 构建 & 部署
 

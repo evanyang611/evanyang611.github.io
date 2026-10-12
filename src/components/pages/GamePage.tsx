@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState, useSyncExternalStore, type WheelEvent as ReactWheelEvent } from "react";
 import { GAMES, type GameMeta } from "@/content/game.generated";
 import PageLayout from "../deck/PageLayout";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { useCatalog } from "@/i18n/useCatalog";
 
 const stagger = {
   hidden: {},
@@ -31,18 +33,6 @@ const GAME_PLATFORMS: Record<number, Platform> = {
   113290: "PC",
 };
 
-const GAME_NOTES: Record<number, string> = {
-  146598: "前无古人后无来者的叙事，“想要失忆重新玩一遍的游戏”Top1。",
-  482314: "一起来当 Producer 吧！",
-  137458: "体现纯粹的关卡设计美学，老游戏真的是太有深度了。",
-  390508: "我一直是伊苏系列的老粉丝，这是伊苏最新之作，玩法有趣，非常适合新人入坑。",
-  112339: "伊苏系列的最高峰，游戏史上的剧情巅峰之一。画风有些古老，但是非常值得一玩。",
-  62229: "无需多言。",
-  290114: "游戏史上，乃至所有影视艺术史上的剧情巅峰之一，必看！",
-  234026: "RougeLike卡牌的巅峰之作，无数后起之秀竞相模仿。",
-  477760: "独立游戏开发的顶点。",
-  113290: "我的GalGame启蒙作，华哥厨必修一。",
-};
 
 function formatReleasePlatform(platform: string) {
   if (platform === "Nintendo Switch 2") return "NS2";
@@ -75,6 +65,9 @@ function setRememberedPlatformIndex(nextIndex: number) {
 }
 
 export default function GamePage() {
+  const { messages } = useLocale();
+  const catalog = useCatalog();
+  const entries = GAMES.map((entry) => ({ ...entry, ...catalog.game[entry.id] }));
   const [active, setActive] = useState<GameMeta | null>(null);
   const platformIndex = useSyncExternalStore(
     subscribeToPlatform,
@@ -85,7 +78,7 @@ export default function GamePage() {
   const wheelLockedRef = useRef(false);
   const wheelTimerRef = useRef<number | null>(null);
   const platform = PLATFORMS[platformIndex];
-  const games = GAMES.filter((game) => GAME_PLATFORMS[game.id] === platform);
+  const games = entries.filter((game) => GAME_PLATFORMS[game.id] === platform);
 
   const goToPlatform = (nextIndex: number) => {
     if (nextIndex < 0 || nextIndex >= PLATFORMS.length || nextIndex === platformIndex) return;
@@ -130,10 +123,10 @@ export default function GamePage() {
   }, []);
 
   return (
-    <PageLayout title="Games" subtitle="游戏推荐" compactMobile>
+    <PageLayout page="games" compactMobile>
       <div className="flex w-full max-w-4xl flex-col">
         <div className="mb-4 flex items-center justify-between gap-2 border-b border-[var(--ink-rule)] sm:mb-7">
-          <div className="flex min-w-0 flex-1 overflow-x-auto pr-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="tablist" aria-label="游戏平台">
+          <div className="flex min-w-0 flex-1 overflow-x-auto pr-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="tablist" aria-label={messages.common.platforms}>
             {PLATFORMS.map((option, index) => (
               <button
                 key={option}
@@ -147,7 +140,7 @@ export default function GamePage() {
                     : "text-[var(--foreground-faint)] hover:text-[var(--foreground)]"
                 }`}
               >
-                {option}
+                {option === "Phone" ? messages.common.phone : option}
                 {platform === option && (
                   <motion.span
                     layoutId="game-platform-indicator"
@@ -161,7 +154,7 @@ export default function GamePage() {
           <div className="hidden shrink-0 items-center gap-1 sm:flex">
             <button
               type="button"
-              aria-label="上一个平台"
+              aria-label={messages.common.previousPlatform}
               disabled={platformIndex === 0}
               onClick={() => goToPlatform(platformIndex - 1)}
               className="grid h-9 w-9 place-items-center text-xl text-[var(--foreground-soft)] transition-colors hover:text-[var(--sky-deep)] disabled:cursor-default disabled:opacity-25"
@@ -170,7 +163,7 @@ export default function GamePage() {
             </button>
             <button
               type="button"
-              aria-label="下一个平台"
+              aria-label={messages.common.nextPlatform}
               disabled={platformIndex === PLATFORMS.length - 1}
               onClick={() => goToPlatform(platformIndex + 1)}
               className="grid h-9 w-9 place-items-center text-xl text-[var(--foreground-soft)] transition-colors hover:text-[var(--sky-deep)] disabled:cursor-default disabled:opacity-25"
@@ -211,7 +204,8 @@ export default function GamePage() {
                       <motion.li key={game.id} variants={item}>
                         <button
                           type="button"
-                          onClick={() => setActive(game)}
+                          data-recommendation-id={game.id}
+                        onClick={() => setActive(game)}
                           className="group grid min-h-52 w-full grid-cols-[96px_1fr] gap-4 rounded-md border border-[var(--ink-rule)] bg-white/45 p-4 text-left transition-colors hover:border-[var(--rule)] hover:bg-[var(--paper)]/55 sm:grid-cols-[112px_1fr]"
                         >
                           <div className="relative aspect-[2/3] w-24 self-start overflow-hidden rounded-md bg-[var(--sky-soft)] ring-1 ring-[var(--ink-rule)] sm:w-28">
@@ -238,10 +232,10 @@ export default function GamePage() {
                             </div>
                             <div className="mt-4 border-t border-[var(--ink-rule)] pt-3">
                               <div className="mono text-[10px] tracking-[0.18em] text-[var(--sky-deep)]">
-                                我的点评
+                                {messages.common.myNote}
                               </div>
                               <p className="mt-2 font-serif text-[14px] leading-6 text-[var(--foreground-soft)]">
-                                {GAME_NOTES[game.id] ?? "点评待补充"}
+                                {game.note ?? messages.common.notePending}
                               </p>
                             </div>
                           </div>
@@ -253,9 +247,9 @@ export default function GamePage() {
               ) : (
                 <div className="flex min-h-[360px] items-center justify-center text-center">
                   <div>
-                    <div className="font-serif text-4xl text-[var(--sky)]/70">{platform}</div>
+                    <div className="font-serif text-4xl text-[var(--sky)]/70">{platform === "Phone" ? messages.common.phone : platform}</div>
                     <p className="mt-4 font-serif text-base text-[var(--foreground-faint)]">
-                      建设中，待填充
+                      {messages.common.comingSoon}
                     </p>
                   </div>
                 </div>
@@ -268,8 +262,8 @@ export default function GamePage() {
       <AnimatePresence>
         {active && (
           <GameModal
-            game={active}
-            note={GAME_NOTES[active.id] ?? active.note}
+            game={{ ...active, ...catalog.game[active.id] }}
+            note={catalog.game[active.id].note}
             onClose={() => setActive(null)}
           />
         )}
@@ -279,6 +273,7 @@ export default function GamePage() {
 }
 
 function GameModal({ game, note, onClose }: { game: GameMeta; note?: string; onClose: () => void }) {
+  const { messages } = useLocale();
   useEffect(() => {
     document.body.dataset.modalOpen = "true";
     return () => {
@@ -291,15 +286,18 @@ function GameModal({ game, note, onClose }: { game: GameMeta; note?: string; onC
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(15,30,50,0.55)] px-6 py-10 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(15,30,50,0.55)] px-6 pb-6 pt-24 backdrop-blur-md"
       onClick={onClose}
     >
       <motion.div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={`game-${game.id}-title`}
         initial={{ opacity: 0, y: 80, scale: 0.88 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 60, scale: 0.9 }}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] as const }}
-        className="relative grid h-[88vh] w-full max-w-6xl grid-cols-1 overflow-hidden rounded-lg bg-[var(--background)] shadow-[0_30px_80px_-30px_rgba(15,30,50,0.45)] md:grid-cols-[minmax(420px,46%)_1fr]"
+        className="relative grid h-[calc(100dvh-8rem)] max-h-[88vh] w-full max-w-6xl grid-cols-1 overflow-hidden rounded-lg bg-[var(--background)] shadow-[0_30px_80px_-30px_rgba(15,30,50,0.45)] md:grid-cols-[minmax(420px,46%)_1fr]"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative hidden h-full bg-[var(--sky-soft)] md:block">
@@ -315,6 +313,7 @@ function GameModal({ game, note, onClose }: { game: GameMeta; note?: string; onC
         <div className="flex h-full min-h-0 flex-col gap-5 overflow-y-auto p-8 lg:p-10">
           <div>
             <h3
+              id={`game-${game.id}-title`}
               className="font-serif text-3xl font-semibold leading-tight tracking-tight lg:text-4xl"
               style={{
                 backgroundImage:
@@ -372,7 +371,7 @@ function GameModal({ game, note, onClose }: { game: GameMeta; note?: string; onC
 
         <button
           type="button"
-          aria-label="Close"
+          aria-label={messages.common.close}
           onClick={onClose}
           className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-[var(--background)]/80 text-[var(--foreground-soft)] backdrop-blur transition-colors hover:bg-[var(--sky-soft)] hover:text-[var(--foreground)]"
         >

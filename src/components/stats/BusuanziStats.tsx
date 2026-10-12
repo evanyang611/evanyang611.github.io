@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 type BusuanziData = {
   site_uv: number;
@@ -73,6 +74,7 @@ export function BusuanziStatsLoader() {
 }
 
 export function BusuanziStatsText() {
+  const { locale, messages } = useLocale();
   const [stats, setStats] = useState<BusuanziData | null>(null);
 
   useEffect(() => {
@@ -90,8 +92,8 @@ export function BusuanziStatsText() {
 
   return (
     <>
-      累计访客 <span>{stats?.site_uv ?? "—"}</span> · 总访问量{" "}
-      <span>{stats?.site_pv ?? "—"}</span>
+      {messages.links.visitors} <span>{stats ? new Intl.NumberFormat(locale).format(stats.site_uv) : "—"}</span> · {messages.links.views}{" "}
+      <span>{stats ? new Intl.NumberFormat(locale).format(stats.site_pv) : "—"}</span>
     </>
   );
 }

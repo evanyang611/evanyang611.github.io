@@ -4,6 +4,8 @@ import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motio
 import { useEffect, type ReactNode } from "react";
 import DotRail from "./DotRail";
 import { usePageNav, type PageMeta } from "./usePageNav";
+import { useLocale } from "@/i18n/LocaleProvider";
+import type { PageId } from "@/i18n/types";
 
 export type DeckPage = PageMeta & { node: ReactNode };
 
@@ -17,7 +19,8 @@ const variants = {
 
 export default function Deck({ pages }: Props) {
   const { index, direction, go } = usePageNav(pages);
-  const meta = pages.map(({ id, label }) => ({ id, label }));
+  const { messages } = useLocale();
+  const meta = pages.map(({ id }) => ({ id, label: messages.navigation[id as PageId] }));
   const active = pages[index];
 
   return (

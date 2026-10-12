@@ -8,6 +8,8 @@
     "build:pages": "NEXT_OUTPUT_MODE=export next build",
     "start": "next start -p 8070",
     "lint": "eslint",
+    "i18n:traditional": "node scripts/generate-traditional.mjs",
+    "i18n:check": "node scripts/check-i18n.mjs",
     "fetch:anime": "node scripts/fetch-bangumi.mjs anime",
     "fetch:game": "node scripts/fetch-bangumi.mjs game"
   },
@@ -27,6 +29,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "opencc-js": "^1.4.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

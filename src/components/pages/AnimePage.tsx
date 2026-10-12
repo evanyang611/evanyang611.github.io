@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState, useSyncExternalStore, type WheelEvent as ReactWheelEvent } from "react";
 import { ANIME, type AnimeMeta } from "@/content/anime.generated";
 import PageLayout from "../deck/PageLayout";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { useCatalog } from "@/i18n/useCatalog";
 
 const stagger = {
   hidden: {},
@@ -16,22 +18,6 @@ const item = {
 };
 
 const YEARS = [2026, 2025, 2024, 2023, "2022+"] as const;
-const ANIME_NOTES: Record<number, string> = {
-  604826:
-    "2026年开年最大的惊喜，山下清悟三年呕心之作。日本手绘动画当前最高水准，所有动画爱好者的宝藏。",
-  464376:
-    "塑造了近几年动漫界最受欢迎的女主角之一：八奈见杏菜。作画厨的享受，极致的青春感。深刻体现日式青春美学与人生哲学。",
-  518519: "献给海贼粉丝的情书，必看！",
-  431767: "大少女乐队进入群雄纷争的时代。",
-  531159: "萌豚番新的高峰！",
-  501958: "无论你喜不喜欢鬼灭，它都象征着这个时代人类手绘2D动画的最高水平。",
-  400602: "圣斋藤在孤独摇滚之后，再次展示什么是超一流的监督。",
-  376703: "爱，永远是最大的创作动力。",
-  428735: "日本动画新时代的代表作，开创了大少女乐队时代。小众文化破圈的一大步。",
-  362335: "粉丝向作品应该怎么做的教科书。",
-  424379: "哪怕是最俗套的剧情，也可以有最让人发自肺腑开心的能力。",
-  378862: "只要有心，最简单的作品，也能做出最精彩的演出效果。",
-};
 const slide = {
   enter: (direction: number) => ({ opacity: 0, x: direction > 0 ? 80 : -80 }),
   center: { opacity: 1, x: 0 },
@@ -56,6 +42,9 @@ function setRememberedYearIndex(nextIndex: number) {
 }
 
 export default function AnimePage() {
+  const { messages } = useLocale();
+  const catalog = useCatalog();
+  const entries = ANIME.map((entry) => ({ ...entry, ...catalog.anime[entry.id] }));
   const [active, setActive] = useState<AnimeMeta | null>(null);
   const yearIndex = useSyncExternalStore(subscribeToYear, getRememberedYearIndex, () => 0);
   const [direction, setDirection] = useState(1);
@@ -63,7 +52,7 @@ export default function AnimePage() {
   const wheelTimerRef = useRef<number | null>(null);
   const year = YEARS[yearIndex];
   const recommendations =
-    typeof year === "number" ? ANIME.filter((anime) => anime.year === year) : [];
+    typeof year === "number" ? entries.filter((anime) => anime.year === year) : [];
 
   const goToYear = (nextIndex: number) => {
     if (nextIndex < 0 || nextIndex >= YEARS.length || nextIndex === yearIndex) return;
@@ -108,10 +97,10 @@ export default function AnimePage() {
   }, []);
 
   return (
-    <PageLayout title="Anime" subtitle="动漫推荐" compactMobile>
+    <PageLayout page="anime" compactMobile>
       <div className="flex w-full max-w-4xl flex-col">
         <div className="mb-4 flex items-center justify-between gap-2 border-b border-[var(--ink-rule)] sm:mb-7">
-          <div className="flex min-w-0 flex-1 overflow-x-auto pr-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="tablist" aria-label="推荐年份">
+          <div className="flex min-w-0 flex-1 overflow-x-auto pr-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="tablist" aria-label={messages.common.years}>
             {YEARS.map((option, index) => (
               <button
                 key={option}
@@ -139,7 +128,7 @@ export default function AnimePage() {
           <div className="hidden shrink-0 items-center gap-1 sm:flex">
             <button
               type="button"
-              aria-label="上一年"
+              aria-label={messages.common.previousYear}
               disabled={yearIndex === 0}
               onClick={() => goToYear(yearIndex - 1)}
               className="grid h-9 w-9 place-items-center text-xl text-[var(--foreground-soft)] transition-colors hover:text-[var(--sky-deep)] disabled:cursor-default disabled:opacity-25"
@@ -148,7 +137,7 @@ export default function AnimePage() {
             </button>
             <button
               type="button"
-              aria-label="下一年"
+              aria-label={messages.common.nextYear}
               disabled={yearIndex === YEARS.length - 1}
               onClick={() => goToYear(yearIndex + 1)}
               className="grid h-9 w-9 place-items-center text-xl text-[var(--foreground-soft)] transition-colors hover:text-[var(--sky-deep)] disabled:cursor-default disabled:opacity-25"
@@ -187,6 +176,7 @@ export default function AnimePage() {
                     <motion.li key={anime.id} variants={item}>
                       <button
                         type="button"
+                        data-recommendation-id={anime.id}
                         onClick={() => setActive(anime)}
                         className="group grid min-h-52 w-full grid-cols-[96px_1fr] gap-4 rounded-md border border-[var(--ink-rule)] bg-white/45 p-4 text-left transition-colors hover:border-[var(--rule)] hover:bg-[var(--paper)]/55 sm:grid-cols-[112px_1fr]"
                       >
@@ -208,10 +198,10 @@ export default function AnimePage() {
                           </div>
                           <div className="mt-4 border-t border-[var(--ink-rule)] pt-3">
                             <div className="mono text-[10px] tracking-[0.18em] text-[var(--sky-deep)]">
-                              我的点评
+                              {messages.common.myNote}
                             </div>
                             <p className="mt-2 font-serif text-[14px] leading-6 text-[var(--foreground-soft)]">
-                              {ANIME_NOTES[anime.id] ?? "点评待补充"}
+                              {anime.note ?? messages.common.notePending}
                             </p>
                           </div>
                         </div>
@@ -225,10 +215,10 @@ export default function AnimePage() {
                     <div className="font-serif text-5xl text-[var(--sky)]/70">{year}</div>
                     <p className="mt-4 font-serif text-base text-[var(--foreground-faint)]">
                       {year === "2022+"
-                        ? "建设中，待填充"
+                        ? messages.common.comingSoon
                         : year === 2024
-                          ? "建设中，待补充"
-                          : "推荐内容整理中"}
+                          ? messages.common.comingSoon
+                          : messages.common.empty}
                     </p>
                   </div>
                 </div>
@@ -241,8 +231,8 @@ export default function AnimePage() {
       <AnimatePresence>
         {active && (
           <AnimeModal
-            anime={active}
-            note={ANIME_NOTES[active.id] ?? active.note}
+            anime={{ ...active, ...catalog.anime[active.id] }}
+            note={catalog.anime[active.id].note}
             onClose={() => setActive(null)}
           />
         )}
@@ -252,6 +242,7 @@ export default function AnimePage() {
 }
 
 function AnimeModal({ anime, note, onClose }: { anime: AnimeMeta; note?: string; onClose: () => void }) {
+  const { messages } = useLocale();
   useEffect(() => {
     document.body.dataset.modalOpen = "true";
     return () => {
@@ -264,15 +255,18 @@ function AnimeModal({ anime, note, onClose }: { anime: AnimeMeta; note?: string;
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(15,30,50,0.55)] px-6 py-10 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(15,30,50,0.55)] px-6 pb-6 pt-24 backdrop-blur-md"
       onClick={onClose}
     >
       <motion.div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={`anime-${anime.id}-title`}
         initial={{ opacity: 0, y: 80, scale: 0.88 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 60, scale: 0.9 }}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] as const }}
-        className="relative grid h-[88vh] w-full max-w-6xl grid-cols-1 overflow-hidden rounded-lg bg-[var(--background)] shadow-[0_30px_80px_-30px_rgba(15,30,50,0.45)] md:grid-cols-[minmax(420px,46%)_1fr]"
+        className="relative grid h-[calc(100dvh-8rem)] max-h-[88vh] w-full max-w-6xl grid-cols-1 overflow-hidden rounded-lg bg-[var(--background)] shadow-[0_30px_80px_-30px_rgba(15,30,50,0.45)] md:grid-cols-[minmax(420px,46%)_1fr]"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative hidden h-full bg-[var(--sky-soft)] md:block">
@@ -288,6 +282,7 @@ function AnimeModal({ anime, note, onClose }: { anime: AnimeMeta; note?: string;
         <div className="flex h-full min-h-0 flex-col gap-5 overflow-y-auto p-8 lg:p-10">
           <div>
             <h3
+              id={`anime-${anime.id}-title`}
               className="font-serif text-3xl font-semibold leading-tight tracking-tight lg:text-4xl"
               style={{
                 backgroundImage:
@@ -345,7 +340,7 @@ function AnimeModal({ anime, note, onClose }: { anime: AnimeMeta; note?: string;
 
         <button
           type="button"
-          aria-label="Close"
+          aria-label={messages.common.close}
           onClick={onClose}
           className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-[var(--background)]/80 text-[var(--foreground-soft)] backdrop-blur transition-colors hover:bg-[var(--sky-soft)] hover:text-[var(--foreground)]"
         >

@@ -8,6 +8,7 @@ import rehypeRaw from "rehype-raw";
 import { useEffect, useMemo, useState, type ComponentPropsWithoutRef } from "react";
 import { BLOGS, type BlogMeta } from "@/content/blogs";
 import PageLayout from "../deck/PageLayout";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 const stagger = {
   hidden: {},
@@ -19,11 +20,12 @@ const item = {
 };
 
 export default function BlogsPage() {
+  const { locale, messages } = useLocale();
   const [active, setActive] = useState<BlogMeta | null>(null);
 
   const posts = useMemo(
-    () => [...BLOGS].sort((a, b) => (a.date < b.date ? 1 : -1)),
-    [],
+    () => BLOGS.map((post) => ({ ...post, ...messages.blog.posts[post.id] })).sort((a, b) => (a.date < b.date ? 1 : -1)),
+    [messages],
   );
 
   useEffect(() => {
@@ -36,7 +38,7 @@ export default function BlogsPage() {
   }, [active]);
 
   return (
-    <PageLayout title="Blogs" subtitle="博客">
+    <PageLayout page="blogs">
       <motion.ul
         variants={stagger}
         initial="hidden"
@@ -47,6 +49,7 @@ export default function BlogsPage() {
           <motion.li key={post.id} variants={item}>
             <button
               type="button"
+              data-blog-id={post.id}
               onClick={() => setActive(post)}
               className="group flex w-full flex-col items-start gap-2 py-5 text-left transition-colors hover:bg-white/40 sm:gap-3 sm:py-6"
             >
@@ -55,7 +58,7 @@ export default function BlogsPage() {
               </h3>
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
                 <span className="mono text-[11px] tracking-[0.18em] text-[var(--foreground-faint)]">
-                  {post.date}
+                  {new Intl.DateTimeFormat(locale, { dateStyle: "medium", timeZone: "UTC" }).format(new Date(`${post.date}T00:00:00Z`))}
                 </span>
                 {post.tags.length > 0 && (
                   <span className="text-[var(--foreground-faint)]">·</span>
@@ -81,16 +84,18 @@ export default function BlogsPage() {
         ))}
       </motion.ul>
 
-      <AnimatePresence>
-        {active && <BlogModal key={active.id} post={active} onClose={() => setActive(null)} />}
+      <AnimatePresence mode="wait">
+        {active && <BlogModal key={`${active.id}:${locale}`} post={{ ...active, ...messages.blog.posts[active.id] }} onClose={() => setActive(null)} />}
       </AnimatePresence>
     </PageLayout>
   );
 }
 
 function BlogModal({ post, onClose }: { post: BlogMeta; onClose: () => void }) {
+  const { locale, messages } = useLocale();
   const [body, setBody] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     document.body.dataset.modalOpen = "true";
@@ -102,7 +107,7 @@ function BlogModal({ post, onClose }: { post: BlogMeta; onClose: () => void }) {
   useEffect(() => {
     let cancelled = false;
     post
-      .loadBody()
+      .loadBody(locale)
       .then((text) => {
         if (!cancelled) {
           setBody(text);
@@ -115,7 +120,7 @@ function BlogModal({ post, onClose }: { post: BlogMeta; onClose: () => void }) {
     return () => {
       cancelled = true;
     };
-  }, [post]);
+  }, [post, locale, attempt]);
 
   return (
     <motion.div
@@ -123,21 +128,25 @@ function BlogModal({ post, onClose }: { post: BlogMeta; onClose: () => void }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(15,30,50,0.55)] px-[4vw] py-8 backdrop-blur-md sm:px-[6vw] sm:py-10 lg:px-[8vw]"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(15,30,50,0.55)] px-[4vw] pb-6 pt-24 backdrop-blur-md sm:px-[6vw] sm:pb-10 lg:px-[8vw]"
       onClick={onClose}
     >
       <motion.div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={`blog-${post.id}-title`}
         initial={{ opacity: 0, y: 80, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 60, scale: 0.92 }}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] as const }}
-        className="relative flex h-[88vh] w-full flex-col overflow-hidden rounded-lg bg-[var(--background)] shadow-[0_30px_80px_-30px_rgba(15,30,50,0.45)]"
+        className="relative flex h-[calc(100dvh-8rem)] max-h-[88vh] w-full flex-col overflow-hidden rounded-lg bg-[var(--background)] shadow-[0_30px_80px_-30px_rgba(15,30,50,0.45)]"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex min-h-0 flex-1 flex-col overflow-y-auto py-24 lg:py-40">
          <div className="mx-auto flex w-full max-w-[860px] flex-col gap-5 px-6 sm:px-10 lg:px-12">
           <div>
             <h3
+              id={`blog-${post.id}-title`}
               className="font-serif text-3xl font-semibold leading-tight tracking-tight lg:text-4xl"
               style={{
                 backgroundImage:
@@ -152,7 +161,7 @@ function BlogModal({ post, onClose }: { post: BlogMeta; onClose: () => void }) {
           </div>
 
           <div className="mono flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] uppercase tracking-[0.22em] text-[var(--foreground-faint)]">
-            <span>{post.date}</span>
+            <span>{new Intl.DateTimeFormat(locale, { dateStyle: "medium", timeZone: "UTC" }).format(new Date(`${post.date}T00:00:00Z`))}</span>
           </div>
 
           {post.tags.length > 0 && (
@@ -171,17 +180,23 @@ function BlogModal({ post, onClose }: { post: BlogMeta; onClose: () => void }) {
           <div className="min-h-0">
             {loading && (
               <div className="mono py-8 text-center text-[11px] tracking-[0.2em] text-[var(--foreground-faint)]">
-                LOADING…
+                {messages.common.loading}
               </div>
             )}
             {body && <MarkdownBody source={body} />}
+            {!loading && !body && (
+              <div role="alert" className="flex flex-col items-start gap-3 py-8">
+                <p>{messages.blog.loadError}</p>
+                <button type="button" onClick={() => { setLoading(true); setAttempt((value) => value + 1); }} className="rounded-full border border-[var(--rule)] px-4 py-2 text-[var(--sky-deep)]">{messages.common.retry}</button>
+              </div>
+            )}
           </div>
          </div>
         </div>
 
         <button
           type="button"
-          aria-label="Close"
+          aria-label={messages.common.close}
           onClick={onClose}
           className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-[var(--background)]/80 text-[var(--foreground-soft)] backdrop-blur transition-colors hover:bg-[var(--sky-soft)] hover:text-[var(--foreground)]"
         >

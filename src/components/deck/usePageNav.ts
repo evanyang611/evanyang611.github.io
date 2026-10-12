@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 export type PageMeta = { id: string; label: string };
 
@@ -8,6 +8,18 @@ const LOCK_MS = 500;
 const WHEEL_THRESHOLD = 12;
 const WHEEL_GESTURE_IDLE_MS = 180;
 const TOUCH_THRESHOLD = 50;
+const NAVIGATION_EVENT = "personal-site-navigation";
+
+function subscribeNavigation(listener: () => void) {
+  window.addEventListener("hashchange", listener);
+  window.addEventListener("popstate", listener);
+  window.addEventListener(NAVIGATION_EVENT, listener);
+  return () => {
+    window.removeEventListener("hashchange", listener);
+    window.removeEventListener("popstate", listener);
+    window.removeEventListener(NAVIGATION_EVENT, listener);
+  };
+}
 
 export function usePageNav(pages: PageMeta[]) {
   const getHashIndex = useCallback(() => {
@@ -17,7 +29,14 @@ export function usePageNav(pages: PageMeta[]) {
     return hashIndex >= 0 ? hashIndex : 0;
   }, [pages]);
 
-  const [index, setIndex] = useState(getHashIndex);
+  const index = useSyncExternalStore(subscribeNavigation, getHashIndex, () => 0);
+  const setIndex = useCallback((next: number) => {
+    const active = pages[next];
+    if (!active) return;
+    const baseUrl = `${window.location.pathname}${window.location.search}`;
+    window.history.replaceState(null, "", next === 0 ? baseUrl : `${baseUrl}#${active.id}`);
+    window.dispatchEvent(new Event(NAVIGATION_EVENT));
+  }, [pages]);
   const [direction, setDirection] = useState<1 | -1>(1);
   const indexRef = useRef(0);
   const lockRef = useRef(0);
@@ -36,28 +55,14 @@ export function usePageNav(pages: PageMeta[]) {
   }, [index]);
 
   useEffect(() => {
-    indexRef.current = index;
-    const active = pages[index];
-    if (!active) return;
-    const baseUrl = `${window.location.pathname}${window.location.search}`;
-    const nextUrl = index === 0 ? baseUrl : `${baseUrl}#${active.id}`;
-    const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
-    if (currentUrl !== nextUrl) {
-      window.history.replaceState(null, "", nextUrl);
-    }
-  }, [index, pages]);
-
-  useEffect(() => {
     const onHashChange = () => {
       const next = getHashIndex();
       const cur = indexRef.current;
       if (next === cur) return;
       setDirection(next > cur ? 1 : -1);
       indexRef.current = next;
-      setIndex(next);
     };
 
-    onHashChange();
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
   }, [getHashIndex]);
@@ -71,7 +76,7 @@ export function usePageNav(pages: PageMeta[]) {
       indexRef.current = clamped;
       setIndex(clamped);
     },
-    [pages.length],
+    [pages.length, setIndex],
   );
 
   const tryShift = useCallback(
@@ -87,7 +92,7 @@ export function usePageNav(pages: PageMeta[]) {
       indexRef.current = target;
       setIndex(target);
     },
-    [pages.length],
+    [pages.length, setIndex],
   );
 
   useEffect(() => {
@@ -167,6 +172,8 @@ export function usePageNav(pages: PageMeta[]) {
     };
     const onKey = (e: KeyboardEvent) => {
       if (isBlocked()) return;
+      if (e.target instanceof Element && e.target.closest("button, a, input, select, textarea, [contenteditable='true']")) return;
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
       switch (e.key) {
         case "ArrowDown":
         case "PageDown":
