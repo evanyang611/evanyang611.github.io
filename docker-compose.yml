@@ -1,0 +1,14 @@
+services:
+  personal-site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: personal-site:latest
+    container_name: personal-site
+    environment:
+      NODE_ENV: production
+      HOSTNAME: 0.0.0.0
+      PORT: 8780
+    ports:
+      - "8780:8780"
+    restart: unless-stopped

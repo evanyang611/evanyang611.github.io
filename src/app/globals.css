@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --paper: #f4f9fd;
+  --foreground: #1a1a1a;
+  --foreground-soft: #555;
+  --foreground-faint: #999;
+  --sky: #7ab8e0;
+  --sky-deep: #3d7aa8;
+  --sky-soft: #e6f1f9;
+  --rule: #d8e6f0;
+  --ink-rule: rgba(26, 26, 26, 0.10);
+  --vermilion: #c84a3c;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-paper: var(--paper);
+  --color-foreground: var(--foreground);
+  --color-foreground-soft: var(--foreground-soft);
+  --color-foreground-faint: var(--foreground-faint);
+  --color-sky-accent: var(--sky);
+  --color-sky-deep: var(--sky-deep);
+  --color-sky-soft: var(--sky-soft);
+  --color-rule: var(--rule);
+  --color-vermilion: var(--vermilion);
+  --font-serif: var(--font-cormorant), var(--font-noto-serif-sc), Georgia, "Songti SC", serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-cormorant), var(--font-noto-serif-sc), Georgia, "Songti SC", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mono numerics */
+.mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum" 1;
+}
+
+/* Selection */
+::selection {
+  background: var(--sky-soft);
+  color: var(--foreground);
+}
+
+/* Subtle blob keyframes (kept for Hero motif) */
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -25px) scale(1.05); }
+}
+@keyframes float-slower {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 20px) scale(0.95); }
+}
+.blob-a { animation: float-slow 14s ease-in-out infinite; }
+.blob-b { animation: float-slower 18s ease-in-out infinite; }
+
+/* Reduced motion: kill non-essential animation */
+@media (prefers-reduced-motion: reduce) {
+  .blob-a, .blob-b { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Audio A/B comparison list (blog: ai-tts) */
+.ab-list { margin: 20px 0; display: flex; flex-direction: column; gap: 16px; }
+.ab-item {
+  border: 1px solid var(--ink-rule);
+  border-radius: 8px;
+  padding: 14px 16px;
+  background: color-mix(in oklab, var(--sky-soft) 20%, transparent);
+}
+.ab-text {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--foreground);
+}
+.ab-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+.ab-label {
+  flex: 0 0 44px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--foreground-soft);
+  letter-spacing: 0.02em;
+}
+.ab-row audio {
+  flex: 1 1 auto;
+  height: 32px;
+  max-width: 360px;
+}
