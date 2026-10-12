@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
-import { PROJECTS, type Project } from "@/content/projects";
+import { PROJECTS, THEMES, type Project } from "@/content/projects";
 import { LANGUAGE_NAMES, LANGUAGE_STORAGE_KEY, LOCALES, LOCALE_PATHS, isLocale, preferredLocale, type Locale } from "@/i18n/config";
 import type { PortfolioMessages } from "@/i18n/messages";
 import styles from "./portfolio.module.css";
@@ -53,6 +53,7 @@ export default function Portfolio({ locale, copy, autoSelectLanguage = false }: 
   const [detail, setDetail] = useState<Project | null>(null);
   const router = useRouter();
   const close = useCallback(() => setDetail(null), []);
+  const titleFor = (project: Project) => copy.projects[project.id].title;
 
   useEffect(() => {
     if (!autoSelectLanguage) return;
@@ -87,19 +88,27 @@ export default function Portfolio({ locale, copy, autoSelectLanguage = false }: 
         </section>
 
         <section id="work" className={styles.work} aria-label={copy.nav.work}>
-          <div className={styles.projectGrid}>
-            {PROJECTS.map((project, index) => (
-              <article key={project.id} className={index === 0 ? styles.featuredProject : undefined}>
-                <button type="button" className={styles.projectButton} data-project-id={project.id} aria-label={copy.ui.openProject.replace("{project}", project.title)} aria-haspopup="dialog" onClick={() => setDetail(project)}>
-                  <ProjectCover project={project} featured={index === 0} alt={copy.ui.projectImage.replace("{project}", project.title)} />
-                  <span className={styles.caption}>
-                    <span><span className={styles.projectTitle}>{project.title}</span><span className={styles.projectSummary}>{copy.projects[project.id].summary}</span></span>
-                    <Arrow />
-                  </span>
-                </button>
-              </article>
-            ))}
-          </div>
+          {THEMES.map(theme => (
+            <section key={theme.id} id={`work-${theme.id}`} className={styles.theme} aria-labelledby={`theme-${theme.id}`}>
+              <header className={styles.themeHeader}>
+                <h2 id={`theme-${theme.id}`} lang="en">{theme.title}</h2>
+                <p>{copy.themes[theme.id]}</p>
+              </header>
+              <div className={styles.projectGrid}>
+                {PROJECTS.filter(project => project.theme === theme.id).map(project => (
+                  <article key={project.id} className={styles.featuredProject}>
+                    <button type="button" className={styles.projectButton} data-project-id={project.id} aria-label={copy.ui.openProject.replace("{project}", titleFor(project))} aria-haspopup="dialog" onClick={() => setDetail(project)}>
+                      <ProjectCover project={project} featured alt={copy.ui.projectImage.replace("{project}", titleFor(project))} />
+                      <span className={styles.caption}>
+                        <span><span className={styles.projectTitle}>{titleFor(project)}</span><span className={styles.projectSummary}>{copy.projects[project.id].summary}</span></span>
+                        <Arrow />
+                      </span>
+                    </button>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))}
         </section>
 
         <section id="about" className={styles.textSection} aria-labelledby="about-title">
@@ -119,17 +128,17 @@ export default function Portfolio({ locale, copy, autoSelectLanguage = false }: 
       </footer>
 
       {detail && (
-        <DetailDialog title={detail.title} closeLabel={copy.ui.close} onClose={close}>
-          <h2 id="detail-title" className={styles.detailTitle}>{detail.title}</h2>
+        <DetailDialog title={titleFor(detail)} closeLabel={copy.ui.close} onClose={close}>
+          <h2 id="detail-title" className={styles.detailTitle}>{titleFor(detail)}</h2>
           <p className={styles.detailSummary}>{copy.projects[detail.id].summary}</p>
-          <ProjectCover project={detail} dialog alt={copy.ui.projectImage.replace("{project}", detail.title)} />
+          <ProjectCover project={detail} dialog alt={copy.ui.projectImage.replace("{project}", titleFor(detail))} />
           <div className={styles.projectDetails}>
             <section><h3>{copy.ui.background}</h3><p>{copy.projects[detail.id].background}</p></section>
             <section><h3>{copy.ui.features}</h3><ul>{copy.projects[detail.id].features.map(feature => <li key={feature}>{feature}</li>)}</ul></section>
             <section><h3>{copy.ui.approach}</h3><p>{copy.projects[detail.id].approach}</p></section>
-            <nav aria-label={copy.ui.links.replace("{project}", detail.title)} className={styles.projectLinks}>
+            <nav aria-label={copy.ui.links.replace("{project}", titleFor(detail))} className={styles.projectLinks}>
               {detail.links.map((link, index) => (
-                <a key={link.id} className={styles.pill} href={detail.id === "genchi" ? `https://genchi.news/${GENCHI_PATHS[locale]}` : link.href} target="_blank" rel="noopener noreferrer">
+                <a key={link.id} className={styles.pill} href={detail.id === "genchi" ? `https://genchi.news/${GENCHI_PATHS[locale]}` : detail.id === "forearena" ? `https://councia.com/${locale.startsWith("zh") ? "zh" : "en"}` : link.href} target="_blank" rel="noopener noreferrer">
                   {copy.projects[detail.id].linkLabels[index]}<Arrow external />
                 </a>
               ))}

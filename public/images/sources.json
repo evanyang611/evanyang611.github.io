@@ -5,20 +5,39 @@
       "file": "logicduo-cover.png",
       "source": "https://logicduo.com/",
       "kind": "public product screenshot",
-      "dimensions": [1280, 720]
-    },
-    {
-      "file": "allfeeds-cover.png",
-      "source": "https://raw.githubusercontent.com/StarSailAI/AllFeeds/main/assets/screenshots/dashboard-overview.png",
-      "kind": "published repository screenshot",
-      "dimensions": [1920, 1057]
+      "dimensions": [
+        1280,
+        720
+      ]
     },
     {
       "file": "genchi-cover.png",
       "source": "https://genchi.news/zh-Hans",
       "kind": "public product screenshot",
-      "dimensions": [1280, 720]
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "file": "forearena-cover.jpg",
+      "source": "https://councia.com/zh",
+      "kind": "public product landing page",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "note": "ForeArena is displayed under the user-selected project name; the current public product is branded COUNCIA, clarified in the detail text."
+    },
+    {
+      "file": "qimiao-cover.jpg",
+      "source": "https://longxia.sale/",
+      "kind": "public landing content; account header omitted",
+      "dimensions": [
+        1280,
+        620
+      ]
     }
   ],
-  "note": "Product UI is captured source material. Displayed figures are screenshot contents, not portfolio performance claims. Composition previews are separate."
+  "note": "Covers retain authentic public product pages or explicitly identified project documentation. Preview figures are screenshot contents, not portfolio performance claims. Account and balance information is excluded."
 }

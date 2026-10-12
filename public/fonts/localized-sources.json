@@ -55,5 +55,35 @@
     "format": "woff2",
     "glyphs": "兼奇役立者",
     "purpose": "new headline and introduction missing from original subset"
+  },
+  {
+    "locale": "zh-CN",
+    "family": "Noto Sans SC",
+    "file": "notosanssc-themes-59ece5918230.woff2",
+    "source": "https://fonts.gstatic.com/l/font?kit=k3kXo84MPvpLmixcA63oeALhLIiP-Q_Mdq1-o5xiByeD02w2fMysdrKJqfkP2EG0r9jwHsPVcvv3qT5s6RelY9K0O6T6ZgjMCcs6ZIBgoqjkd2qZAHR_QzbwwkGnybsiOS2qs7tjbFi8s9Mqo6URZvbetWOXig1lgbJtX8EjWzOpaH7YxzF2CJHRtQ8LjhrSDytzhyvCXmbGDOXg8zw&skey=cf0bb10b5602fdc3&v=v41",
+    "bytes": 15696,
+    "format": "woff2",
+    "glyphs_requested": 44,
+    "purpose": "selected three-topic/four-work content"
+  },
+  {
+    "locale": "zh-TW",
+    "family": "Noto Sans TC",
+    "file": "notosanstc-themes-25570fdfd531.woff2",
+    "source": "https://fonts.gstatic.com/l/font?kit=-nF7OG829Oofr2wohFbTp9iFOisNA_djddEXV-MVZIyACMVSG00vFIb4XcM1yAVpLNRGWbYJNaudaUhc-1J2co2F8_zyWLlbCcVuLu8Sr2GRSNinqzS62lU5IdK-aCWpK6AnGjrnFtg47c-QmOTONaKFYnJCAnKklOOWRTFYDHdZRJoGEIZheUekrZmt3e2wN8XgqONxlZtTJ58CL-d50c-Nrv-znWMyufIVvW76oZHhsIF0PxuRud86xU4&skey=3904269dc8bdd0a1&v=v40",
+    "bytes": 20260,
+    "format": "woff2",
+    "glyphs_requested": 54,
+    "purpose": "selected three-topic/four-work content"
+  },
+  {
+    "locale": "ja",
+    "family": "Noto Sans JP",
+    "file": "notosansjp-themes-b46345c111f7.woff2",
+    "source": "https://fonts.gstatic.com/l/font?kit=-F62fjtqLzI2JPCgQBnw7HFowwII2ldXG-v2lVSDThURVyncOV504AaFxB6uoebz3vWtf-HDRXSPjQmFPdKIiUmL1gImz_9NKHhXMxUikol39PPGYMNGrdce3XGq4RUC84IY_VWohZJsisFh5OYMfn42Epsah7ErzPSUEgpFoiEkZVwDjo5mi_gvGbuulJ4JRfbzWbt7gvQEnQgCKRtNEWr0lgwqnJQqjfiD9yjt4_6DFjC1Gj4&skey=72472b0eb8793570&v=v57",
+    "bytes": 22184,
+    "format": "woff2",
+    "glyphs_requested": 44,
+    "purpose": "selected three-topic/four-work content"
   }
 ]

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import { PROJECTS, THEMES } from "../src/content/projects.ts";
 
 const locales = ["zh-CN", "zh-TW", "en", "ja"];
 const messages = Object.fromEntries(locales.map(locale => [locale, JSON.parse(fs.readFileSync(new URL(`../src/i18n/messages/${locale}.json`, import.meta.url), "utf8"))]));
@@ -16,7 +17,11 @@ for (const locale of locales) {
     assert.ok(value.trim(), `${locale}: empty ${key}`);
     assert.deepEqual(value.match(/\{\w+\}/g) ?? [], baseline[i][1].match(/\{\w+\}/g) ?? [], `${locale}: damaged placeholder ${key}`);
   }
-  assert.equal(messages[locale].projects.allfeeds.linkLabels.length, 2);
+  for (const project of PROJECTS) {
+    assert.equal(messages[locale].projects[project.id].linkLabels.length, project.links.length, `${locale}: ${project.id} link labels differ`);
+    assert.ok(messages[locale].projects[project.id].title, `${locale}: ${project.id} title missing`);
+  }
+  for (const theme of THEMES) assert.ok(messages[locale].themes[theme.id], `${locale}: ${theme.id} description missing`);
   assert.ok(!("writing" in messages[locale].nav), `${locale}: removed blog navigation returned`);
   console.log(`${locale}: ${translated.length} nonempty translated strings; project/feature/link coverage complete`);
 }

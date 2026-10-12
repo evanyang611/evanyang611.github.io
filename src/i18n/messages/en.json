@@ -1,14 +1,108 @@
 {
-  "metadata": {"title":"Evan Yang · AI Engineering & Products","description":"Evan Yang's professional portfolio: machine learning, AI agents, and independent products. Explore LogicDuo, AllFeeds, and Genchi.news."},
-  "nav": {"label":"Portfolio navigation","home":"Evan Yang portfolio home","work":"Work","about":"About","contact":"Contact","language":"Choose language"},
-  "hero": {"lead":"Turning curiosity ","emphasis":"into useful products.","intro":"I'm Evan, an AI engineer and independent developer, exploring how technology can serve real needs.","action":"View work"},
-  "ui": {"skip":"Skip to work","openProject":"View {project} project details","projectImage":"Public product interface of {project}","close":"Close details","background":"Background","features":"Key features","approach":"Technical approach","links":"{project} links"},
-  "about": {"title":"About me","paragraphs":["I'm based in Shanghai. I studied statistics at Beihang University, then pursued a master's degree in statistics at Columbia University. Since graduating, I've worked on AI algorithms, gradually moving from machine learning toward AI agents.","My earlier work focused on demand forecasting, operations research, and computer vision. More recently, I've worked on LLM applications, including model post-training, query understanding, tool calling, and LLM evaluation. Outside my day job, I build independent products to explore the full process from an idea, data, and algorithms to a working product."]},
-  "contact": {"title":"Let's turn ideas into products.","description":"I'd love to exchange ideas about AI agents, algorithm engineering, and independent products—or discuss a concrete collaboration.","action":"Send an email"},
-  "footer": {"personal":"Personal site"},
+  "metadata": {
+    "title": "Evan Yang · AI Engineering & Products",
+    "description": "AI products and creative work for investors, developers, and anime, comics, and games fans. Selected projects by Evan Yang."
+  },
+  "nav": {
+    "label": "Portfolio navigation",
+    "home": "Evan Yang portfolio home",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Choose language"
+  },
+  "hero": {
+    "lead": "Turning curiosity ",
+    "emphasis": "into useful products.",
+    "intro": "I'm Evan, an AI engineer and independent developer, exploring how technology can serve real needs.",
+    "action": "View work"
+  },
+  "ui": {
+    "skip": "Skip to work",
+    "openProject": "View {project} project details",
+    "projectImage": "Preview of {project}",
+    "close": "Close details",
+    "background": "Background",
+    "features": "Key features",
+    "approach": "Technical approach",
+    "links": "{project} links"
+  },
+  "about": {
+    "title": "About me",
+    "paragraphs": [
+      "I'm based in Shanghai. I studied statistics at Beihang University, then pursued a master's degree in statistics at Columbia University. Since graduating, I've worked on AI algorithms, gradually moving from machine learning toward AI agents.",
+      "My earlier work focused on demand forecasting, operations research, and computer vision. More recently, I've worked on LLM applications, including model post-training, query understanding, tool calling, and LLM evaluation. Outside my day job, I build independent products to explore the full process from an idea, data, and algorithms to a working product."
+    ]
+  },
+  "contact": {
+    "title": "Let's turn ideas into products.",
+    "description": "I'd love to exchange ideas about AI agents, algorithm engineering, and independent products—or discuss a concrete collaboration.",
+    "action": "Send an email"
+  },
+  "footer": {
+    "personal": "Personal site"
+  },
   "projects": {
-    "logicduo": {"summary":"AI-assisted investment research","background":"Investment information is scattered across news, announcements, and market discussions. LogicDuo brings information retrieval and LLM analysis into the everyday research workflow of individual investors, helping them organize information and research leads around the assets they follow.","features":["Find information about stocks, funds, and market themes.","Identify stock and fund names from uploaded or pasted watchlist screenshots.","Start exploring from market trends and frequently used themes."],"approach":"Organize search around investors' information needs, then use LLMs to help interpret news, examine reasoning, and support research. The focus is on information organization, analysis workflows, and the everyday user experience.","linkLabels":["Visit LogicDuo"]},
-    "allfeeds": {"summary":"Open-source distributed data collection","background":"Fetching a single page is easy. Maintaining different sources, recovering failed jobs, and backfilling historical data require infrastructure. AllFeeds brings these shared needs together in an extensible, open-source collection system.","features":["Collect from RSS, web pages, sitemaps, JSON APIs, and custom fetchers.","Schedule and execute jobs through a Controller / Worker architecture.","Manage retries, historical backfills, and operations through a dashboard."],"approach":"Separate scheduling, execution, and output: a Controller coordinates jobs, Workers execute according to their capabilities, plugins handle different sources, and PostgreSQL stores job and data state. Leases and idempotent writes handle duplicate execution and late results.","linkLabels":["View GitHub","View Gitee"]},
-    "genchi": {"summary":"Live-event discovery in Japan & Asia","background":"Live-event information is scattered across artist websites, project announcements, and ticketing platforms. Performance dates and ticket-sale schedules are often published separately. Genchi organizes this material into a place to discover events, search for information, and plan a schedule.","features":["Discover Anisong, J-POP, and other live events through artists and projects you enjoy.","Browse listed events and schedules by region, event type, and date.","Use multilingual browsing, guides, and connection points for AI assistants."],"approach":"Organize events, individual performances, and key milestones into information that can be updated over time, then present it through discovery pages, calendars, and AI question-and-answer interfaces. Keep sources, dates, and event details connected to help people move from an interest to an actual trip.","linkLabels":["Visit Genchi.news"]}
+    "logicduo": {
+      "summary": "AI-assisted investment research",
+      "background": "Investment information is scattered across news, announcements, and market discussions. LogicDuo brings information retrieval and LLM analysis into the everyday research workflow of individual investors, helping them organize information and research leads around the assets they follow.",
+      "features": [
+        "Find information about stocks, funds, and market themes.",
+        "Identify stock and fund names from uploaded or pasted watchlist screenshots.",
+        "Start exploring from market trends and frequently used themes."
+      ],
+      "approach": "Organize search around investors' information needs, then use LLMs to help interpret news, examine reasoning, and support research. The focus is on information organization, analysis workflows, and the everyday user experience.",
+      "linkLabels": [
+        "Visit LogicDuo"
+      ],
+      "title": "LogicDuo"
+    },
+    "forearena": {
+      "title": "ForeArena",
+      "summary": "Multi-perspective AI research for decisions",
+      "background": "ForeArena brings multiple AI agents to the same question, comparing evidence, perspectives, and disagreements to support complex decisions. The online product currently operates under the COUNCIA brand.",
+      "features": [
+        "Clarify questions and research needs through a guided conversation.",
+        "Compare independent research and different AI perspectives.",
+        "Revisit research reports with source references."
+      ],
+      "approach": "Question guidance, server orchestration, and agent execution are separate layers. Research progress and report versions are retained, with accounts, access, and execution costs managed on the server.",
+      "linkLabels": [
+        "Explore ForeArena"
+      ]
+    },
+    "qimiao": {
+      "title": "Qimiao Productivity",
+      "summary": "Online AI tools and local Skills",
+      "background": "Everyday needs become focused tools that people can use directly. Browser workbenches handle online tasks, while selected capabilities are delivered as local Skill packages, building a reusable body of execution knowledge.",
+      "features": [
+        "Find tools by the concrete task you want to complete.",
+        "Use online workbenches and download selected local Skills.",
+        "Track tasks, preview results, and download delivered files."
+      ],
+      "approach": "Tool definitions, recipes, and a shared runtime separate product content from execution. Task, file, account, and billing infrastructure are reused so individual tools can evolve independently.",
+      "linkLabels": [
+        "Visit Qimiao Productivity"
+      ]
+    },
+    "genchi": {
+      "summary": "Live-event discovery in Japan & Asia",
+      "background": "Live-event information is scattered across artist websites, project announcements, and ticketing platforms. Performance dates and ticket-sale schedules are often published separately. Genchi organizes this material into a place to discover events, search for information, and plan a schedule.",
+      "features": [
+        "Discover Anisong, J-POP, and other live events through artists and projects you enjoy.",
+        "Browse listed events and schedules by region, event type, and date.",
+        "Use multilingual browsing, guides, and connection points for AI assistants."
+      ],
+      "approach": "Organize events, individual performances, and key milestones into information that can be updated over time, then present it through discovery pages, calendars, and AI question-and-answer interfaces. Keep sources, dates, and event details connected to help people move from an interest to an actual trip.",
+      "linkLabels": [
+        "Visit Genchi.news"
+      ],
+      "title": "Genchi.news"
+    }
+  },
+  "themes": {
+    "investors": "Turn information into research leads, and explore different perspectives.",
+    "developers": "Turn ideas into useful tools, and tools into reusable capabilities.",
+    "acgers": "Connect your interests with live events worth experiencing."
   }
 }

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Evan Yang · AI 工程与产品",
-    "description": "Evan Yang 的职业作品集：机器学习、AI Agent 与独立产品。探索 LogicDuo、AllFeeds 和 Genchi.news。"
+    "description": "Evan Yang 的职业作品集：面向投资者、开发者与 ACG 爱好者的 AI 产品和实践。"
   },
   "nav": {
     "label": "作品集导航",
@@ -20,7 +20,7 @@
   "ui": {
     "skip": "跳转到作品",
     "openProject": "查看 {project} 项目详情",
-    "projectImage": "{project} 的公开产品界面",
+    "projectImage": "{project} 的作品预览",
     "close": "关闭详情",
     "background": "项目背景",
     "features": "主要功能",
@@ -54,20 +54,35 @@
       "approach": "围绕投资者的信息需求组织检索入口，再结合大模型进行新闻解读、逻辑分析与研究辅助。持续关注信息组织、分析流程与实际使用体验。",
       "linkLabels": [
         "访问 LogicDuo"
+      ],
+      "title": "LogicDuo"
+    },
+    "forearena": {
+      "title": "ForeArena",
+      "summary": "多视角 AI 研究与决策辅助",
+      "background": "ForeArena 让多个 AI 从不同角度研究同一个问题，整理证据、观点与分歧，为复杂决策提供可回看的研究材料。项目目前以 COUNCIA 品牌提供在线体验。",
+      "features": [
+        "用问答引导整理问题与研究需求。",
+        "让多个 AI 独立研究并对照不同观点。",
+        "呈现可回看、带资料引用的研究报告。"
+      ],
+      "approach": "把前端问题引导、服务端任务编排与 Agent 执行分开，保存研究过程和报告版本，并在服务端管理账户、访问权限与执行费用。",
+      "linkLabels": [
+        "体验 ForeArena"
       ]
     },
-    "allfeeds": {
-      "summary": "开源分布式数据采集",
-      "background": "抓取一个页面很容易，持续维护不同来源、恢复失败任务和回填历史数据则需要一套基础设施。AllFeeds 将这些共性需求整理为可扩展的开源采集系统。",
+    "qimiao": {
+      "title": "奇妙生产力",
+      "summary": "在线 AI 工具与本地 Skill",
+      "background": "把常见需求做成可以直接使用的小工具：从网页工作台完成任务，也让适合本地运行的能力以 Skill 包交付，持续积累可复用的执行经验。",
       "features": [
-        "支持 RSS、网页、Sitemap、JSON API 与自定义 Fetcher。",
-        "通过 Controller / Worker 架构调度和执行任务。",
-        "提供失败重试、历史回填与可视化运维 Dashboard。"
+        "围绕具体任务搜索和浏览工具目录。",
+        "提供在线工作台与部分本地 Skill 下载。",
+        "用任务管理、成果预览和文件下载组织交付。"
       ],
-      "approach": "将调度、执行与输出分开：Controller 协调任务，Worker 按能力执行，插件负责不同来源的采集，PostgreSQL 保存任务和数据状态。通过租约与幂等写入处理重复执行和延迟结果。",
+      "approach": "以工具定义、Recipe 与共享运行时拆分产品内容和执行能力，复用任务、文件、账号与计费设施，让小工具能够独立演进。",
       "linkLabels": [
-        "查看 GitHub",
-        "查看 Gitee"
+        "访问奇妙生产力"
       ]
     },
     "genchi": {
@@ -81,7 +96,13 @@
       "approach": "把活动、场次和关键时间节点组织成可持续更新的资料，再通过发现页、日历与 AI 问答入口呈现。关注来源、时间与活动信息之间的对应关系，让用户更容易从兴趣走到实际行程。",
       "linkLabels": [
         "访问 Genchi.news"
-      ]
+      ],
+      "title": "Genchi.news"
     }
+  },
+  "themes": {
+    "investors": "让信息变成线索，让研究看见不同观点。",
+    "developers": "让想法变成可用的工具，让工具成为可复用的能力。",
+    "acgers": "连接兴趣与现场，发现值得奔赴的演出。"
   }
 }

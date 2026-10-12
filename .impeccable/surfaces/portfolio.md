@@ -77,3 +77,15 @@ The user explicitly requested local preview only with no deployment for this rou
 ## Independent project and publishing migration
 
 On 2026-10-12 the user explicitly decided to extract this into `personal-portfolio`, use the GitHub user-site homepage for the portfolio, retain the original personal site on Gitee and evanyang.site, remove portfolio blogs, and support Simplified Chinese, Traditional Chinese, English, and Japanese. This current scope supersedes the earlier in-site `/portfolio` and local-preview-only implementation phase. Keep the approved centered1120px visual world, real gray-stage covers and project dialogs. No writing navigation, section, reader, Markdown dependencies, or article/media assets ship here. A compact native language selector joins the header; every visible and assistive string, project description and external-link label is localized. Distinct static language pages include correct document languages and metadata. The footer points to the separate personal site. Original product screenshots keep their original language and colors.
+
+## Latest selected scope: three topics and four works
+
+The user explicitly selected this exact homepage roster, overriding the exploratory nine-work inventory:
+
+- **AI for Investors**: LogicDuo, ForeArena.
+- **AI for Developers**: 奇妙生产力 (Qimiao).
+- **AI for ACGers**: Genchi.news.
+
+Each topic has a short localized introduction. Every work uses the same full-width gray stage within the shared 1120px container, one brief caption, and a detail dialog. ForeArena links to its current COUNCIA public service; the naming relationship is explained in the localized dialog. Do not describe portfolio research as proven investment returns. Other local projects are discovery evidence, not additional homepage cards.
+
+The current hero is “把好奇心，做成有用的产品。” and localized equivalents. The user-supplied mobile screenshot exposed excessive first-fold whitespace; mobile now uses a compact two-row header, 44px touch targets, a 32–44px headline (Japanese 27–38px), and content-driven hero height with 56px/72px top/bottom padding. Desktop retains the approved whitespace and width. Current Gmail is yqh611@gmail.com; the monochrome supplied logo remains left of the name. Four languages and browser language selection remain required.
