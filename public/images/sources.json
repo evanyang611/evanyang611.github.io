@@ -1,0 +1,24 @@
+{
+  "captured": "2026-10-12",
+  "assets": [
+    {
+      "file": "logicduo-cover.png",
+      "source": "https://logicduo.com/",
+      "kind": "public product screenshot",
+      "dimensions": [1280, 720]
+    },
+    {
+      "file": "allfeeds-cover.png",
+      "source": "https://raw.githubusercontent.com/StarSailAI/AllFeeds/main/assets/screenshots/dashboard-overview.png",
+      "kind": "published repository screenshot",
+      "dimensions": [1920, 1057]
+    },
+    {
+      "file": "genchi-cover.png",
+      "source": "https://genchi.news/zh-Hans",
+      "kind": "public product screenshot",
+      "dimensions": [1280, 720]
+    }
+  ],
+  "note": "Product UI is captured source material. Displayed figures are screenshot contents, not portfolio performance claims. Composition previews are separate."
+}

@@ -1,43 +1,31 @@
-name: Deploy to GitHub Pages
-
+name: Deploy personal portfolio
 on:
   push:
     branches: [main]
   workflow_dispatch:
-
 permissions:
   contents: read
-
 concurrency:
   group: github-pages
   cancel-in-progress: false
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-      - name: Set up Node.js
-        uses: actions/setup-node@v7
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: npm
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Install dependencies
-        run: npm ci
-      - name: Lint
-        run: npm run lint
-      - name: Check translation coverage
-        run: npm run i18n:check
-      - name: Build static site
-        run: npm run build:pages
-      - name: Upload site
-        uses: actions/upload-pages-artifact@v4
+      - uses: actions/configure-pages@v5
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run i18n:check
+      - run: npm run build:pages
+      - run: npm run check:export
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: out
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -48,6 +36,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4

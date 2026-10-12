@@ -1,36 +1,27 @@
 {
-  "name": "personal-site-next",
-  "version": "0.1.0",
+  "name": "personal-portfolio",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 8070",
+    "dev": "next dev -p 8071",
     "build": "next build",
-    "build:pages": "NEXT_OUTPUT_MODE=export next build",
-    "start": "next start -p 8070",
+    "build:pages": "next build",
+    "preview": "python3 -m http.server 8071 --bind 127.0.0.1 --directory out",
     "lint": "eslint",
-    "i18n:traditional": "node scripts/generate-traditional.mjs",
     "i18n:check": "node scripts/check-i18n.mjs",
-    "fetch:anime": "node scripts/fetch-bangumi.mjs anime",
-    "fetch:game": "node scripts/fetch-bangumi.mjs game"
+    "check:export": "node scripts/check-export.mjs"
   },
   "dependencies": {
-    "framer-motion": "^12.38.0",
-    "next": "16.2.6",
+    "next": "16.4.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "react-markdown": "^10.1.0",
-    "rehype-raw": "^7.0.0",
-    "remark-gfm": "^4.0.1"
+    "react-dom": "19.2.4"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.6",
-    "opencc-js": "^1.4.2",
-    "tailwindcss": "^4",
+    "eslint-config-next": "16.4.0",
     "typescript": "^5"
   }
 }

@@ -1,92 +1,38 @@
-# Evan Yang · 个人主页
+# personal-portfolio
 
-基于 Next.js 16 构建的全屏翻页式个人站点。
+Evan Yang 的独立职业作品集。保留 Pearl 风格的居中限宽、灰底完整截图和简短项目介绍，点击作品打开详情浮窗。
 
-支持简体中文、繁體中文、English 和日本語。右上角切换语言，保留当前页面与音乐播放状态，
-并通过浏览器本地存储记住选择；`?lang=zh-CN`、`?lang=zh-TW`、`?lang=en`、`?lang=ja` 可分享指定语言。
+内容包含作品、个人介绍及联系入口，支持简体中文、繁體中文、English 和日本語。文章及兴趣内容继续属于独立的 `personal-site` 项目。
 
-## 页面结构
-
-| 页面 | 内容 |
-|------|------|
-| Hero | 头像 + 名称 |
-| About | 自我介绍 |
-| Work | 工作经历 |
-| Blogs | 技术博客（Markdown 正文 + 语音对比） |
-| Anime | 动漫推荐（Bangumi 数据驱动海报墙） |
-| Games | 游戏推荐（同上） |
-| Songs | 歌曲推荐（YouTube 播放） |
-| Links | 联系方式、社交账号与访问统计 |
-
-## 开发
+## 本地开发
 
 ```bash
-npm install
-npm run dev          # http://localhost:8070
+npm ci
+npm run dev       # http://localhost:8071/
 ```
 
-## 数据更新
-
-```bash
-npm run fetch:anime  # 从 Bangumi 拉取动漫元数据 + 海报
-npm run fetch:game   # 从 Bangumi 拉取游戏元数据 + 海报
-```
-
-配置文件：`src/content/anime-ids.json`、`src/content/game-ids.json`
-
-## 多语言内容
-
-- 界面、个人介绍、作品与博客元数据：`src/i18n/messages/`。
-- 动漫、游戏的标题、简介、标签和点评：`src/i18n/catalog/`。新增作品时补齐四语言条目。
-- 简体中文博客正文：`src/content/blogs/`；英文、日文及繁体正文：`public/blogs/translations/`，按需加载。
-- 歌名、艺名、项目名与代码标识符保留原名；原图与音频沿用原始资源。
-
-修改简体文案或博客后运行 `npm run i18n:traditional` 更新繁体版本，补齐英文与日文，
-再运行 `npm run i18n:check`。发布流程会检查所有文案键、作品条目、文章章节以及图片、链接、公式和音频路径，
-防止遗漏翻译或损坏原有内容。
-
-## 构建 & 部署
-
-### GitHub Pages
-
-站点仓库：`evanyang611/evanyang611.github.io`，网站地址：<https://evanyang611.github.io/>。
+## 检查和预览
 
 ```bash
 npm run lint
-npm run build:pages  # 导出 HTML/CSS/JS 与 public 资源到 out/
-```
-
-在 GitHub 仓库的 **Settings → Pages → Source** 中选择 **GitHub Actions**。
-推送到该仓库的 `main` 分支后，`.github/workflows/deploy-pages.yml` 会自动检查、构建和发布。
-本地保留 Gitee `origin` 与原 `main` 分支的完整历史。
-由于旧历史包含超过 GitHub 单文件限制的运行时二进制，GitHub 从当前源码快照建立独立历史；
-日常更新使用本地 `codex/github-pages` 分支，跟踪 GitHub 的 `main`：
-
-```bash
-git switch codex/github-pages
-git push github HEAD:main
-```
-
-静态构建关闭服务端图片优化；本地海报、博客图片和 WAV 音频一起发布。
-歌曲播放器仍使用 YouTube，需要访客网络能够访问 YouTube。
-该部署使用域名根路径；若改用项目子目录地址，需要额外适配资源路径。
-
-### Node.js / Docker
-
-默认构建保留 `standalone` 输出，继续支持现有服务器部署。
-
-```bash
+npm run i18n:check
 npm run build
-
-# Docker Compose
-docker compose build
-docker compose up -d
+npm run check:export
+npm run preview   # http://localhost:8071/
 ```
 
-## 技术栈
+## 内容与语言
 
-- Next.js 16 (App Router, Turbopack)
-- React 19
-- Tailwind CSS v4
-- Framer Motion 12
-- YouTube IFrame API（歌曲播放）
+- 项目 ID、图片尺寸和外部地址：`src/content/projects.ts`。
+- 四种语言的界面、背景、功能及技术思路：`src/i18n/messages/`。
+- 中文首页 `/`；繁体 `/zh-TW/`；英文 `/en/`；日文 `/ja/`。`/zh-CN/` 和 `/portfolio/` 兼容既有入口，canonical 指向 `/`。
+- 每种语言生成独立 HTML、正确的 `html lang`、标题、描述和 hreflang。手动切换会记住选择，中文根入口可恢复语言偏好；指定语言路径直接呈现对应内容。
+- 产品截图与字体均为本地资产，来源及字体许可证位于 `public/images/` 和 `public/fonts/`。
+
+## 发布归属
+
+这个目录是独立的 `personal-portfolio` Git 项目。GitHub 仓库仍使用用户站点所需的 `evanyang611/evanyang611.github.io`，其首页直接展示作品集。
+
+推送到该仓库的 `main` 后，GitHub Actions 检查文案、代码和导出文件，再发布 GitHub Pages。输出目录为 `out/`，没有运行时 API、文章资产或对原项目目录的依赖。
+
+原 `personal-site` 使用独立的 Gitee 仓库 <https://gitee.com/yqh611/personal-site>，现有站点 <https://evanyang.site/> 保留个人主页、博客和兴趣内容。
