@@ -218,7 +218,9 @@
     "typographyMeta": {
       "display": {
         "displayName": "Opening Display",
-        "purpose": "Regular opening headline, resolved through the document-language display stack."
+        "purpose": "Regular opening headline, resolved through the document-language display stack.",
+        "mobileEmphasis": "width-contained inline block",
+        "mobileJapaneseSize": "clamp(27px, 8.5vw, 38px)"
       },
       "section": {
         "displayName": "Section Heading",

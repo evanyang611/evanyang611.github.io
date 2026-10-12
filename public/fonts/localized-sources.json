@@ -25,5 +25,35 @@
     "bytes": 138012,
     "format": "woff2",
     "glyphs_requested": 349
+  },
+  {
+    "locale": "zh-CN",
+    "family": "Noto Sans SC",
+    "file": "notosanssc-slogan-8bbd18aa935e.woff2",
+    "source": "https://fonts.gstatic.com/l/font?kit=k3kXo84MPvpLmixcA63oeALhLIiP-Q_M6kgnjvIHJ2nC7xF2QZXvctLUp6x23SLNrQ&skey=cf0bb10b5602fdc3&v=v41",
+    "bytes": 3616,
+    "format": "woff2",
+    "glyphs": "何做奇好如师有服",
+    "purpose": "new headline and introduction missing from original subset"
+  },
+  {
+    "locale": "zh-TW",
+    "family": "Noto Sans TC",
+    "file": "notosanstc-slogan-e09af0d211f0.woff2",
+    "source": "https://fonts.gstatic.com/l/font?kit=-nF7OG829Oofr2wohFbTp9iFOisNA_djzzROeo1wRs_BNYsTHTBtKtmkSbhMwV8QJA&skey=3904269dc8bdd0a1&v=v40",
+    "bytes": 3764,
+    "format": "woff2",
+    "glyphs": "何做奇好如師有服",
+    "purpose": "new headline and introduction missing from original subset"
+  },
+  {
+    "locale": "ja",
+    "family": "Noto Sans JP",
+    "file": "notosansjp-slogan-308edd7ad72a.woff2",
+    "source": "https://fonts.gstatic.com/l/font?kit=-F62fjtqLzI2JPCgQBnw7HFowwII2ldXiA-QqDzFSH5Pb1OUMygX5A&skey=72472b0eb8793570&v=v57",
+    "bytes": 3248,
+    "format": "woff2",
+    "glyphs": "兼奇役立者",
+    "purpose": "new headline and introduction missing from original subset"
   }
 ]

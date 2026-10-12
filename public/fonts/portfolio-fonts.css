@@ -96,3 +96,77 @@
   src: url(/fonts/notosansjp-daa0e41795a6.woff2) format('woff2');
   unicode-range: U+20, U+26, U+28-29, U+2c-3a, U+45, U+59, U+61, U+67, U+6e, U+76, U+b7, U+3001-3002, U+3005, U+3042, U+3044, U+3046, U+3048, U+304a-304d, U+304f, U+3051-3059, U+305b-305d, U+305f, U+3061, U+3063-306b, U+306e-306f, U+3072-3073, U+3078, U+307b, U+307e-307f, U+3081-3082, U+3084, U+3087-308c, U+308f, U+3092-3093, U+30a1-30a4, U+30a6-30ac, U+30af-30b5, U+30b7-30ba, U+30bd, U+30bf-30c1, U+30c3-30c4, U+30c6-30cb, U+30d3-30d7, U+30d9-30da, U+30dc-30de, U+30e0-30e2, U+30e5, U+30e7, U+30e9-30ed, U+30f3, U+30fb-30fc, U+4e00, U+4e0a, U+4e2d, U+4e3b, U+4e88, U+4e8b, U+4eac, U+4eba, U+4ecb, U+4ed5, U+4ed8, U+4ee5, U+4f01, U+4f53, U+4f5c, U+4f7f, U+4f9b, U+4fa1, U+4fc2, U+4fdd, U+4fee, U+500b, U+5165, U+516c, U+5171, U+5177, U+518d, U+51aa, U+51e6, U+51fa, U+5206, U+5225, U+524d, U+529b, U+52d5, U+5317, U+5352, U+5354, U+5358, U+53bb, U+53ce, U+53d6, U+53e3, U+53ef, U+5408, U+540d, U+5411, U+544a, U+5473, U+547c, U+54c1, U+554f, U+56fd, U+5730, U+57df, U+57fa, U+5831, U+5834, U+58eb, U+58f2, U+591a, U+5927, U+5929, U+5931, U+597d, U+5b58, U+5b66, U+5b8c, U+5b9a, U+5b9f, U+5bb6, U+5bfe, U+5c4a, U+5e02, U+5e74, U+5f0f, U+5f35, U+5f8c, U+5f97, U+5fa9, U+5fc3, U+5fc5, U+5fdc, U+60c5, U+614b, U+6210, U+624b, U+6271, U+6280, U+6295, U+629e, U+62c5, U+62e0-62e1, U+6307, U+639b, U+63a2, U+63a5, U+63b2, U+63d0, U+63f4, U+643a, U+652f, U+6557, U+6563, U+6570, U+6574, U+6587, U+65b0, U+65c5, U+65e5, U+65e7, U+6642, U+666f, U+66f4, U+66f8, U+672c, U+6790, U+679c, U+67c4, U+682a, U+68b0, U+691c, U+696d, U+69cb, U+6a21, U+6a5f, U+6b53, U+6cc1, U+6ce8, U+6d3b, U+6d41, U+6d77, U+6e2c, U+6e90, U+6f14, U+70b9, U+72b6, U+72ec, U+7406, U+7528, U+753b, U+767a, U+7684, U+76e4, U+76ee, U+76f8, U+77e5, U+78ba, U+79c1, U+79f0, U+79fb, U+7a0b, U+7a2e, U+7a7a, U+7b49, U+7b80, U+7ba1, U+7c21, U+7c73, U+7d22, U+7d30, U+7d39, U+7d44, U+7d50, U+7d71, U+7d99-7d9a, U+7dd2, U+7e41, U+7fd2, U+80cc, U+80fd, U+81ea, U+8208, U+822a, U+884c, U+8853, U+8868, U+88c5, U+88dc, U+8907, U+8981, U+898b, U+898f, U+8996, U+89a7, U+89e3, U+8a00, U+8a08, U+8a55, U+8a66, U+8a71, U+8a73, U+8a8d, U+8a9e, U+8ab2, U+8abf, U+8ac7, U+8ad6, U+8b58, U+8ca9, U+8cbc, U+8cc7, U+8cea, U+8df5, U+8ef8, U+8f09, U+8fbc, U+8fce, U+8fd1, U+9001, U+901a, U+9023, U+9032, U+9045, U+904b, U+904e, U+9078, U+91c8, U+91cd, U+9298, U+9332, U+9589, U+958b, U+95a2, U+95b2, U+969b, U+96c6, U+96e2, U+9700, U+9762, U+9805, U+984c, U+985e, U+9ad4;
 }
+
+/* Additional glyphs for the approved curiosity/product headline and introduction. */
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosanssc-slogan-8bbd18aa935e.woff2) format('woff2');
+  unicode-range: U+4f55, U+505a, U+5947, U+597d, U+5982, U+5e08, U+6709, U+670d;
+}
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosanssc-slogan-8bbd18aa935e.woff2) format('woff2');
+  unicode-range: U+4f55, U+505a, U+5947, U+597d, U+5982, U+5e08, U+6709, U+670d;
+}
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosanssc-slogan-8bbd18aa935e.woff2) format('woff2');
+  unicode-range: U+4f55, U+505a, U+5947, U+597d, U+5982, U+5e08, U+6709, U+670d;
+}
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosanstc-slogan-e09af0d211f0.woff2) format('woff2');
+  unicode-range: U+4f55, U+505a, U+5947, U+597d, U+5982, U+5e2b, U+6709, U+670d;
+}
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosanstc-slogan-e09af0d211f0.woff2) format('woff2');
+  unicode-range: U+4f55, U+505a, U+5947, U+597d, U+5982, U+5e2b, U+6709, U+670d;
+}
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosanstc-slogan-e09af0d211f0.woff2) format('woff2');
+  unicode-range: U+4f55, U+505a, U+5947, U+597d, U+5982, U+5e2b, U+6709, U+670d;
+}
+@font-face {
+  font-family: 'Portfolio JP';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosansjp-slogan-308edd7ad72a.woff2) format('woff2');
+  unicode-range: U+517c, U+5947, U+5f79, U+7acb, U+8005;
+}
+@font-face {
+  font-family: 'Portfolio JP';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosansjp-slogan-308edd7ad72a.woff2) format('woff2');
+  unicode-range: U+517c, U+5947, U+5f79, U+7acb, U+8005;
+}
+@font-face {
+  font-family: 'Portfolio JP';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosansjp-slogan-308edd7ad72a.woff2) format('woff2');
+  unicode-range: U+517c, U+5947, U+5f79, U+7acb, U+8005;
+}

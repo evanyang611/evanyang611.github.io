@@ -205,6 +205,8 @@ The sidecar's synthesized achromatic tonal ramps are explanatory panel metadata,
 
 `public/fonts/portfolio-fonts.css` declares normal weights 400, 500, and 600 with `font-display: swap`. The active files are `inter-d712603da422.woff2`, `notosanssc-38f8055b65db.woff2`, `notosanstc-eb3c8c184666.woff2`, and `notosansjp-daa0e41795a6.woff2`. Subsets and Google Fonts source records live in `public/fonts/localized-sources.json` and `public/fonts/sources.json`; sibling `*-OFL.txt` files retain all four font licenses. Characters outside the declared subsets use the language-specific fallback stacks. Current text is predominantly 400, with 500 for the wordmark and project-detail subheadings.
 
+The homepage headline is “把好奇心，做成有用的产品。” with equivalent Traditional Chinese, English, and Japanese wording in the locale messages. Locale-specific `*-slogan-*.woff2` supplements cover the headline and introduction's newly added Chinese/Japanese characters with the same font families and weights; their sources are recorded in `localized-sources.json`. Desktop headline size, black/gray emphasis, and page spacing retain the established design. On mobile the gray phrase is a width-contained inline block to preserve a complete thought; Japanese display size uses `clamp(27px, 8.5vw, 38px)` so the product phrase remains intact.
+
 ### Hierarchy
 
 - **Display:** frontmatter `display` is the desktop opening headline. Mobile uses `clamp(38px, 8.5vw, 58px)`, line height 1.35, and tracking `-.025em`.

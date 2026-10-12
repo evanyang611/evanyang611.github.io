@@ -95,6 +95,8 @@
   .languageSelect select { min-height: 44px; font-size: 16px; }
   .hero { min-height: 580px; padding: 90px 24px 110px; }
   .hero h1 { font-size: clamp(38px, 8.5vw, 58px); line-height: 1.35; letter-spacing: -.025em; }
+  .hero h1 span { display: inline-block; max-width: 100%; }
+  :global(html[lang="ja"]) .hero h1 { font-size: clamp(27px, 8.5vw, 38px); }
   .hero > p { margin-top: 30px; font-size: 17px; line-height: 1.9; }
   .hero > .pill { margin-top: 38px; }
   .work { padding: 0 20px; }
