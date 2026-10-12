@@ -11,6 +11,8 @@ for (const [locale, dir] of Object.entries(languages)) {
   assert.ok(html.includes(copy.hero.lead.trim().replaceAll("&", "&amp;")), `${locale}: headline not rendered in static HTML`);
   for (const id of ["logicduo", "allfeeds", "genchi"]) assert.ok(html.includes(`data-project-id="${id}"`));
   assert.ok(!html.includes('href="#writing"') && !html.includes('id="writing"'), `${locale}: removed blog section returned`);
+  assert.equal([...html.matchAll(/href="mailto:yqh611@gmail\.com"/g)].length, 2, `${locale}: contact actions must use the current Gmail address`);
+  assert.ok(!html.includes("yqh611@126.com"), `${locale}: old email address returned`);
   for (const alternate of ["zh-Hans", "zh-Hant", "en", "ja"]) assert.ok(html.includes(`hrefLang="${alternate}"`), `${locale}: missing alternate ${alternate}`);
   for (const [, src] of html.matchAll(/(?:src|href)="([^"?#]+)(?:[?#][^"]*)?"/g)) {
     if (!src.startsWith("/") || src === "/" || src.endsWith("/")) continue;

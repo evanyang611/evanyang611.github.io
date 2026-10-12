@@ -4,5 +4,5 @@ import { portfolioMetadata } from "@/i18n/metadata";
 
 export const metadata = portfolioMetadata("zh-CN");
 export default function LegacyPortfolio() {
-  return <Portfolio locale="zh-CN" copy={MESSAGES["zh-CN"]} preferSavedLanguage />;
+  return <Portfolio locale="zh-CN" copy={MESSAGES["zh-CN"]} autoSelectLanguage />;
 }

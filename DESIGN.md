@@ -257,7 +257,7 @@ Short text anchors lead to Work and About, with Contact as a separate filled act
 
 Use the native `<select>` with a localized accessible label and four options: 简体中文, 繁體中文, English, 日本語. It retains the frontmatter 132px width and 48px minimum height; mobile uses 44px minimum height and 16px text. A small inline chevron is decorative. Hover changes the border to `selector-hover`; focus uses the shared ink outline.
 
-Routes are `/` for Simplified Chinese, `/zh-TW/`, `/en/`, and `/ja/`. Selection stores an optional preference and navigates while preserving the section hash. Explicit locale paths take precedence over remembered preferences; only the default entry restores a saved choice. Visible and assistive copy comes from `src/i18n/messages/`, with metadata supplied by `src/i18n/metadata.ts`.
+Routes are `/` for Simplified Chinese, `/zh-TW/`, `/en/`, and `/ja/`. Selection stores an optional preference and navigates while preserving the section hash. Explicit locale paths take precedence over automatic selection. The default entry checks a valid language query, saved manual choice, then ordered browser languages; unsupported preferences fall back to Simplified Chinese. Visible and assistive copy comes from `src/i18n/messages/`, with metadata supplied by `src/i18n/metadata.ts`.
 
 ### Gray-Stage Project Card
 

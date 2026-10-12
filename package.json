@@ -9,6 +9,7 @@
     "preview": "python3 -m http.server 8071 --bind 127.0.0.1 --directory out",
     "lint": "eslint",
     "i18n:check": "node scripts/check-i18n.mjs",
+    "test:locale": "node --test tests/locale-preference.test.mjs",
     "check:export": "node scripts/check-export.mjs"
   },
   "dependencies": {

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { PROJECTS, type Project } from "@/content/projects";
-import { LANGUAGE_NAMES, LANGUAGE_STORAGE_KEY, LOCALES, LOCALE_PATHS, isLocale, type Locale } from "@/i18n/config";
+import { LANGUAGE_NAMES, LANGUAGE_STORAGE_KEY, LOCALES, LOCALE_PATHS, isLocale, preferredLocale, type Locale } from "@/i18n/config";
 import type { PortfolioMessages } from "@/i18n/messages";
 import styles from "./portfolio.module.css";
 
@@ -47,21 +47,22 @@ function LanguageSelect({ locale, label }: { locale: Locale; label: string }) {
   );
 }
 
-export default function Portfolio({ locale, copy, preferSavedLanguage = false }: {
-  locale: Locale; copy: PortfolioMessages; preferSavedLanguage?: boolean;
+export default function Portfolio({ locale, copy, autoSelectLanguage = false }: {
+  locale: Locale; copy: PortfolioMessages; autoSelectLanguage?: boolean;
 }) {
   const [detail, setDetail] = useState<Project | null>(null);
   const router = useRouter();
   const close = useCallback(() => setDetail(null), []);
 
   useEffect(() => {
-    if (!preferSavedLanguage) return;
+    if (!autoSelectLanguage) return;
     const query = new URLSearchParams(window.location.search).get("lang");
     let saved: string | null = null;
     try { saved = window.localStorage.getItem(LANGUAGE_STORAGE_KEY); } catch { /* Optional preference storage. */ }
-    const next = isLocale(query) ? query : isLocale(saved) ? saved : locale;
+    const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
+    const next = preferredLocale(query, saved, languages);
     if (next !== locale) router.replace(`${LOCALE_PATHS[next]}${window.location.hash}`);
-  }, [locale, preferSavedLanguage, router]);
+  }, [locale, autoSelectLanguage, router]);
 
   return (
     <div className={styles.root}>
@@ -106,8 +107,8 @@ export default function Portfolio({ locale, copy, preferSavedLanguage = false }:
         <section id="contact" className={styles.contactSection} aria-labelledby="contact-title">
           <h2 id="contact-title">{copy.contact.title}</h2>
           <p>{copy.contact.description}</p>
-          <a className={styles.pill} href="mailto:yqh611@126.com">{copy.contact.action}<Arrow external /></a>
-          <a className={styles.email} href="mailto:yqh611@126.com">yqh611@126.com</a>
+          <a className={styles.pill} href="mailto:yqh611@gmail.com">{copy.contact.action}<Arrow external /></a>
+          <a className={styles.email} href="mailto:yqh611@gmail.com">yqh611@gmail.com</a>
         </section>
       </main>
       <footer className={styles.footer}>
