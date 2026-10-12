@@ -21,6 +21,7 @@ for (const locale of locales) {
     assert.equal(messages[locale].projects[project.id].linkLabels.length, project.links.length, `${locale}: ${project.id} link labels differ`);
     assert.ok(messages[locale].projects[project.id].title, `${locale}: ${project.id} title missing`);
   }
+  assert.ok(!JSON.stringify(messages[locale].projects.forearena).includes("COUNCIA"), `${locale}: incorrect ForeArena product returned`);
   for (const theme of THEMES) assert.ok(messages[locale].themes[theme.id], `${locale}: ${theme.id} description missing`);
   assert.ok(!("writing" in messages[locale].nav), `${locale}: removed blog navigation returned`);
   console.log(`${locale}: ${translated.length} nonempty translated strings; project/feature/link coverage complete`);

@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { PROJECTS, THEMES } from "../src/content/projects.ts";
 
+assert.equal(PROJECTS.find(project => project.id === "forearena").links[0].href, "https://forearena.com/", "ForeArena must link to the user-selected product");
 const root = new URL("../out/", import.meta.url);
 const languages = {"zh-CN": "", "zh-TW": "zh-TW/", en: "en/", ja: "ja/"};
 for (const [locale, dir] of Object.entries(languages)) {

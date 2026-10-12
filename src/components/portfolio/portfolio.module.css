@@ -33,7 +33,10 @@
 .hero > p { margin: clamp(30px, 3.5vw, 52px) 0 0; font-size: clamp(17px, 1.7vw, 20px); line-height: 1.7; }
 .hero > .pill { margin-top: clamp(46px, 4.65vw, 70px); }
 .work { max-width: var(--page-width); margin: auto; padding: 0 var(--page-gutter); }
-.theme + .theme { margin-top: 140px; }
+.secondaryThemes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto; gap: 40px clamp(24px, 2.5vw, 40px); margin-top: 140px; }
+.secondaryThemes .theme { display: grid; grid-template-rows: subgrid; grid-row: span 2; }
+.secondaryThemes .themeHeader { margin-bottom: 0; }
+.secondaryThemes .projectGrid { grid-template-columns: 1fr; }
 .themeHeader { margin-bottom: 40px; }
 .themeHeader h2 { margin: 0; font-family: var(--font-display); font-size: clamp(26px, 2.5vw, 34px); font-weight: 400; line-height: 1.3; letter-spacing: -.02em; }
 .themeHeader p { margin: 12px 0 0; max-width: 65ch; color: var(--muted); font-size: 16px; line-height: 1.7; }
@@ -105,7 +108,10 @@
   .hero > p { margin-top: 30px; font-size: 17px; line-height: 1.9; }
   .hero > .pill { margin-top: 32px; }
   .work { padding: 0 20px; }
-  .theme + .theme { margin-top: 100px; }
+  .secondaryThemes { display: block; margin-top: 100px; }
+  .secondaryThemes .theme { display: block; }
+  .secondaryThemes .theme + .theme { margin-top: 100px; }
+  .secondaryThemes .themeHeader { margin-bottom: 24px; }
   .themeHeader { margin-bottom: 24px; }
   .themeHeader h2 { font-size: 24px; }
   .themeHeader p { margin-top: 10px; font-size: 15px; line-height: 1.6; }

@@ -85,5 +85,35 @@
     "format": "woff2",
     "glyphs_requested": 44,
     "purpose": "selected three-topic/four-work content"
+  },
+  {
+    "locale": "zh-CN",
+    "family": "Noto Sans SC",
+    "file": "notosanssc-forearena-120023c3f3d7.woff2",
+    "source": "https://fonts.gstatic.com/l/font?kit=k3kXo84MPvpLmixcA63oeALhLIiP-Q_M1kkSv_IJF2rxxRJPVpb4d9HWgK1k0yPEuYioFLSOVIetsk4ryA&skey=cf0bb10b5602fdc3&v=v41",
+    "bytes": 5456,
+    "format": "woff2",
+    "glyphs_requested": 12,
+    "purpose": "correct forearena.com product case"
+  },
+  {
+    "locale": "zh-TW",
+    "family": "Noto Sans TC",
+    "file": "notosanstc-forearena-1a2eb9235edc.woff2",
+    "source": "https://fonts.gstatic.com/l/font?kit=-nF7OG829Oofr2wohFbTp9iFOisNA_dj_TV7S41lc8_ZK4sIIDNdH9qASLhq514CLpQ2T-F5Pv3IaiMF3BosavDA7g&skey=3904269dc8bdd0a1&v=v40",
+    "bytes": 6912,
+    "format": "woff2",
+    "glyphs_requested": 14,
+    "purpose": "correct forearena.com product case"
+  },
+  {
+    "locale": "ja",
+    "family": "Noto Sans JP",
+    "file": "notosansjp-forearena-1eb34602844d.woff2",
+    "source": "https://fonts.gstatic.com/l/font?kit=-F62fjtqLzI2JPCgQBnw7HFowwII2ldXsQ-QrDzsWX59QVGvPCUMwVvCzEL9ormg2on0W528WCfxqlj9CrrfjjHA-Htp46MZDxQkKFhnoQ&skey=72472b0eb8793570&v=v57",
+    "bytes": 9248,
+    "format": "woff2",
+    "glyphs_requested": 18,
+    "purpose": "correct forearena.com product case"
   }
 ]

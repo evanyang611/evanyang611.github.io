@@ -59,16 +59,16 @@
     },
     "forearena": {
       "title": "ForeArena",
-      "summary": "Multi-perspective AI research for decisions",
-      "background": "ForeArena brings multiple AI agents to the same question, comparing evidence, perspectives, and disagreements to support complex decisions. The online product currently operates under the COUNCIA brand.",
+      "summary": "Scheduled multi-agent investment research",
+      "background": "ForeArena follows investment targets through recurring research. Independent AI agents examine market information and compare perspectives, with traceable briefings delivered on a chosen schedule.",
       "features": [
-        "Clarify questions and research needs through a guided conversation.",
-        "Compare independent research and different AI perspectives.",
-        "Revisit research reports with source references."
+        "Choose official or custom targets and set a research schedule.",
+        "Compare market drivers, recent changes, future scenarios, and agent views.",
+        "Receive briefings in your account, by email, and through a read-only API."
       ],
-      "approach": "Question guidance, server orchestration, and agent execution are separate layers. Research progress and report versions are retained, with accounts, access, and execution costs managed on the server.",
+      "approach": "Schedule research around each target and its market calendar. Combine independent agent results while keeping sourced facts, scenario judgments, agreements, disagreements, and report versions distinct.",
       "linkLabels": [
-        "Explore ForeArena"
+        "Visit ForeArena"
       ]
     },
     "qimiao": {

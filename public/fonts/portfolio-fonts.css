@@ -244,3 +244,75 @@
   src: url(/fonts/notosansjp-themes-b46345c111f7.woff2) format('woff2');
   unicode-range: U+304e, U+305e, U+3079, U+30b6, U+30d0, U+30d1, U+5074, U+5185, U+5224, U+5229, U+5236, U+53f0, U+540c, U+5728, U+5c0f, U+5c55, U+5e38, U+610f, U+65ad, U+671b, U+67fb, U+6839, U+6848, U+6a29, U+6bd4, U+6f2b, U+7248, U+73fe, U+7570, U+7a4d, U+7de8, U+7fa9, U+8003, U+84c4, U+8a18, U+8cbb, U+8db3, U+8f03, U+9020, U+9055, U+90e8, U+91d1, U+9650, U+96d1;
 }
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosanssc-forearena-120023c3f3d7.woff2) format('woff2');
+  unicode-range: U+5224, U+53ea, U+65ad, U+672a, U+6c47, U+6eaf, U+7387, U+7559, U+7f6e, U+8f83, U+8ffd, U+9891;
+}
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosanssc-forearena-120023c3f3d7.woff2) format('woff2');
+  unicode-range: U+5224, U+53ea, U+65ad, U+672a, U+6c47, U+6eaf, U+7387, U+7559, U+7f6e, U+8f83, U+8ffd, U+9891;
+}
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosanssc-forearena-120023c3f3d7.woff2) format('woff2');
+  unicode-range: U+5224, U+53ea, U+65ad, U+672a, U+6c47, U+6eaf, U+7387, U+7559, U+7f6e, U+8f83, U+8ffd, U+9891;
+}
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosanstc-forearena-1a2eb9235edc.woff2) format('woff2');
+  unicode-range: U+5224, U+552f, U+5f59, U+5f80, U+65b7, U+672a, U+6eaf, U+7387, U+7559, U+756b, U+7c21, U+8f03, U+8ffd, U+983b;
+}
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosanstc-forearena-1a2eb9235edc.woff2) format('woff2');
+  unicode-range: U+5224, U+552f, U+5f59, U+5f80, U+65b7, U+672a, U+6eaf, U+7387, U+7559, U+756b, U+7c21, U+8f03, U+8ffd, U+983b;
+}
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosanstc-forearena-1a2eb9235edc.woff2) format('woff2');
+  unicode-range: U+5224, U+552f, U+5f59, U+5f80, U+65b7, U+672a, U+6eaf, U+7387, U+7559, U+756b, U+7c21, U+8f03, U+8ffd, U+983b;
+}
+@font-face {
+  font-family: 'Portfolio JP';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosansjp-forearena-1eb34602844d.woff2) format('woff2');
+  unicode-range: U+5178, U+5316, U+53d7, U+5404, U+56e0, U+5909, U+5c02, U+5c06, U+5ea6, U+671f, U+6765, U+76f4, U+7d04, U+8a2d, U+8aad, U+8c61, U+9593, U+983b;
+}
+@font-face {
+  font-family: 'Portfolio JP';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosansjp-forearena-1eb34602844d.woff2) format('woff2');
+  unicode-range: U+5178, U+5316, U+53d7, U+5404, U+56e0, U+5909, U+5c02, U+5c06, U+5ea6, U+671f, U+6765, U+76f4, U+7d04, U+8a2d, U+8aad, U+8c61, U+9593, U+983b;
+}
+@font-face {
+  font-family: 'Portfolio JP';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosansjp-forearena-1eb34602844d.woff2) format('woff2');
+  unicode-range: U+5178, U+5316, U+53d7, U+5404, U+56e0, U+5909, U+5c02, U+5c06, U+5ea6, U+671f, U+6765, U+76f4, U+7d04, U+8a2d, U+8aad, U+8c61, U+9593, U+983b;
+}

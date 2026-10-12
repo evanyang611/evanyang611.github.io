@@ -89,3 +89,9 @@ The user explicitly selected this exact homepage roster, overriding the explorat
 Each topic has a short localized introduction. Every work uses the same full-width gray stage within the shared 1120px container, one brief caption, and a detail dialog. ForeArena links to its current COUNCIA public service; the naming relationship is explained in the localized dialog. Do not describe portfolio research as proven investment returns. Other local projects are discovery evidence, not additional homepage cards.
 
 The current hero is “把好奇心，做成有用的产品。” and localized equivalents. The user-supplied mobile screenshot exposed excessive first-fold whitespace; mobile now uses a compact two-row header, 44px touch targets, a 32–44px headline (Japanese 27–38px), and content-driven hero height with 56px/72px top/bottom padding. Desktop retains the approved whitespace and width. Current Gmail is yqh611@gmail.com; the monochrome supplied logo remains left of the name. Four languages and browser language selection remain required.
+
+## Latest correction: paired works and correct ForeArena product
+
+The user clarified that ForeArena means https://forearena.com/, a separate scheduled investor-briefing product. Replace the mistaken COUNCIA screenshot, links and four-language detail copy. Chinese locale links use forearena.com/zh; English and Japanese use /en. Earlier COUNCIA naming claims above are superseded, not current product facts.
+
+Desktop uses two works per row: LogicDuo/ForeArena under Investors, followed by side-by-side Developers/Qimiao and ACGers/Genchi topics. Secondary topic headers share grid tracks so covers align despite localized introduction lengths. Each card uses the ordinary gray-stage cover within a half-width column. At 700px and below, all topics and cards flow as single-column blocks. Preserve existing side whitespace, hero, branding and dialog behavior.

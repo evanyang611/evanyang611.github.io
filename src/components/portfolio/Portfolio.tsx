@@ -55,6 +55,28 @@ export default function Portfolio({ locale, copy, autoSelectLanguage = false }: 
   const close = useCallback(() => setDetail(null), []);
   const titleFor = (project: Project) => copy.projects[project.id].title;
 
+  const renderTheme = (theme: (typeof THEMES)[number]) => (
+    <section key={theme.id} id={`work-${theme.id}`} className={styles.theme} aria-labelledby={`theme-${theme.id}`}>
+      <header className={styles.themeHeader}>
+        <h2 id={`theme-${theme.id}`} lang="en">{theme.title}</h2>
+        <p>{copy.themes[theme.id]}</p>
+      </header>
+      <div className={styles.projectGrid}>
+        {PROJECTS.filter(project => project.theme === theme.id).map(project => (
+          <article key={project.id}>
+            <button type="button" className={styles.projectButton} data-project-id={project.id} aria-label={copy.ui.openProject.replace("{project}", titleFor(project))} aria-haspopup="dialog" onClick={() => setDetail(project)}>
+              <ProjectCover project={project} alt={copy.ui.projectImage.replace("{project}", titleFor(project))} />
+              <span className={styles.caption}>
+                <span><span className={styles.projectTitle}>{titleFor(project)}</span><span className={styles.projectSummary}>{copy.projects[project.id].summary}</span></span>
+                <Arrow />
+              </span>
+            </button>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+
   useEffect(() => {
     if (!autoSelectLanguage) return;
     const query = new URLSearchParams(window.location.search).get("lang");
@@ -88,27 +110,10 @@ export default function Portfolio({ locale, copy, autoSelectLanguage = false }: 
         </section>
 
         <section id="work" className={styles.work} aria-label={copy.nav.work}>
-          {THEMES.map(theme => (
-            <section key={theme.id} id={`work-${theme.id}`} className={styles.theme} aria-labelledby={`theme-${theme.id}`}>
-              <header className={styles.themeHeader}>
-                <h2 id={`theme-${theme.id}`} lang="en">{theme.title}</h2>
-                <p>{copy.themes[theme.id]}</p>
-              </header>
-              <div className={styles.projectGrid}>
-                {PROJECTS.filter(project => project.theme === theme.id).map(project => (
-                  <article key={project.id} className={styles.featuredProject}>
-                    <button type="button" className={styles.projectButton} data-project-id={project.id} aria-label={copy.ui.openProject.replace("{project}", titleFor(project))} aria-haspopup="dialog" onClick={() => setDetail(project)}>
-                      <ProjectCover project={project} featured alt={copy.ui.projectImage.replace("{project}", titleFor(project))} />
-                      <span className={styles.caption}>
-                        <span><span className={styles.projectTitle}>{titleFor(project)}</span><span className={styles.projectSummary}>{copy.projects[project.id].summary}</span></span>
-                        <Arrow />
-                      </span>
-                    </button>
-                  </article>
-                ))}
-              </div>
-            </section>
-          ))}
+          {renderTheme(THEMES[0])}
+          <div className={styles.secondaryThemes}>
+            {THEMES.slice(1).map(renderTheme)}
+          </div>
         </section>
 
         <section id="about" className={styles.textSection} aria-labelledby="about-title">
@@ -138,7 +143,7 @@ export default function Portfolio({ locale, copy, autoSelectLanguage = false }: 
             <section><h3>{copy.ui.approach}</h3><p>{copy.projects[detail.id].approach}</p></section>
             <nav aria-label={copy.ui.links.replace("{project}", titleFor(detail))} className={styles.projectLinks}>
               {detail.links.map((link, index) => (
-                <a key={link.id} className={styles.pill} href={detail.id === "genchi" ? `https://genchi.news/${GENCHI_PATHS[locale]}` : detail.id === "forearena" ? `https://councia.com/${locale.startsWith("zh") ? "zh" : "en"}` : link.href} target="_blank" rel="noopener noreferrer">
+                <a key={link.id} className={styles.pill} href={detail.id === "genchi" ? `https://genchi.news/${GENCHI_PATHS[locale]}` : detail.id === "forearena" ? `${link.href}${locale.startsWith("zh") ? "zh" : "en"}` : link.href} target="_blank" rel="noopener noreferrer">
                   {copy.projects[detail.id].linkLabels[index]}<Arrow external />
                 </a>
               ))}
