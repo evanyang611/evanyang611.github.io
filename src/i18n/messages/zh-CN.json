@@ -31,7 +31,10 @@
     "next": "向后浏览 {section}",
     "scrollHint": "左右滑动，发现更多",
     "enterSection": "进入 {section} 详情页",
-    "previewRegion": "{section} 横向预览"
+    "previewRegion": "{section} 横向预览",
+    "pauseScroll": "暂停 {section} 自动滚动",
+    "resumeScroll": "继续 {section} 自动滚动",
+    "reducedMotion": "已按减少动态效果偏好关闭自动滚动"
   },
   "about": {
     "title": "关于我",

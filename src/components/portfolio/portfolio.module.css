@@ -169,6 +169,7 @@
 .enterLink:hover { color: #666; }
 .previewTrack { display: flex; gap: 24px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: #bbb #f3f3f3; padding-bottom: 20px; }
 .previewTrack:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
+.previewTrack[data-auto-enabled="true"] { scroll-snap-type: none; }
 .previewTrack > article { flex: 0 0 44%; min-width: 0; scroll-snap-align: start; }
 .previewCard { display: block; color: var(--ink); }
 .stripCaption { display: block; margin-top: 22px; }

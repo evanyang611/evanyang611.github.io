@@ -23,7 +23,7 @@ npm run preview   # http://localhost:8071/
 | AI Agent 完整作品 | `/ai-agent/` | `/{locale}/ai-agent/` |
 | AIGC 展厅 | `/aigc/` | `/{locale}/aigc/` |
 
-首页 AI Agent 和 AIGC 各有原生横向滚动预览及 `Enter` 入口。前者展示四个真实产品，后者目前展示图片、视频、音乐三个明确标注待布展的空预览。支持手动前后按钮、聚焦区域的左右键、触控和触控板原生滚动；两端禁用对应按钮，减少动态效果偏好下即时滚动，没有自动轮播。首页导航对应 `#ai-agent`、`#aigc`、`#about`，兼容 `#work` 锚点。
+首页 AI Agent 和 AIGC 各有原生横向滚动预览及 `Enter` 入口。前者展示四个真实产品，后者目前展示图片、视频、音乐三个明确标注待布展的空预览。支持手动前后按钮、聚焦区域的左右键、触控和触控板原生滚动；两端禁用对应按钮，默认以 32px/s 缓慢往返自动滚动，端点停留 1 秒后反向。悬停在预览轨道内或轨道内有键盘焦点时会临时暂停；手动浏览后停止，需用继续按钮恢复。离开视野或切到后台停止，减少动态效果偏好下关闭自动滚动，保留即时手动浏览。首页导航对应 `#ai-agent`、`#aigc`、`#about`，兼容 `#work` 锚点。
 
 原完整作品列表和原生详情浮窗移到 AI Agent 页面，保持三个英文主题：
 
@@ -42,7 +42,7 @@ AIGC 独立展厅继承同一系统，有三个锚点房间和待作品提示。
 - 首页/预览：`src/components/portfolio/Portfolio.tsx`、`PreviewStrip.tsx`；完整产品/浮窗：`AgentProjects.tsx`；项目身份、主题、图片尺寸和外链：`src/content/projects.ts`。
 - 共享导航、页脚和语言选择：`src/components/portfolio/SiteChrome.tsx`。详情页可在集合间跳转，About、联系、品牌与返回入口指向同语言首页。语言切换保留当前首页、AI Agent 或 AIGC 页面及锚点。
 - 展厅：`src/components/gallery/`；空注册表：`src/content/aigc.ts`。
-- 每种语言当前有 89 条非空文案：`src/i18n/messages/`。路径/偏好：`src/i18n/config.ts`；三种页面元数据：`src/i18n/metadata.ts`。静态 HTML 各有正确 `html lang`、标题、描述、canonical 和 hreflang。指定语言路径优先；默认入口依次使用有效 `?lang=`、手动偏好、浏览器语言，最后回退简中。
+- 每种语言当前有 92 条非空文案：`src/i18n/messages/`。路径/偏好：`src/i18n/config.ts`；三种页面元数据：`src/i18n/metadata.ts`。静态 HTML 各有正确 `html lang`、标题、描述、canonical 和 hreflang。指定语言路径优先；默认入口依次使用有效 `?lang=`、手动偏好、浏览器语言，最后回退简中。
 - 截图、Logo、字体来源与许可证保留在 `public/images/`、`public/brand/`、`public/fonts/`。展厅与首页文字使用同族 SC/TC/JP 补充字体，来源见 `localized-sources.json`。
 
 ## 验收与发布边界
@@ -54,3 +54,5 @@ AIGC 独立展厅继承同一系统，有三个锚点房间和待作品提示。
 历史 `.impeccable/review/paired/`、`plates` 与 `drift` 记录保留；本地审阅不证明本轮已经上线。本项目推送 GitHub 用户站仓库 `evanyang611/evanyang611.github.io` 的 `main` 后，由 `.github/workflows/deploy-pages.yml` 检查并发布 `out/`。本次文档交接时已验收线上基线为 `9a3faec`（GitHub Actions `38254765284` 成功）；新首页与集合页面等待提交、推送和生产验收。发布后需读取线上版本，检查四语言首页/集合、入口锚点、字体、滚动控制、返回路径及项目浮窗。
 
 原 `personal-site` 继续使用 [Gitee 仓库](https://gitee.com/yqh611/personal-site) 和 [evanyang.site](https://evanyang.site/)，保留博客及其他个人内容，页脚继续链接该站。
+
+本次自动滚动更新的运行证据位于 `.impeccable/review/auto-scroll/`；新增暂停、继续和减少动态效果标签。原首页与集合发布版本为 `2930916`，本次更新另行发布验收。

@@ -285,7 +285,7 @@ This system governs the independent `personal-portfolio` project and its four la
 - Centered content with visible white space on both sides.
 - Regular sans-serif hierarchy and compact black pill actions.
 - Complete, original-color product images centered on identical gray stages.
-- Two manual horizontal homepage preview strips; independent detailed AI Agent and AIGC collections.
+- Two automatic horizontal homepage preview strips with pause/resume and manual browsing; independent detailed AI Agent and AIGC collections.
 - Paired AI Agent works with independent topic headings, aligned covers, captions outside images, and project detail on demand.
 - Truthful empty exhibition rooms until approved media is supplied.
 - Native language selection, native scrolling, keyboard-visible focus, and reduced-motion support.
@@ -374,7 +374,7 @@ Opening and contact headlines use balanced wrapping, except Japanese uses `text-
 
 The desktop header uses three columns (`1fr auto 1fr`): wordmark, centered AI Agent/AIGC/About navigation, and end-aligned language selector plus Contact action. Its height is `clamp(76px, 7.7vw, 112px)`. The opening section has a minimum height of `clamp(470px, 47.5vw, 730px)` and separate top, side, and bottom whitespace; at widths of 1600px and above its minimum height is 760px. Page width and cover padding are separate controls.
 
-The homepage is an index with AI Agent and AIGC native horizontal preview strips, followed by the existing About and contact sections. Each strip shares the page container; cards occupy 44% of the track with 24px gaps, producing a visible next-item cue. Tracks scroll horizontally with mandatory snap and a thin native scrollbar; the page itself does not overflow. Module headers pair a heading/description with a quiet Enter link, with 36px before the track; manual controls sit 18px below it. The second module starts after 140px. At 700px and below, cards occupy 86%, modules are 100px apart, header-to-track separation is 28px, and preview covers retain ratio 1.3 with 24px padding.
+The homepage is an index with AI Agent and AIGC native horizontal preview strips, followed by the existing About and contact sections. Each strip shares the page container; cards occupy 44% of the track with 24px gaps, producing a visible next-item cue. Tracks scroll horizontally with a thin native scrollbar; automatic motion disables snapping, while reduced-motion manual browsing retains mandatory snap; the page itself does not overflow. Module headers pair a heading/description with a quiet Enter link, with 36px before the track; manual controls sit 18px below it. The second module starts after 140px. At 700px and below, cards occupy 86%, modules are 100px apart, header-to-track separation is 28px, and preview covers retain ratio 1.3 with 24px padding.
 
 Above 700px the independent AI Agent collection shows two works per row. The Investors topic uses two equal project tracks for LogicDuo and ForeArena. Developers/Qimiao and ACGers/Genchi share the second row while retaining independent topic headings and localized introductions. The secondary-topic wrapper uses two equal columns, `project-column-gap` between columns, `theme-gap` above it, and `theme-header-offset` between its shared header and cover tracks. Each child topic spans those two rows with `grid-template-rows: subgrid`; its header has no separate bottom margin, and its project grid has one column. This shared header track aligns the two covers even when localized introductions wrap to different heights. The Investors header retains `theme-header-offset` below it; title-to-introduction separation is `theme-intro-offset`.
 
@@ -394,7 +394,7 @@ Dialogs are independent of the page container: desktop uses the frontmatter widt
 
 **The Flat Surface Rule.** Resting page surfaces and product cards have no shadows. White space, image-stage contrast, and functional borders provide separation. Modal depth comes from the native top layer and the backdrop token, not decorative elevation effects.
 
-Project hover uses image scale 1.025 over 0.45s with `cubic-bezier(.2,.7,.2,1)` and an arrow shift of 5px over 0.25s, only on hover-capable devices. Filled-action color changes use 0.18s. Dialog opening uses 0.2s `ease-out`, moving from an 8px lower position and opacity .5 to rest. Reduced motion disables these transitions/animation and changes smooth scrolling to automatic. Exact motion and focus rules live in the sidecar.
+Project hover uses image scale 1.025 over 0.45s with `cubic-bezier(.2,.7,.2,1)` and an arrow shift of 5px over 0.25s, only on hover-capable devices. Filled-action color changes use 0.18s. Dialog opening uses 0.2s `ease-out`, moving from an 8px lower position and opacity .5 to rest. Reduced motion disables these transitions/animation and uses immediate manual scrolling and stops automatic preview motion. Exact motion and focus rules live in the sidecar.
 
 ## Shapes
 
@@ -436,7 +436,7 @@ The sidecar dialog snippet illustrates visual structure. `src/components/portfol
 
 ### Horizontal Preview Strip
 
-`PreviewStrip.tsx` pairs a regular module heading and localized description with an underlined Enter link (44px minimum height). Each focusable region has a localized name. Native touch/trackpad scrolling, manual buttons and focused-region left/right keys move the same track; buttons advance one card plus the 24px gap and disable at either end. Controls are 44px circles with a 1px neutral border, white resting fill and wall-gray hover fill; disabled opacity is .3. Focus uses the existing 2px ink outline/6px offset. Movement respects reduced motion and never advances automatically.
+`PreviewStrip.tsx` pairs a regular module heading and localized description with an underlined Enter link (44px minimum height). Each focusable region has a localized name. Native touch/trackpad scrolling, manual buttons and focused-region left/right keys move the same track; buttons advance one card plus the 24px gap and disable at either end. Controls are 44px circles with a 1px neutral border, white resting fill and wall-gray hover fill; disabled opacity is .3. Focus uses the existing 2px ink outline/6px offset. Preview motion advances at 32 CSS px/s, waits one second at each end, then reverses. Pause while the preview track is hovered or focused, and stop after manual input until resumed. Offscreen or hidden-page tracks do not animate; reduced motion disables automatic motion. A third 44px control pauses/resumes motion, using localized labels and a disabled reduced-motion state. Subpixel progress is retained, and animation frames are cancelled when stopped.
 
 AI Agent has four authentic screenshot previews. Empty AIGC has three pending room previews, without fake artwork or players. Future approved works use their real image/poster/cover, with a localized kind label if a preview asset is absent. Preview controls and media controls have separate purposes; the index does not play media.
 
@@ -460,7 +460,7 @@ The contact section pairs a regular display heading with a brief introduction, e
 - Do maintain regular sans-serif typography, locale-specific font stacks, and generous space between content groups.
 - Do reuse the native language selector and detail dialog with keyboard focus, contained scrolling, and reduced-motion behavior.
 - Do retain font licenses, asset source manifests, and the distinction between real UI images and generated studies.
-- Do keep index previews manual, empty rooms truthful, collection routes/locale hashes intact, and future playback user-initiated.
+- Do keep preview motion interruptible and optional, empty rooms truthful, collection routes/locale hashes intact, and future playback user-initiated.
 
 ### Don't:
 
@@ -469,5 +469,5 @@ The contact section pairs a regular display heading with a brief introduction, e
 - Don't compress several projects into the opening introduction to demonstrate coverage.
 - Don't add shadows, decorative gradients, glass surfaces, or heavy display weight to this system.
 - Don't import the original personal site's visual system or runtime into this independent portfolio.
-- Don't fabricate gallery artworks or add autoplay to previews or media.
+- Don't fabricate gallery artworks or autoplay video/audio; automatic preview movement stays controllable and separate from media playback.
 - Don't present the local finish verdict or historical fidelity records as production deployment acceptance or an automated fidelity pass.

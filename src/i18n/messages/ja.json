@@ -31,7 +31,10 @@
     "next": "{section} の次のプレビューを見る",
     "scrollHint": "横にスクロールして見る",
     "enterSection": "{section} の詳細へ",
-    "previewRegion": "{section} の横スクロールプレビュー"
+    "previewRegion": "{section} の横スクロールプレビュー",
+    "pauseScroll": "{section} の自動スクロールを一時停止",
+    "resumeScroll": "{section} の自動スクロールを再開",
+    "reducedMotion": "動きを減らす設定により自動スクロールは停止中"
   },
   "about": {
     "title": "私について",

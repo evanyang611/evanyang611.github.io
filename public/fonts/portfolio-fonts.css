@@ -469,3 +469,84 @@
   src: url(/fonts/notosansjp-index-c5c13fd71771.woff2) format('woff2');
   unicode-range: U+65b9, U+6a2a, U+6b21, U+6cd5;
 }
+
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosanssc-index-f0279cda5457.woff2) format('woff2');
+  unicode-range: U+504f, U+505c, U+51cf, U+5c11, U+6548, U+6682, U+6eda, U+7ee7;
+}
+
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosanssc-index-f0279cda5457.woff2) format('woff2');
+  unicode-range: U+504f, U+505c, U+51cf, U+5c11, U+6548, U+6682, U+6eda, U+7ee7;
+}
+
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosanssc-index-f0279cda5457.woff2) format('woff2');
+  unicode-range: U+504f, U+505c, U+51cf, U+5c11, U+6548, U+6682, U+6eda, U+7ee7;
+}
+
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosanstc-index-43c83373bd8d.woff2) format('woff2');
+  unicode-range: U+504f, U+505c, U+5c11, U+6372, U+6548, U+66ab, U+6e1b, U+7e7c;
+}
+
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosanstc-index-43c83373bd8d.woff2) format('woff2');
+  unicode-range: U+504f, U+505c, U+5c11, U+6372, U+6548, U+66ab, U+6e1b, U+7e7c;
+}
+
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosanstc-index-43c83373bd8d.woff2) format('woff2');
+  unicode-range: U+504f, U+505c, U+5c11, U+6372, U+6548, U+66ab, U+6e1b, U+7e7c;
+}
+
+@font-face {
+  font-family: 'Portfolio JP';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosansjp-index-71f2c7f1a768.woff2) format('woff2');
+  unicode-range: U+505c, U+6b62, U+6e1b;
+}
+
+@font-face {
+  font-family: 'Portfolio JP';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosansjp-index-71f2c7f1a768.woff2) format('woff2');
+  unicode-range: U+505c, U+6b62, U+6e1b;
+}
+
+@font-face {
+  font-family: 'Portfolio JP';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosansjp-index-71f2c7f1a768.woff2) format('woff2');
+  unicode-range: U+505c, U+6b62, U+6e1b;
+}

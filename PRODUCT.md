@@ -19,7 +19,7 @@ The independent `personal-portfolio` owns the GitHub user-site homepage at https
 - Next.js 16.4.0, React 19.2.4, TypeScript, CSS Modules, self-hosted fonts and static GitHub Pages export through `.github/workflows/deploy-pages.yml`.
 - Preserve the curiosity-led hero, biography, contact, monochrome identity, centered 1120px maximum container, complete gray-stage screenshots and native detail dialogs.
 - Homepage navigation labels are exactly `AI Agent / AIGC / About` in all four languages, as requested. Contact is a separate localized action.
-- AI Agent and AIGC each have a manual horizontal preview strip and an `Enter` link to an independent detailed collection. No automatic carousel, blog, background-music player, upload service or runtime backend is introduced.
+- AI Agent and AIGC each have an automatic horizontal preview strip and an `Enter` link to an independent detailed collection. The user explicitly requested automatic previews after the initial manual version. Motion runs at 32 CSS px/s, reverses after a one-second endpoint rest, and pauses on hover/focus. Manual input stops automatic movement until resumed; offscreen/hidden tracks stop, and reduced motion disables automatic movement. No blog, background-music player, upload service or runtime backend is introduced.
 - AIGC is empty now: `AIGC_ARTWORKS` remains `[]`. Future media requires approved assets and separate rendering/playback acceptance.
 - Preserve unrelated work. At this documentation handoff, `9a3faec` is the verified published baseline (GitHub Actions `38254765284` succeeded); the new index and collections await release and production acceptance.
 
@@ -57,7 +57,7 @@ The typed registry supports complete images with intrinsic dimensions and four-l
 
 ## Confirmed multilingual scope
 
-Simplified Chinese, Traditional Chinese, English and Japanese cover descriptions, biography, contact, project titles/summaries/details, gallery text, assistive labels and metadata. The three navigation labels, home module names, `Enter`, AI Agent collection title and three product topic headings intentionally remain English. Each message file contains 89 nonempty strings.
+Simplified Chinese, Traditional Chinese, English and Japanese cover descriptions, biography, contact, project titles/summaries/details, gallery text, assistive labels and metadata. The three navigation labels, home module names, `Enter`, AI Agent collection title and three product topic headings intentionally remain English. Each message file contains 92 nonempty strings.
 
 Each surface has static localized HTML, correct `html lang`, title/description, canonical and hreflang. Explicit locale paths take priority; default entries honor a valid query, saved manual preference, then ordered browser languages, with Simplified Chinese fallback. Switching language preserves surface and hash. Contact is `yqh611@gmail.com`; screenshots keep their original language and colors.
 

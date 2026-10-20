@@ -31,7 +31,10 @@
     "next": "Browse next {section} previews",
     "scrollHint": "Scroll sideways to explore",
     "enterSection": "Enter {section} details",
-    "previewRegion": "{section} horizontal previews"
+    "previewRegion": "{section} horizontal previews",
+    "pauseScroll": "Pause {section} automatic scrolling",
+    "resumeScroll": "Resume {section} automatic scrolling",
+    "reducedMotion": "Automatic scrolling is off for reduced motion"
   },
   "about": {
     "title": "About me",

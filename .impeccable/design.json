@@ -359,7 +359,12 @@
       {
         "name": "reduced-motion",
         "value": "prefers-reduced-motion: reduce",
-        "purpose": "Disable project, arrow, action transitions and dialog opening animation; use automatic scrolling."
+        "purpose": "Disable decorative transitions, opening animation and automatic preview movement; use immediate manual scrolling."
+      },
+      {
+        "name": "preview-auto-scroll",
+        "value": "32 CSS px/s; 1000ms initial/endpoint rest",
+        "purpose": "Visible-track gentle back-and-forth movement, user-pausable, no media playback."
       }
     ],
     "breakpoints": [
@@ -631,8 +636,9 @@
         "focus": "outline:2px solid #111; outline-offset:6px;",
         "scrollbar": "thin; #bbb #f3f3f3",
         "movement": "One card width plus 24px; native touch/trackpad scrolling; focused-region ArrowLeft/ArrowRight; endpoint buttons disabled.",
-        "motion": "Manual smooth scroll; instant when prefers-reduced-motion:reduce. No timed movement.",
-        "content": "Four authentic project previews; three explicitly empty gallery-room previews while registry is empty. Future media preview uses actual image/poster/cover with localized kind-label fallback."
+        "motion": "Automatic 32 CSS px/s with one-second endpoint rests and reversal; track hover/focus pauses, manual input stops until resumed, offscreen/hidden stops, reduced motion disables automatic movement. Pause/resume is a localized 44px control.",
+        "content": "Four authentic project previews; three explicitly empty gallery-room previews while registry is empty. Future media preview uses actual image/poster/cover with localized kind-label fallback.",
+        "automaticSnap": "scroll-snap-type:none when automatic motion is allowed, including paused state; reduced-motion manual browsing retains x mandatory."
       },
       "collectionIntro": {
         "desktopTop": "96px",
@@ -764,7 +770,7 @@
       "Centered content with visible white space on both sides.",
       "Regular sans-serif hierarchy and compact black pill actions.",
       "Complete, original-color product images centered on identical gray stages.",
-      "Two manual homepage preview strips and independent collections; AI Agent retains paired topics, complete covers and native dialogs; AIGC retains truthful empty rooms.",
+      "Two automatic, user-pausable homepage preview strips and independent collections; AI Agent retains paired topics, complete covers and native dialogs; AIGC retains truthful empty rooms.",
       "Native language selection, native scrolling, keyboard-visible focus, and reduced-motion support."
     ],
     "rules": [
@@ -796,7 +802,7 @@
       "Do maintain regular sans-serif typography, locale-specific font stacks, and generous space between content groups.",
       "Do reuse the native language selector and detail dialog with keyboard focus, contained scrolling, and reduced-motion behavior.",
       "Do retain font licenses, asset source manifests, and the distinction between real UI images and generated studies.",
-      "Do keep manual previews, truthful empty rooms, locale/surface hashes and user-initiated future media playback."
+      "Do keep automatic previews interruptible and manually browsable, truthful empty rooms, locale/surface hashes and user-initiated future media playback."
     ],
     "donts": [
       "Don't restore near-full-width desktop covers or enlarge type without a new user decision.",
@@ -805,7 +811,7 @@
       "Don't add shadows, decorative gradients, glass surfaces, or heavy display weight to this system.",
       "Don't import the original personal site's visual system or runtime into this independent portfolio.",
       "Don't present the local finish verdict or historical fidelity records as production deployment acceptance or an automated fidelity pass.",
-      "Don't fabricate gallery artworks or add autoplay to previews or media."
+      "Don't fabricate gallery artworks or autoplay media; automatic previews must remain pausable and respect reduced motion."
     ]
   }
 }

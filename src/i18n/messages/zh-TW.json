@@ -31,7 +31,10 @@
     "next": "向後瀏覽 {section}",
     "scrollHint": "左右滑動，發現更多",
     "enterSection": "進入 {section} 詳細頁",
-    "previewRegion": "{section} 橫向預覽"
+    "previewRegion": "{section} 橫向預覽",
+    "pauseScroll": "暫停 {section} 自動捲動",
+    "resumeScroll": "繼續 {section} 自動捲動",
+    "reducedMotion": "已依減少動態效果偏好關閉自動捲動"
   },
   "about": {
     "title": "關於我",
