@@ -6,10 +6,11 @@
   "nav": {
     "label": "ポートフォリオのナビゲーション",
     "home": "Evan Yang のポートフォリオトップ",
-    "work": "作品",
-    "about": "私について",
+    "work": "AI Agent",
+    "about": "About",
     "contact": "お問い合わせ",
-    "language": "言語を選択"
+    "language": "言語を選択",
+    "aigc": "AIGC"
   },
   "hero": {
     "lead": "好奇心を、",
@@ -25,7 +26,12 @@
     "background": "プロジェクトの背景",
     "features": "主な機能",
     "approach": "技術的なアプローチ",
-    "links": "{project} の関連リンク"
+    "links": "{project} の関連リンク",
+    "previous": "{section} の前のプレビューを見る",
+    "next": "{section} の次のプレビューを見る",
+    "scrollHint": "横にスクロールして見る",
+    "enterSection": "{section} の詳細へ",
+    "previewRegion": "{section} の横スクロールプレビュー"
   },
   "about": {
     "title": "私について",
@@ -104,5 +110,42 @@
     "investors": "情報を調査の手がかりにし、異なる視点から考える。",
     "developers": "アイデアを使えるツールに、ツールを再利用できる力に。",
     "acgers": "好きなものとライブをつなぎ、足を運びたい公演を見つける。"
+  },
+  "gallery": {
+    "metadata": {
+      "title": "AIGC ギャラリー · Evan Yang",
+      "description": "Evan Yang が AI と制作する画像・映像・音楽の展示スペース。"
+    },
+    "title": "AIGC ギャラリー",
+    "intro": "画像、映像、音を通して、AI と共に創作する可能性を探る。",
+    "preview": "画像・映像・音楽を展示する、少しずつ育つ創作の空間。",
+    "enter": "ギャラリーへ",
+    "back": "作品集に戻る",
+    "skip": "展示エリアへ移動",
+    "navigation": "展示エリアの案内",
+    "empty": "作品はこれから展示します",
+    "download": "作品をダウンロード",
+    "categories": {
+      "images": {
+        "title": "画像",
+        "description": "イメージと想像が、画面の中で出会う。"
+      },
+      "videos": {
+        "title": "映像",
+        "description": "物語とひらめきが、時間の中で広がる。"
+      },
+      "music": {
+        "title": "音楽",
+        "description": "音でつづる、もうひとつの表現。"
+      }
+    }
+  },
+  "agents": {
+    "metadata": {
+      "title": "AI Agent · Evan Yang",
+      "description": "投資家、開発者、ACG ファンのための AI プロダクト。"
+    },
+    "intro": "投資リサーチ、開発ツール、興味の発見。AI が実際のニーズに応える方法を探る。",
+    "preview": "投資家、開発者、ACG ファンのための AI プロダクト。"
   }
 }

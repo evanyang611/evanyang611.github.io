@@ -1,65 +1,56 @@
 # personal-portfolio
 
-Evan Yang 的独立职业作品集，发布目标为 https://evanyang611.github.io/。保留 Pearl 风格的居中限宽、灰底完整截图和简短项目介绍，点击作品打开原生详情浮窗。
+Evan Yang 的独立作品集，发布目标为 https://evanyang611.github.io/。首页以 AI Agent、AIGC、About 三个模块组织内容，保留现有标题、自我介绍、联系区和 Pearl 风格的黑白灰、1120px 居中限宽及留白。支持简体中文、繁體中文、English 和日本語；三个导航标签在所有语言中固定为 `AI Agent / AIGC / About`，其他说明、详情、无障碍标签和元数据随语言切换。
 
-内容包含作品、个人介绍及联系入口，支持简体中文、繁體中文、English 和日本語。文章及兴趣内容继续属于独立的 `personal-site` 项目。
-
-## 本地开发
+## 本地开发与检查
 
 ```bash
 npm ci
 npm run dev       # http://localhost:8071/
-```
-
-## 检查和预览
-
-```bash
 npm run lint
 npm run i18n:check
 npm run test:locale
-npm run build
+npm run build:pages
 npm run check:export
 npm run preview   # http://localhost:8071/
 ```
 
-## 作品范围
+## 页面与内容
 
-首页固定三个主题、四个作品，每张卡片都使用完整居中的真实截图和普通灰底画布：
+| 页面 | 简体中文 | 其他语言 |
+| --- | --- | --- |
+| 首页 | `/` | `/zh-TW/`、`/en/`、`/ja/` |
+| AI Agent 完整作品 | `/ai-agent/` | `/{locale}/ai-agent/` |
+| AIGC 展厅 | `/aigc/` | `/{locale}/aigc/` |
 
-| 四种语言页面共用的主题标题 | 作品 |
+首页 AI Agent 和 AIGC 各有原生横向滚动预览及 `Enter` 入口。前者展示四个真实产品，后者目前展示图片、视频、音乐三个明确标注待布展的空预览。支持手动前后按钮、聚焦区域的左右键、触控和触控板原生滚动；两端禁用对应按钮，减少动态效果偏好下即时滚动，没有自动轮播。首页导航对应 `#ai-agent`、`#aigc`、`#about`，兼容 `#work` 锚点。
+
+原完整作品列表和原生详情浮窗移到 AI Agent 页面，保持三个英文主题：
+
+| 主题 | 作品 |
 | --- | --- |
 | AI for Investors | LogicDuo、ForeArena |
 | AI for Developers | 奇妙生产力 / Qimiao Productivity |
 | AI for ACGers | Genchi.news |
 
-主题标题保留英文，主题简介及详情随页面语言切换。大于 700px 时每行两个作品：第一行由 Investors 的 LogicDuo 和 ForeArena 组成；第二行由 Developers/Qimiao 与 ACGers/Genchi 组成，保留各自标题与简介。第二行使用共享 subgrid 标题轨道，使不同语言简介换行后封面仍对齐。每个作品占一列，画布宽高比为 1.3；700px 及以下按主题顺序单列展示，画布宽高比为 1.45。
+完整作品页大于 700px 时每行两个作品，第二行 Developers/ACGers 通过共享 subgrid 标题轨道对齐封面；700px 及以下按主题单列。截图完整、原色、居中灰底，说明在图片外。首页预览进入对应主题；完整作品页卡片打开背景、功能、技术思路及外链浮窗。ForeArena 是 `forearena.com` 的定时多 Agent 投资研究产品，中文链接为 `/zh`，英文及日文为 `/en`；公开示例面板不构成投资收益证明。AllFeeds 不在当前四件作品范围。
 
-首页仅展示简短说明；背景、功能、技术思路及外部链接位于详情浮窗。ForeArena 是 <https://forearena.com/> 的多 Agent 定时投资研究产品：选择标的与研究计划，对照市场主线、近期变化、未来情景和 Agent 判断，通过账户、邮件或只读 API 接收简报。链接由项目注册表地址生成，中文指向 <https://forearena.com/zh>，英文及日文指向 <https://forearena.com/en>。公开示例面板仅用于展示产品，不作为投资收益证明。此前审阅记录中的其他产品映射与全宽卡片排列已经被本轮修正取代。AllFeeds 和此前探索的其他项目不在本次首页范围。
+AIGC 独立展厅继承同一系统，有三个锚点房间和待作品提示。`src/content/aigc.ts` 中 `AIGC_ARTWORKS` 按要求保持 `[]`。没有虚构作品、媒体数量、渲染出的播放器、上传功能或后端。未来图片与原生音视频渲染分支已建立，真实素材显示与播放尚未验收。添加已批准素材时使用 `public/aigc/` 和四语言标题/替代文本，见 [添加作品指南](docs/aigc-gallery.md)。
 
-## 内容与语言
+## 实现与语言
 
-- 项目 ID、图片尺寸和外部地址：`src/content/projects.ts`。
-- 四种语言的界面、背景、功能及技术思路：`src/i18n/messages/`。
-- 中文首页 `/`；繁体 `/zh-TW/`；英文 `/en/`；日文 `/ja/`。`/zh-CN/` 和 `/portfolio/` 兼容既有入口，canonical 指向 `/`。
-- 每种语言生成独立 HTML、正确的 `html lang`、标题、描述和 hreflang。根入口依次采用有效的 `?lang=`、已保存的手动选择、浏览器语言偏好；无法匹配时默认简体中文。繁体地区及 `zh-Hant` 使用繁体；英文和日语地区变体使用对应语言。指定语言路径直接呈现对应内容。
-- 产品截图与字体均为本地资产，来源及字体许可证位于 `public/images/` 和 `public/fonts/`。ForeArena 封面 `/images/forearena-investor-cover.jpg` 为 1280 × 720 的真实公开中文页面截图，独立文件名避免沿用旧封面的浏览器缓存；Qimiao 账户栏已排除。当前主题及口号补充字体保留，修正的 ForeArena 文案在同一字体家族新增 SC/TC/JP 子集，分别覆盖 12/14/18 个字形；每种语言仍有 62 条非空文案。
-- 导航和浏览器图标使用提供的星芒环轨 Logo 的透明底黑白灰版本。高清原图、网页尺寸和编辑提示词位于 `public/brand/`。
+- 首页/预览：`src/components/portfolio/Portfolio.tsx`、`PreviewStrip.tsx`；完整产品/浮窗：`AgentProjects.tsx`；项目身份、主题、图片尺寸和外链：`src/content/projects.ts`。
+- 共享导航、页脚和语言选择：`src/components/portfolio/SiteChrome.tsx`。详情页可在集合间跳转，About、联系、品牌与返回入口指向同语言首页。语言切换保留当前首页、AI Agent 或 AIGC 页面及锚点。
+- 展厅：`src/components/gallery/`；空注册表：`src/content/aigc.ts`。
+- 每种语言当前有 89 条非空文案：`src/i18n/messages/`。路径/偏好：`src/i18n/config.ts`；三种页面元数据：`src/i18n/metadata.ts`。静态 HTML 各有正确 `html lang`、标题、描述、canonical 和 hreflang。指定语言路径优先；默认入口依次使用有效 `?lang=`、手动偏好、浏览器语言，最后回退简中。
+- 截图、Logo、字体来源与许可证保留在 `public/images/`、`public/brand/`、`public/fonts/`。展厅与首页文字使用同族 SC/TC/JP 补充字体，来源见 `localized-sources.json`。
 
-## 当前验收
+## 验收与发布边界
 
-`.impeccable/review/paired/finish-review.md` 对提供的本地修正给出 SHIP，无实质问题。审阅者打开并核对了全部 8 张截图尺寸：1440px/390px 简中全页，850px 英文、日文、繁体作品区，390px 简中/日文 ForeArena 详情开头，以及实际 735 × 853 用户宽度的作品区。850px 作品区截图只覆盖第二行标题及封面上部；`user-preview.jpg` 是联系区截图，已排除。
+本轮证据位于 `.impeccable/review/index/`。独立审阅覆盖八张有效截图：桌面/移动首页、320px 日文首页、850px 英文首页、桌面/简中移动 AI Agent、移动展厅和音乐预览末端。音乐图为 390 × 844 中部视口，不是全页。视觉范围符合既有系统；初审要求同步过期文档，最终 disposition 以 `finish-review.md` 为准。
 
-`browser-checks.json` 记录各语言成对排列及无横向溢出；`forearena-links.json` 中其他三种语言的链接检查为 1280px 桌面记录，日文详情截图另为 390px。构建者报告 lint、四语言 62 条文案、语言解析测试、TypeScript/Next 构建、静态导出、正确 ForeArena 注册表与文案保护检查、当前非 ASCII 字体覆盖、7 张上线图片的嵌入来源信息完整性均通过。文档同步没有重跑这些检查或提供的空检测结果 `[]`。历史 `plates` 与像素差异 `drift` 记录仍保留，当前 SHIP 不代表像素完全一致或生产验收。源码平滑滚动已在截图采集后恢复。
+`browser-checks.json` 记录 1440/390/320/850px 无页面溢出、末端按钮禁用、左右键、两个 Enter、四产品三主题、ForeArena 浮窗 Escape 与焦点恢复、集合语言切换，以及空注册表/三个预览/三个空房间/零音视频元素。构建者报告 lint、每语言 89 条文案、4 项语言测试、Next/TypeScript 构建（18 个页面）、四语言静态导出和 `git diff --check` 通过。检测有 11 项字体阶梯文档提示，0 项主要问题。本次文档同步未重跑浏览器或检测；真实 AIGC 素材及播放、实体手机和其他浏览器内核仍未验证。
 
-本轮独立审阅未覆盖动态效果、新一轮键盘/读屏会话、全部非简中页面下部与详情滚动状态、实体设备、其他浏览器内核、产品当前线上行为或投资结果，以及本轮生产发布。
+历史 `.impeccable/review/paired/`、`plates` 与 `drift` 记录保留；本地审阅不证明本轮已经上线。本项目推送 GitHub 用户站仓库 `evanyang611/evanyang611.github.io` 的 `main` 后，由 `.github/workflows/deploy-pages.yml` 检查并发布 `out/`。本次文档交接时已验收线上基线为 `9a3faec`（GitHub Actions `38254765284` 成功）；新首页与集合页面等待提交、推送和生产验收。发布后需读取线上版本，检查四语言首页/集合、入口锚点、字体、滚动控制、返回路径及项目浮窗。
 
-## 发布归属
-
-这个目录是独立的 `personal-portfolio` Git 项目。GitHub 仓库仍使用用户站点所需的 `evanyang611/evanyang611.github.io`，其首页直接展示作品集。
-
-推送到该仓库的 `main` 后，`.github/workflows/deploy-pages.yml` 的 GitHub Actions 检查文案、代码和导出文件，再发布 GitHub Pages。输出目录为 `out/`，没有运行时 API、文章资产或对原项目目录的依赖。
-
-原 `personal-site` 使用独立的 Gitee 仓库 <https://gitee.com/yqh611/personal-site>，现有站点 <https://evanyang.site/> 保留个人主页、博客和兴趣内容。
-
-
-本次双列作品排列与 ForeArena 修正在文档交接时尚未发布；此前的 `9502f5b` 是最近上线版本。发布负责人需提交并推送新版本，随后检查根页面及四语言路由、成对主题与作品数量、图片/字体、语言选择、Gmail、详情浮窗及 ForeArena 对应语言链接。构建通过和本地 SHIP 与线上验收分别记录。
+原 `personal-site` 继续使用 [Gitee 仓库](https://gitee.com/yqh611/personal-site) 和 [evanyang.site](https://evanyang.site/)，保留博客及其他个人内容，页脚继续链接该站。

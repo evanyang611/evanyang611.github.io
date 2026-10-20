@@ -8,60 +8,82 @@ web
 
 ## Users
 
-The professional portfolio is for professional peers and potential collaborators, as confirmed by the user. They need to understand Evan Yang's expertise and inspect his work.
+Professional peers and potential collaborators inspect Evan Yang's expertise, independent products and supplied AI creations, then contact him or visit a project.
 
 ## Product Purpose
 
-The standalone, work-focused `personal-portfolio` project is assigned the GitHub user-site homepage at https://evanyang611.github.io/. The separate `personal-site` stays on Gitee and evanyang.site, with its personal, blog, and hobby content. The portfolio's footer links to that separate site.
+The independent `personal-portfolio` owns the GitHub user-site homepage at https://evanyang611.github.io/. Its homepage is an index of AI Agent, AIGC and About. The separate `personal-site` retains personal writing and other content at evanyang.site and Gitee; its footer link remains.
 
 ## Capabilities and Constraints
 
-- Independent stack: Next.js 16.4.0, React 19.2.4, TypeScript, and CSS Modules. No article, music, hobby, or personal-site runtime dependency.
-- The established deployment is a static export to GitHub Pages through `.github/workflows/deploy-pages.yml`. The current paired-work and ForeArena correction is locally validated and awaiting the release owner’s commit, push, and production acceptance; `9502f5b` is the prior deployed revision.
-- Preserve existing unrelated uncommitted work.
-- The user chose visual mockups before implementation and pinned https://pearl.framer.website/ as the visual reference. Use Evan's own content and authentic assets.
-- Preserve the later approved centered 1120px maximum width, gray image stages, complete screenshots, captions, and native project dialogs.
+- Next.js 16.4.0, React 19.2.4, TypeScript, CSS Modules, self-hosted fonts and static GitHub Pages export through `.github/workflows/deploy-pages.yml`.
+- Preserve the curiosity-led hero, biography, contact, monochrome identity, centered 1120px maximum container, complete gray-stage screenshots and native detail dialogs.
+- Homepage navigation labels are exactly `AI Agent / AIGC / About` in all four languages, as requested. Contact is a separate localized action.
+- AI Agent and AIGC each have a manual horizontal preview strip and an `Enter` link to an independent detailed collection. No automatic carousel, blog, background-music player, upload service or runtime backend is introduced.
+- AIGC is empty now: `AIGC_ARTWORKS` remains `[]`. Future media requires approved assets and separate rendering/playback acceptance.
+- Preserve unrelated work. At this documentation handoff, `9a3faec` is the verified published baseline (GitHub Actions `38254765284` succeeded); the new index and collections await release and production acceptance.
 
-## Evidence on Hand
+## Current surfaces
 
-- Professional biography, education, contact copy, project summaries, backgrounds, features, technical approaches, and link labels: `src/i18n/messages/{zh-CN,zh-TW,en,ja}.json`, selected through `src/i18n/messages.ts`.
-- Project identities, image paths, dimensions, and external destinations: `src/content/projects.ts`. The selected projects are LogicDuo, ForeArena, 奇妙生产力 / Qimiao, and Genchi.news. The same file owns the fixed English topic names and memberships.
-- Email and separate personal-site destinations, section structure, selector, and native-dialog behavior: `src/components/portfolio/Portfolio.tsx`.
-- Locale paths and language-preference rules: `src/i18n/config.ts`; translated metadata and alternate links: `src/i18n/metadata.ts`; document languages: `src/components/Document.tsx` and the default/localized root layouts.
-- Authentic cover provenance: `public/images/sources.json`. Self-hosted font sources and licenses: `public/fonts/sources.json`, `public/fonts/localized-sources.json`, and sibling `*-OFL.txt` files.
-- Current local acceptance: `.impeccable/review/paired/finish-review.md` gives SHIP for the supplied local correction. The reviewer opened and dimension-checked eight captures: Simplified Chinese full pages at 1440px/390px, English/Japanese/Traditional Chinese galleries at 850px, Chinese/Japanese ForeArena dialog openings at 390px, and the actual 735 × 853 user-width gallery. `browser-checks.json` records aligned paired rows and no horizontal overflow. `forearena-links.json` records the other three locales' destinations at 1280px desktop; the Japanese dialog screenshot is separately 390px. `user-preview.jpg` is an excluded contact view.
-- Current builder-reported checks passed lint; 62 nonempty strings in each locale; locale resolver tests; TypeScript/Next build; static export with the exact roster; the correct ForeArena registry/copy guards; current non-ASCII self-hosted glyph coverage; and seven shipping rasters with zero missing embedded provenance. This documentation pass did not rerun these checks or the supplied detector `[]`.
-- The earlier standalone review and A-v3 composition remain history. The open `plates` gate, historical AllFeeds plate score 0.3903, and final-diff score 0.7611 / `drift` remain unpassed historical fidelity records; the current local verdict does not certify exact pixel fidelity or deployment.
-- Employer names, employment dates, user counts, business results, and client endorsements have not been supplied. Do not invent them.
+| Surface | Default route | Localized routes | Contents |
+| --- | --- | --- | --- |
+| Home index | `/` | `/zh-TW/`, `/en/`, `/ja/` | Preserved hero; AI Agent and AIGC previews; About; contact |
+| AI Agent | `/ai-agent/` | `/{locale}/ai-agent/` | Four curated products in three topics; native detail dialogs |
+| AIGC | `/aigc/` | `/{locale}/aigc/` | Images, videos and music rooms; all explicitly empty |
 
-## Product Principles
+Home navigation anchors `#ai-agent`, `#aigc`, and `#about`; the hero action enters the AI Agent preview and the legacy `#work` anchor remains. Collection navigation routes to AI Agent/AIGC or home About. Brand, contact and footer return paths preserve locale. Current collection items use `aria-current="page"`.
 
-- Show concrete work before broad capability claims.
-- Keep expertise, independent projects, and contact information legible.
-- Attribute contributions and results only where evidence exists.
-- Keep the professional portfolio focused on work; personal writing and hobbies belong to the separate personal site.
+AI Agent previews four authentic product covers with brief captions. Cards enter the matching collection topic; project dialogs belong to the collection. AIGC currently previews three explicitly pending media rooms. Each section's `Enter` opens its collection. Tracks support native horizontal scroll snap, touch/trackpad scrolling, previous/next buttons disabled at endpoints, and left/right keys on the focused region. Reduced-motion preference makes button/key movement instant. No timed movement or fake media controls.
 
-## Selected homepage scope
+## AI Agent collection
 
-Exactly three topics and four works ship, replacing the exploratory nine-work inventory:
+The former homepage gallery moves intact to the independent AI Agent page:
 
-| Topic heading on all four pages | Works |
+| Topic heading in every locale | Works |
 | --- | --- |
 | AI for Investors | LogicDuo; ForeArena |
 | AI for Developers | 奇妙生产力 / Qimiao Productivity |
 | AI for ACGers | Genchi.news |
 
-The topic headings remain English and each has a short localized introduction. Above 700px, LogicDuo and ForeArena share the first row under Investors. Developers/Qimiao and ACGers/Genchi share the second row with independent headings; a shared subgrid header track keeps their covers aligned across localized introduction lengths. All four cards use ordinary single-track gray stages (aspect ratio 1.3), complete centered authentic screenshots, and brief captions. At 700px and below, the projects stack in topic order. Clicking opens a localized native detail dialog containing background, features, technical approach, and the outbound link.
+Above 700px, Investors contains LogicDuo/ForeArena in the first row. Developers/Qimiao and ACGers/Genchi share a second row with independent headings and a shared subgrid header track aligning covers across localized introductions. All four use ordinary gray stages, complete centered original-color screenshots and captions. At 700px and below, topics stack. Cards open localized native dialogs with background, features, technical approach and links; Escape, close/backdrop dismissal, contained scrolling and focus return remain.
 
-ForeArena is the scheduled multi-agent investment research product at `https://forearena.com/`. Its four localized details describe selecting research targets and schedules; examining market drivers, recent changes, future scenarios and agent judgments; and receiving traceable briefings through an account, email, or read-only API. Chinese destinations are `https://forearena.com/zh`, and English/Japanese destinations are `https://forearena.com/en`, derived from the authoritative registry root. Its authentic 1280 × 720 cover is `/images/forearena-investor-cover.jpg`, captured from the public Chinese landing page. The visible sample panel is product imagery and does not substantiate investment returns. Earlier reviews' alternate product mapping and full-width placement are superseded by this correction.
+ForeArena is scheduled multi-agent investment research at `https://forearena.com/`: targets and schedules, market drivers, recent changes, future scenarios, agent judgments, and traceable account/email/read-only API briefings. Registry-derived destinations are `/zh` for Chinese and `/en` for English/Japanese. Its authentic 1280 × 720 public landing-page cover is `/images/forearena-investor-cover.jpg`; the sample panel does not substantiate investment returns. Earlier COUNCIA mapping/full-width placement is superseded. AllFeeds and other discovered projects are not additional shipping cards.
 
-AllFeeds is removed from the homepage and its old cover is absent. The other discovered projects remain inventory evidence and must not silently become shipping cards. The curiosity-led headline and introduction are current in all four message files. The mobile opening follows the user’s screenshot correction so the first topic and cover appear in the first viewport; desktop retains the approved whitespace.
+## AIGC exhibition
+
+The user requests an art-exhibition framework without media yet. Images, videos and music rooms have localized introductions and waiting labels, with flat neutral walls and blank mounting/projection/album geometry. No fabricated artworks, counts or rendered audio/video players appear in the current empty state.
+
+The typed registry supports complete images with intrinsic dimensions and four-language alt text, controlled inline video with an optional poster, and controlled audio with an optional cover. Neither player autoplays. With approved works, the homepage uses actual images/posters/covers; a localized kind label is the fallback when a preview asset is absent. A populated category automatically replaces its empty wall while other rooms remain empty. `docs/aigc-gallery.md` covers files under `public/aigc/`, localized metadata and later acceptance.
 
 ## Confirmed multilingual scope
 
-The portfolio has no blog section. Simplified Chinese, Traditional Chinese, English, and Japanese cover navigation, headline and introduction, topic introductions, biography, project titles and summaries, detailed backgrounds, features, technical approaches, assistive labels, contact, and footer. The localized message files contain 62 nonempty strings per locale. Routes are `/`, `/zh-TW/`, `/en/`, and `/ja/`; language-specific static HTML includes titles, descriptions, document language, canonical URLs, and alternate links. Explicit language paths take priority over automatic selection. Default entries honor a valid query or saved manual choice, then match the browser's ordered language preferences, with Simplified Chinese as the fallback. Contact uses `yqh611@gmail.com`. All screenshots are authentic product UI and retain their source language and colors.
+Simplified Chinese, Traditional Chinese, English and Japanese cover descriptions, biography, contact, project titles/summaries/details, gallery text, assistive labels and metadata. The three navigation labels, home module names, `Enter`, AI Agent collection title and three product topic headings intentionally remain English. Each message file contains 89 nonempty strings.
 
+Each surface has static localized HTML, correct `html lang`, title/description, canonical and hreflang. Explicit locale paths take priority; default entries honor a valid query, saved manual preference, then ordered browser languages, with Simplified Chinese fallback. Switching language preserves surface and hash. Contact is `yqh611@gmail.com`; screenshots keep their original language and colors.
 
-## Release and evidence boundaries
+## Sources and implementation ownership
 
-Documentation now reflects the paired-work correction; publication and production acceptance remain separate release steps. Source smooth scrolling is restored after the temporary exported-CSS capture override. The release owner must verify the root and locale routes, exact paired topic/roster content, images/fonts, language selection, Gmail contact, a project dialog, and the localized ForeArena destination after publishing. Live motion, a fresh keyboard/screen-reader session, all non-CN lower-page/dialog scroll states, physical-device behavior, other browser engines, current public product behavior or investment outcomes, and this correction's production release were not independently exercised by the current reviewer.
+- `src/components/portfolio/Portfolio.tsx`: index, biography/contact; `PreviewStrip.tsx`: scroll controls/keys; `AgentProjects.tsx`: collection and native-dialog lifecycle.
+- `src/components/portfolio/SiteChrome.tsx`: shared navigation, language/preference routing and footer; `src/content/projects.ts`: IDs, topics, assets, dimensions and destinations.
+- `src/components/gallery/{Gallery.tsx,gallery.module.css}`: rooms and future media; `src/content/aigc.ts`: empty typed registry/order.
+- `src/i18n/messages/`, `config.ts`, `metadata.ts`, `Document.tsx` and route layouts: content, routing, metadata and document language.
+- `public/images/sources.json`, `public/brand/sources.json`, `public/fonts/{sources.json,localized-sources.json}` and font licenses: provenance. Existing-family SC/TC/JP gallery subsets add 21/22/17 glyphs; index subsets add 4/5/4.
+- `.impeccable/surfaces/{portfolio,aigc}.md`: user direction. `DESIGN.md` and `.impeccable/design.json`: incumbent system with narrow index/gallery extensions.
+
+## Product Principles
+
+- Show concrete work and truthful empty states before broad claims.
+- Distinguish index previews from detailed collections.
+- Attribute results only with evidence; do not invent employers, dates, scale, endorsements or investment outcomes.
+- Preserve localization, native navigation, manual scrolling and keyboard focus.
+- Add only Evan's approved real media, with user-initiated native playback.
+
+## Evidence and release boundaries
+
+Current evidence is `.impeccable/review/index/`. A fresh reviewer inspected eight captures: desktop/mobile home, 320px Japanese home, 850px English home, desktop/Simplified Chinese mobile AI Agent, mobile gallery, and the end-scrolled 390 × 844 music-preview viewport. The last is a mid-page viewport, not a full-page capture. Visual scope fits the incumbent world; the initial verdict requests updating superseded documentation. Final disposition belongs to `finish-review.md` after this handoff.
+
+Supplied `browser-checks.json` records no page overflow at 1440/390/320/850px, strip scrolling/end disabling, focused-region arrow keys, both Enter links, four products/three topics, ForeArena dialog Escape/focus return, collection language/return paths, zero artworks, three home empty previews, three gallery empty rooms and zero audio/video elements. Builder-reported lint, 89 strings per locale, four locale tests, Next/TypeScript build (18 pages), four-locale static export and `git diff --check` passed. Detector: zero primary findings, 11 advisory type-ramp documentation differences. This documentation pass did not rerun browser sessions, implementation checks or detection.
+
+Populated artwork rendering, actual native video/audio playback, physical phones and other engines remain unverified. This release is pending on published baseline `9a3faec`. After publishing, read back the served revision, localized home/collection routes and metadata, previews/controls, empty rooms, font delivery, surface/hash preservation, return paths and existing dialogs.
+
+Prior paired-work review and comp records remain history. The open `plates` gate, historical AllFeeds plate score 0.3903 and first-build final-diff score 0.7611 (`drift`) remain unpassed fidelity records; this extension does not repair them or certify exact pixel fidelity or deployment.

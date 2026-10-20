@@ -95,3 +95,12 @@ The current hero is “把好奇心，做成有用的产品。” and localized 
 The user clarified that ForeArena means https://forearena.com/, a separate scheduled investor-briefing product. Replace the mistaken COUNCIA screenshot, links and four-language detail copy. Chinese locale links use forearena.com/zh; English and Japanese use /en. Earlier COUNCIA naming claims above are superseded, not current product facts.
 
 Desktop uses two works per row: LogicDuo/ForeArena under Investors, followed by side-by-side Developers/Qimiao and ACGers/Genchi topics. Secondary topic headers share grid tracks so covers align despite localized introduction lengths. Each card uses the ordinary gray-stage cover within a half-width column. At 700px and below, all topics and cards flow as single-column blocks. Preserve existing side whitespace, hero, branding and dialog behavior.
+
+
+## Current user direction: index and independent collections - 2026-10-20
+
+This direction supersedes earlier homepage gallery/Work navigation instructions. Keep the approved hero, biography, contact and Pearl monochrome 1120px world. Homepage navigation is exactly AI Agent / AIGC / About in all four languages, anchoring the corresponding modules. AI Agent and AIGC each have a native horizontal scroll-snap preview strip with manual previous/next controls, endpoint disabling, focused-region arrow keys, touch/trackpad scrolling and reduced-motion support. Each has an Enter link to an independent detailed page; no automatic carousel.
+
+`/ai-agent/` and its four locale variants retain the exact four authentic projects, three English audience topics, paired desktop grid and native dialogs. Homepage project previews link to the matching topic. `/aigc/` and locale variants retain the empty images/video/music exhibition; its homepage strip has three clearly pending room previews. The typed artwork registry remains empty. Collection navigation routes between collections and home About; language changes preserve surface and hash. No new identity, fictional art or background player is introduced. Current messages contain 89 strings per locale.
+
+Current finish evidence is `.impeccable/review/index/`; source and browser evidence are local until a separately verified release. Earlier comp/fidelity records remain historical and unchanged. This current topology replaces the earlier homepage grid and gallery gateway rather than adding another project to the roster.

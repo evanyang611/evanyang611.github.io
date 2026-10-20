@@ -1,0 +1,52 @@
+.gallery { max-width: 1120px; margin: auto; padding: 0 clamp(24px, 3.5vw, 48px) 100px; }
+.intro { padding: 96px 0 64px; }
+.intro h1 { margin: 0; font-family: var(--font-display); font-size: clamp(42px, 4.7vw, 68px); font-weight: 400; line-height: 1.23; letter-spacing: -.035em; }
+.intro p { max-width: 48ch; margin: 28px 0 0; color: #666; font-size: 19px; line-height: 1.8; }
+.categoryNav { position: sticky; top: 0; z-index: 5; display: flex; gap: 40px; padding: 8px 0; border-bottom: 1px solid #ddd; background: #fff; }
+.categoryNav a { display: inline-flex; align-items: center; min-height: 44px; color: #666; font-size: 16px; text-underline-offset: 7px; }
+.categoryNav a:hover { color: #111; text-decoration: underline; }
+.exhibitions { padding-top: 64px; scroll-margin-top: 80px; }
+.room { scroll-margin-top: 80px; }
+.room + .room { margin-top: 100px; }
+.roomHeader { margin-bottom: 32px; }
+.roomHeader h2 { margin: 0; font-size: clamp(26px, 2.5vw, 34px); line-height: 1.3; font-weight: 400; letter-spacing: -.02em; }
+.roomHeader p { margin: 12px 0 0; max-width: 65ch; color: #666; font-size: 16px; }
+.emptyWall { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; min-height: 380px; padding: 48px; background: #f3f3f3; }
+.emptyWall > p { margin: 0; color: #666; font-size: 14px; line-height: 1.6; }
+.mounts { display: flex; align-items: center; justify-content: center; width: 100%; gap: 32px; }
+.mounts span { display: block; border: 1px solid #ddd; background: #fff; }
+.images .mounts span { width: 18%; max-width: 160px; aspect-ratio: 4 / 5; }
+.images .mounts span:nth-child(2) { width: 26%; max-width: 220px; aspect-ratio: 3 / 4; }
+.videos { min-height: 440px; }
+.videos .mounts span { width: min(100%, 640px); aspect-ratio: 16 / 9; background: #fafafa; }
+.music { min-height: 300px; }
+.music .mounts span { width: 140px; aspect-ratio: 1; }
+.artworks { display: grid; gap: 72px; }
+.artwork { margin: 0; min-width: 0; }
+.artworkMedia { display: flex; flex-direction: column; align-items: center; gap: 32px; padding: 48px; background: #eee; }
+.artworkMedia img, .artworkMedia video { display: block; max-width: 100%; height: auto; }
+.artworkMedia video, .artworkMedia audio { width: 100%; }
+.artworkMedia .albumCover { max-width: 240px; }
+.artwork figcaption { margin-top: 24px; }
+.artwork h3 { margin: 0; font-size: 25px; font-weight: 400; line-height: 1.4; }
+.artwork figcaption p { margin: 10px 0 0; max-width: 65ch; color: #666; font-size: 16px; }
+@media (max-width: 700px) {
+  .gallery { padding: 0 24px 64px; }
+  .intro { padding: 56px 0 36px; }
+  .intro h1 { font-size: 36px; line-height: 1.35; letter-spacing: -.025em; }
+  .intro p { margin-top: 20px; font-size: 17px; }
+  .categoryNav { gap: 32px; }
+  .categoryNav a { font-size: 15px; }
+  .exhibitions { padding-top: 40px; }
+  .room + .room { margin-top: 72px; }
+  .roomHeader { margin-bottom: 24px; }
+  .roomHeader h2 { font-size: 26px; }
+  .roomHeader p { font-size: 15px; }
+  .emptyWall { min-height: 280px; padding: 28px 24px; gap: 24px; }
+  .mounts { gap: 16px; }
+  .videos { min-height: 250px; }
+  .music { min-height: 250px; }
+  .music .mounts span { width: 112px; }
+  .artworkMedia { padding: 24px; }
+  .artwork h3 { font-size: 22px; }
+}

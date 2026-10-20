@@ -27,3 +27,8 @@ export function browserLocale(languages: readonly string[]): Locale {
 export function preferredLocale(query: unknown, saved: unknown, languages: readonly string[]): Locale {
   return isLocale(query) ? query : isLocale(saved) ? saved : browserLocale(languages);
 }
+
+export type Surface = "portfolio" | "aigc" | "agents";
+export function surfacePath(locale: Locale, surface: Surface = "portfolio"): string {
+  return surface === "portfolio" ? LOCALE_PATHS[locale] : `${LOCALE_PATHS[locale]}${surface === "agents" ? "ai-agent" : "aigc"}/`;
+}

@@ -6,10 +6,11 @@
   "nav": {
     "label": "作品集导航",
     "home": "Evan Yang 作品集首页",
-    "work": "作品",
-    "about": "关于",
+    "work": "AI Agent",
+    "about": "About",
     "contact": "联系我",
-    "language": "选择语言"
+    "language": "选择语言",
+    "aigc": "AIGC"
   },
   "hero": {
     "lead": "把好奇心，",
@@ -25,7 +26,12 @@
     "background": "项目背景",
     "features": "主要功能",
     "approach": "技术思路",
-    "links": "{project} 相关链接"
+    "links": "{project} 相关链接",
+    "previous": "向前浏览 {section}",
+    "next": "向后浏览 {section}",
+    "scrollHint": "左右滑动，发现更多",
+    "enterSection": "进入 {section} 详情页",
+    "previewRegion": "{section} 横向预览"
   },
   "about": {
     "title": "关于我",
@@ -104,5 +110,42 @@
     "investors": "让信息变成线索，让研究看见不同观点。",
     "developers": "让想法变成可用的工具，让工具成为可复用的能力。",
     "acgers": "连接兴趣与现场，发现值得奔赴的演出。"
+  },
+  "gallery": {
+    "metadata": {
+      "title": "AIGC 画廊 · Evan Yang",
+      "description": "Evan Yang 的 AI 创作展览，图片、视频与音乐的展示空间。"
+    },
+    "title": "AIGC 画廊",
+    "intro": "以图像、动态与声音，探索和 AI 一起创作的可能。",
+    "preview": "图片、视频与音乐，一处持续生长的创作空间。",
+    "enter": "进入展览",
+    "back": "返回作品集",
+    "skip": "跳转到展区",
+    "navigation": "展区导航",
+    "empty": "作品待展",
+    "download": "下载作品",
+    "categories": {
+      "images": {
+        "title": "图片",
+        "description": "图像与想象，在画面中相遇。"
+      },
+      "videos": {
+        "title": "视频",
+        "description": "让故事与灵感，在时间中展开。"
+      },
+      "music": {
+        "title": "音乐",
+        "description": "用声音，留下另一种表达。"
+      }
+    }
+  },
+  "agents": {
+    "metadata": {
+      "title": "AI Agent · Evan Yang",
+      "description": "面向投资者、开发者与 ACG 爱好者的 AI 产品。"
+    },
+    "intro": "探索 AI 如何为真实需求服务，从投资研究到开发工具与兴趣发现。",
+    "preview": "面向投资者、开发者与 ACG 爱好者的 AI 产品。"
   }
 }

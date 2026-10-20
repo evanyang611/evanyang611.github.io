@@ -6,10 +6,11 @@
   "nav": {
     "label": "Portfolio navigation",
     "home": "Evan Yang portfolio home",
-    "work": "Work",
+    "work": "AI Agent",
     "about": "About",
     "contact": "Contact",
-    "language": "Choose language"
+    "language": "Choose language",
+    "aigc": "AIGC"
   },
   "hero": {
     "lead": "Turning curiosity ",
@@ -25,7 +26,12 @@
     "background": "Background",
     "features": "Key features",
     "approach": "Technical approach",
-    "links": "{project} links"
+    "links": "{project} links",
+    "previous": "Browse previous {section} previews",
+    "next": "Browse next {section} previews",
+    "scrollHint": "Scroll sideways to explore",
+    "enterSection": "Enter {section} details",
+    "previewRegion": "{section} horizontal previews"
   },
   "about": {
     "title": "About me",
@@ -104,5 +110,42 @@
     "investors": "Turn information into research leads, and explore different perspectives.",
     "developers": "Turn ideas into useful tools, and tools into reusable capabilities.",
     "acgers": "Connect your interests with live events worth experiencing."
+  },
+  "gallery": {
+    "metadata": {
+      "title": "AIGC Gallery · Evan Yang",
+      "description": "An exhibition space for Evan Yang’s AI-created images, videos, and music."
+    },
+    "title": "AIGC Gallery",
+    "intro": "Exploring creative possibilities with AI, through images, moving pictures, and sound.",
+    "preview": "A growing creative space for images, videos, and music.",
+    "enter": "Enter the gallery",
+    "back": "Back to portfolio",
+    "skip": "Skip to the exhibitions",
+    "navigation": "Exhibition navigation",
+    "empty": "Works to be exhibited",
+    "download": "Download artwork",
+    "categories": {
+      "images": {
+        "title": "Images",
+        "description": "Where visual ideas and imagination meet."
+      },
+      "videos": {
+        "title": "Videos",
+        "description": "Stories and ideas unfolding over time."
+      },
+      "music": {
+        "title": "Music",
+        "description": "Another way of expressing ideas, through sound."
+      }
+    }
+  },
+  "agents": {
+    "metadata": {
+      "title": "AI Agent · Evan Yang",
+      "description": "AI products for investors, developers, and ACG fans."
+    },
+    "intro": "Exploring how AI can serve real needs, from investment research to developer tools and discovering live events.",
+    "preview": "AI products for investors, developers, and ACG fans."
   }
 }
