@@ -63,7 +63,7 @@ for (const [locale, dir] of Object.entries(languages)) {
     assert.ok(html.includes(`data-artwork-preview="${work.id}"`), `${locale}: artwork preview missing`);
     assert.ok(gallery.includes(`data-artwork-id="${work.id}"`), `${locale}: artwork missing`);
     const escaped = value => value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("'", "&#x27;");
-    assert.ok(html.includes(escaped(work.title[locale])) && gallery.includes(escaped(work.title[locale])), `${locale}: artwork title missing`);
+    if (work.kind !== "images") assert.ok(html.includes(escaped(work.title[locale])) && gallery.includes(escaped(work.title[locale])), `${locale}: artwork title missing`);
     if (work.kind === "images") assert.ok(gallery.includes(`alt="${escaped(work.alt[locale])}"`) && gallery.includes(`src="${work.src}"`), `${locale}: artwork image/alt missing`);
   }
   for (const [kind, tag] of [["videos", "video"], ["music", "audio"]]) {

@@ -1,5 +1,7 @@
 # Adding AIGC works
 
+Image works have no visible title on the homepage or in the gallery, as requested. Keep localized alt text for accessibility; registry titles remain internal metadata. Optional supplied descriptions/year/tool can still accompany a gallery image.
+
 The registry contains two user-approved images: Blue Archive ensemble and Sunna warm-light portrait. Only these two works were selected on 2026-10-21; Mutsumi and alternate source versions are excluded. Video and music rooms remain intentionally empty.
 
 Local intake is `aigc-inbox/` (Git-ignored). Preserve supplied originals there; publish only approved, optimized assets under `public/aigc/`. Current WebP images retain the supplied native dimensions (2720 × 1530 and 1728 × 2432), original proportions and colors. `public/aigc/sources.json` records source/output hashes and conversion settings. No generation model, date or prompt is asserted without supplied facts.

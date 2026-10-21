@@ -111,3 +111,7 @@ The user then requested automatic scrolling. Both preview strips now advance at 
 
 ## First approved images — 2026-10-21
 User selected only Blue Archive and Sunna from supplied files. Populate the home previews and image room with their supplied native-resolution variants, complete original-color imagery centered on gray. Retain video/music empty states, all locales and automatic preview controls. Cap gallery image height at min(75svh, 900px); with exactly two home cards use 58% desktop basis (86% mobile) so automatic scrolling remains functional. Preserve local intake originals and omit Mutsumi and duplicate variants. This supersedes the earlier wholly-empty content instruction. Evidence: `.impeccable/review/aigc-intake/`.
+
+
+## Image presentation correction — 2026-10-21
+The user requests no image titles. Omit visible titles from both homepage image previews and gallery images, with no leftover empty caption gap. Retain localized alt text, gray stages, complete imagery and existing navigation/motion.

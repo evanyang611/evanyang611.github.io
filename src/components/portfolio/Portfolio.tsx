@@ -41,7 +41,7 @@ export default function Portfolio({ locale, copy, autoSelectLanguage = false }: 
           return <article key={work.id} data-artwork-preview={work.id}>
             <a className={styles.previewCard} href={`${surfacePath(locale, "aigc")}#${work.kind}`}>
               <span className={styles.aigcPreviewWall}>{preview ? <Image className={styles.aigcPreviewImage} src={preview} fill alt={alt} sizes="(max-width: 700px) 80vw, 450px" /> : <span>{copy.gallery.categories[work.kind].title}</span>}</span>
-              <span className={styles.stripCaption}><span className={styles.stripTitle}>{work.title[locale]}</span></span>
+              {work.kind !== "images" && <span className={styles.stripCaption}><span className={styles.stripTitle}>{work.title[locale]}</span></span>}
             </a>
           </article>;
         }) : AIGC_CATEGORIES.map(kind => <article key={kind} data-category-preview={kind}>

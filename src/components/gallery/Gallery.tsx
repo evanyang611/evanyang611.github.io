@@ -27,7 +27,7 @@ function Artwork({ work, locale, fallback }: { work: AigcArtwork; locale: Locale
         <audio controls preload="none" aria-label={work.title[locale]}><source src={work.src} /><a href={work.src}>{fallback}</a></audio>
       </>}
     </div>
-    <figcaption><h3>{work.title[locale]}</h3>{(work.year || work.tool) && <p>{[work.year, work.tool].filter(Boolean).join(" · ")}</p>}{work.description && <p>{work.description[locale]}</p>}</figcaption>
+    {(work.kind !== "images" || work.year || work.tool || work.description) && <figcaption>{work.kind !== "images" && <h3>{work.title[locale]}</h3>}{(work.year || work.tool) && <p>{[work.year, work.tool].filter(Boolean).join(" · ")}</p>}{work.description && <p>{work.description[locale]}</p>}</figcaption>}
   </figure>;
 }
 
