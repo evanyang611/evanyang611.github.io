@@ -141,7 +141,12 @@
         "title": "音樂",
         "description": "用聲音，留下另一種表達。"
       }
-    }
+    },
+    "openImage": "放大檢視：{description}",
+    "imageViewer": "圖片預覽",
+    "closeImage": "關閉圖片",
+    "zoomIn": "檢視原始大小",
+    "zoomOut": "符合視窗"
   },
   "agents": {
     "metadata": {

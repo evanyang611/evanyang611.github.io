@@ -35,14 +35,14 @@ npm run preview   # http://localhost:8071/
 
 完整作品页大于 700px 时每行两个作品，第二行 Developers/ACGers 通过共享 subgrid 标题轨道对齐封面；700px 及以下按主题单列。截图完整、原色、居中灰底，说明在图片外。首页预览进入对应主题；完整作品页卡片打开背景、功能、技术思路及外链浮窗。ForeArena 是 `forearena.com` 的定时多 Agent 投资研究产品，中文链接为 `/zh`，英文及日文为 `/en`；公开示例面板不构成投资收益证明。AllFeeds 不在当前四件作品范围。
 
-AIGC 独立展厅继承同一系统。图片展区展示 Blue Archive 合绘（2720 × 1530）和 Sunna 暖光肖像（1728 × 2432），视频、音乐继续待展。高清原稿保留在 Git 忽略的 `aigc-inbox/`，发布的 WebP 合计 1,071,292 字节，转换未缩放或裁切。四语言标题/替代文本与素材来源见 `src/content/aigc.ts`、`public/aigc/sources.json`，添加方式见 [指南](docs/aigc-gallery.md)。竖图按视口限高且完整居中；桌面只有两幅预览时使用 58% 卡片宽度，保持自动滚动。
+AIGC 独立展厅继承同一系统。图片展区展示 Blue Archive 合绘（1920 × 1080）和 Sunna 暖光肖像（1728 × 2432），视频、音乐继续待展。高清原稿保留在 Git 忽略的 `aigc-inbox/`，发布的 WebP 合计 823,646 字节，转换未缩放或裁切。四语言标题/替代文本与素材来源见 `src/content/aigc.ts`、`public/aigc/sources.json`，添加方式见 [指南](docs/aigc-gallery.md)。竖图按视口限高且完整居中；桌面只有两幅预览时使用 58% 卡片宽度，保持自动滚动。
 
 ## 实现与语言
 
 - 首页/预览：`src/components/portfolio/Portfolio.tsx`、`PreviewStrip.tsx`；完整产品/浮窗：`AgentProjects.tsx`；项目身份、主题、图片尺寸和外链：`src/content/projects.ts`。
 - 共享导航、页脚和语言选择：`src/components/portfolio/SiteChrome.tsx`。详情页可在集合间跳转，About、联系、品牌与返回入口指向同语言首页。语言切换保留当前首页、AI Agent 或 AIGC 页面及锚点。
 - 展厅：`src/components/gallery/`；作品注册表：`src/content/aigc.ts`。
-- 每种语言当前有 92 条非空文案：`src/i18n/messages/`。路径/偏好：`src/i18n/config.ts`；三种页面元数据：`src/i18n/metadata.ts`。静态 HTML 各有正确 `html lang`、标题、描述、canonical 和 hreflang。指定语言路径优先；默认入口依次使用有效 `?lang=`、手动偏好、浏览器语言，最后回退简中。
+- 每种语言当前有 97 条非空文案：`src/i18n/messages/`。路径/偏好：`src/i18n/config.ts`；三种页面元数据：`src/i18n/metadata.ts`。静态 HTML 各有正确 `html lang`、标题、描述、canonical 和 hreflang。指定语言路径优先；默认入口依次使用有效 `?lang=`、手动偏好、浏览器语言，最后回退简中。
 - 截图、Logo、字体来源与许可证保留在 `public/images/`、`public/brand/`、`public/fonts/`。展厅与首页文字使用同族 SC/TC/JP 补充字体，来源见 `localized-sources.json`。
 
 ## 本次图片接入
@@ -60,3 +60,5 @@ AIGC 独立展厅继承同一系统。图片展区展示 Blue Archive 合绘（2
 原 `personal-site` 继续使用 [Gitee 仓库](https://gitee.com/yqh611/personal-site) 和 [evanyang.site](https://evanyang.site/)，保留博客及其他个人内容，页脚继续链接该站。
 
 本次自动滚动更新的运行证据位于 `.impeccable/review/auto-scroll/`；新增暂停、继续和减少动态效果标签。原首页与集合发布版本为 `2930916`，本次更新另行发布验收。
+
+AIGC 图片支持点击或键盘打开原生放大弹窗；可在适应窗口与原始像素大小间切换，支持原生滚动、关闭按钮、Esc、点击外部遮罩和焦点恢复。图片及首页预览无可见标题。新版 BA 使用带内容哈希的资源 URL；本轮运行证据在 `.impeccable/review/aigc-lightbox/`。

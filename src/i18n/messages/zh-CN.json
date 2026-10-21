@@ -141,7 +141,12 @@
         "title": "音乐",
         "description": "用声音，留下另一种表达。"
       }
-    }
+    },
+    "openImage": "放大查看：{description}",
+    "imageViewer": "图片预览",
+    "closeImage": "关闭图片",
+    "zoomIn": "查看原始大小",
+    "zoomOut": "适应窗口"
   },
   "agents": {
     "metadata": {

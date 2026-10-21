@@ -17,6 +17,7 @@ colors:
   scrollbar-thumb: "#aaa"
   scrollbar-track: "#f4f4f4"
   backdrop: "rgb(0 0 0 / 32%)"
+  image-viewer-backdrop: "rgb(0 0 0 / 65%)"
   exhibition-wall: "#f3f3f3"
   projection: "#fafafa"
   preview-control-border: "#ccc"
@@ -476,3 +477,8 @@ The contact section pairs a regular display heading with a brief introduction, e
 ## Approved AIGC image intake — 2026-10-21
 
 Blue Archive ensemble and Sunna warm-light portrait now populate the image room and home strip; video/music stay empty. Keep original color, complete native aspect ratios and gray stages. Image works have no visible title in either the home strip or gallery; localized alt text remains. Exhibition images use `width: auto`, `max-width: 100%` and `max-height: min(75svh, 900px)` so portraits fit the view. With exactly two cards, desktop preview basis is 58%; mobile remains 86%, retaining meaningful native overflow and existing automatic/pause behavior. SC/TC/JP artwork text adds 29/27/15 glyphs in the existing families. Provenance is `public/aigc/sources.json`; local originals remain untouched and unpublished. Current image evidence is `.impeccable/review/aigc-intake/`; earlier empty-registry acceptance above is historical. No color, font identity, navigation or product roster changes.
+
+
+## Image viewer — 2026-10-21
+
+A user-requested native image dialog extends the existing gray stages and 12px native-dialog shape. Use a 65% black backdrop, gray viewer surface, two 44px white circular zoom/close controls with quiet gray borders, and complete untitled imagery. The viewer is inset 32px on desktop and 12px on mobile, capped at 1800px wide. Fit mode preserves the full image; intrinsic-size mode uses native scrolling and no extra gesture library. Gallery image stages retain their original whitespace and no visible titles. SC/TC/JP viewer labels add 2/3/2 glyphs in existing families. Blue Archive has been replaced with the supplied 1920 × 1080 variant using a hashed asset URL.

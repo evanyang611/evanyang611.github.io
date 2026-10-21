@@ -27,3 +27,7 @@ User selected only Blue Archive and Sunna from supplied files. Populate the home
 
 ## Image presentation correction — 2026-10-21
 The user requests no image titles. Omit visible titles from both homepage image previews and gallery images, with no leftover empty caption gap. Retain localized alt text, gray stages, complete imagery and existing navigation/motion.
+
+
+## Image enlargement and replacement — 2026-10-21
+The user requests image clicks on the AIGC page to open a larger modal, and replacement of BA. Use the remaining 1920 × 1080 `blue-archive-ensemble.png` source with an optimized content-hashed URL. Retain untitled complete images, four-language descriptions and neutral stages. Native image dialog supports fit, intrinsic size/native scroll, 44px controls, Escape/backdrop close, focus return and body scroll locking.

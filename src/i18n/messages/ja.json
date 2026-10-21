@@ -141,7 +141,12 @@
         "title": "音楽",
         "description": "音でつづる、もうひとつの表現。"
       }
-    }
+    },
+    "openImage": "画像を拡大：{description}",
+    "imageViewer": "画像プレビュー",
+    "closeImage": "画像を閉じる",
+    "zoomIn": "元のサイズで表示",
+    "zoomOut": "ウィンドウに合わせる"
   },
   "agents": {
     "metadata": {

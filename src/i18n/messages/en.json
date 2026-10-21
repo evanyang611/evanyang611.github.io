@@ -141,7 +141,12 @@
         "title": "Music",
         "description": "Another way of expressing ideas, through sound."
       }
-    }
+    },
+    "openImage": "Enlarge image: {description}",
+    "imageViewer": "Image preview",
+    "closeImage": "Close image",
+    "zoomIn": "View original size",
+    "zoomOut": "Fit to window"
   },
   "agents": {
     "metadata": {

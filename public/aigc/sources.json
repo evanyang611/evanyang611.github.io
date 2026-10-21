@@ -1,16 +1,16 @@
 [
   {
     "id": "blue-archive-ensemble",
-    "source": "blue-archive-ensemble-native-4mp.png",
+    "source": "blue-archive-ensemble.png",
     "source_location": "local aigc-inbox (not published)",
-    "source_sha256": "2c9f2f77b80167533edb4eef50db16c69abc282c7cd38d32b2149cf94ebe6a03",
-    "file": "images/blue-archive-ensemble.webp",
-    "sha256": "f6e1053a403de9282b13f6ffa2e2dd382cdb2dc8d877d0145d06bf130fa20901",
-    "width": 2720,
-    "height": 1530,
-    "bytes": 632028,
+    "source_sha256": "51abae6052fa7b06c03f9fdb5c568138630c59ee422595371b92fce8fbe4d29a",
+    "file": "images/blue-archive-ensemble-0932d0c2979d.webp",
+    "sha256": "0932d0c2979dc0515cfe245f7fb8d8ea4d0af1cf53345cfd8bc310a056fb6090",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 384382,
     "processing": "cwebp -q 92 -m 6 -metadata icc; no resizing or cropping",
-    "approval": "User selected Blue Archive and Sunna only, 2026-10-21"
+    "approval": "User requested replacement with the remaining Blue Archive image, 2026-10-21"
   },
   {
     "id": "sunna-warm-cg",

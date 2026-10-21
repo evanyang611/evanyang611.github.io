@@ -685,3 +685,84 @@
   src: url(/fonts/notosanstc-artworks-9eaa9d801260.woff2) format('woff2');
   unicode-range: U+4e03;
 }
+
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosanssc-lightbox-eb99673179bb.woff2) format('woff2');
+  unicode-range: U+539f, U+653e;
+}
+
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosanssc-lightbox-eb99673179bb.woff2) format('woff2');
+  unicode-range: U+539f, U+653e;
+}
+
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosanssc-lightbox-eb99673179bb.woff2) format('woff2');
+  unicode-range: U+539f, U+653e;
+}
+
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosanstc-lightbox-a4d60fd93b20.woff2) format('woff2');
+  unicode-range: U+539f, U+653e, U+7b26;
+}
+
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosanstc-lightbox-a4d60fd93b20.woff2) format('woff2');
+  unicode-range: U+539f, U+653e, U+7b26;
+}
+
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosanstc-lightbox-a4d60fd93b20.woff2) format('woff2');
+  unicode-range: U+539f, U+653e, U+7b26;
+}
+
+@font-face {
+  font-family: 'Portfolio JP';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosansjp-lightbox-030525d46023.woff2) format('woff2');
+  unicode-range: U+5143, U+ff1a;
+}
+
+@font-face {
+  font-family: 'Portfolio JP';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosansjp-lightbox-030525d46023.woff2) format('woff2');
+  unicode-range: U+5143, U+ff1a;
+}
+
+@font-face {
+  font-family: 'Portfolio JP';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosansjp-lightbox-030525d46023.woff2) format('woff2');
+  unicode-range: U+5143, U+ff1a;
+}

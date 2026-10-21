@@ -57,7 +57,7 @@ The typed registry supports complete images with intrinsic dimensions and four-l
 
 ## Confirmed multilingual scope
 
-Simplified Chinese, Traditional Chinese, English and Japanese cover descriptions, biography, contact, project titles/summaries/details, gallery text, assistive labels and metadata. The three navigation labels, home module names, `Enter`, AI Agent collection title and three product topic headings intentionally remain English. Each message file contains 92 nonempty strings.
+Simplified Chinese, Traditional Chinese, English and Japanese cover descriptions, biography, contact, project titles/summaries/details, gallery text, assistive labels and metadata. The three navigation labels, home module names, `Enter`, AI Agent collection title and three product topic headings intentionally remain English. Each message file contains 97 nonempty strings.
 
 Each surface has static localized HTML, correct `html lang`, title/description, canonical and hreflang. Explicit locale paths take priority; default entries honor a valid query, saved manual preference, then ordered browser languages, with Simplified Chinese fallback. Switching language preserves surface and hash. Contact is `yqh611@gmail.com`; screenshots keep their original language and colors.
 
@@ -91,3 +91,7 @@ Supplied `browser-checks.json` records no page overflow at 1440/390/320/850px, s
 Populated artwork rendering, actual native video/audio playback, physical phones and other engines remain unverified. This release is pending on published baseline `9a3faec`. After publishing, read back the served revision, localized home/collection routes and metadata, previews/controls, empty rooms, font delivery, surface/hash preservation, return paths and existing dialogs.
 
 Prior paired-work review and comp records remain history. The open `plates` gate, historical AllFeeds plate score 0.3903 and first-build final-diff score 0.7611 (`drift`) remain unpassed fidelity records; this extension does not repair them or certify exact pixel fidelity or deployment.
+
+## Image viewer and BA replacement — 2026-10-21
+
+The selected Blue Archive source is now `blue-archive-ensemble.png` (1920 × 1080); its optimized URL includes its content hash. Gallery image buttons open a native modal with a fit-to-window view, intrinsic-size zoom and native scrolling. Close button, Escape and backdrop dismissal restore focus and body overflow. No visible image titles. Four-language labels, 44px controls, responsive containment and untouched intake sources remain required. Local evidence: `.impeccable/review/aigc-lightbox/`; earlier BA dimensions and wholly-empty gallery reports are historical.

@@ -15,9 +15,9 @@ export const AIGC_ARTWORKS: readonly AigcArtwork[] = [
   {
     id: "blue-archive-ensemble",
     kind: "images",
-    src: "/aigc/images/blue-archive-ensemble.webp",
-    width: 2720,
-    height: 1530,
+    src: "/aigc/images/blue-archive-ensemble-0932d0c2979d.webp",
+    width: 1920,
+    height: 1080,
     title: {
       "zh-CN": "Blue Archive · 合绘",
       "zh-TW": "Blue Archive · 合繪",
