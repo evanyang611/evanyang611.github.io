@@ -23,7 +23,7 @@ npm run preview   # http://localhost:8071/
 | AI Agent 完整作品 | `/ai-agent/` | `/{locale}/ai-agent/` |
 | AIGC 展厅 | `/aigc/` | `/{locale}/aigc/` |
 
-首页 AI Agent 和 AIGC 各有原生横向滚动预览及 `Enter` 入口。前者展示四个真实产品，后者目前展示图片、视频、音乐三个明确标注待布展的空预览。支持手动前后按钮、聚焦区域的左右键、触控和触控板原生滚动；两端禁用对应按钮，默认以 32px/s 缓慢往返自动滚动，端点停留 1 秒后反向。悬停在预览轨道内或轨道内有键盘焦点时会临时暂停；手动浏览后停止，需用继续按钮恢复。离开视野或切到后台停止，减少动态效果偏好下关闭自动滚动，保留即时手动浏览。首页导航对应 `#ai-agent`、`#aigc`、`#about`，兼容 `#work` 锚点。
+首页 AI Agent 和 AIGC 各有原生横向滚动预览及 `Enter` 入口。前者展示四个真实产品，后者展示 Blue Archive 合绘和 Sunna 暖光肖像两幅已批准图片。支持手动前后按钮、聚焦区域的左右键、触控和触控板原生滚动；两端禁用对应按钮，默认以 32px/s 缓慢往返自动滚动，端点停留 1 秒后反向。悬停在预览轨道内或轨道内有键盘焦点时会临时暂停；手动浏览后停止，需用继续按钮恢复。离开视野或切到后台停止，减少动态效果偏好下关闭自动滚动，保留即时手动浏览。首页导航对应 `#ai-agent`、`#aigc`、`#about`，兼容 `#work` 锚点。
 
 原完整作品列表和原生详情浮窗移到 AI Agent 页面，保持三个英文主题：
 
@@ -35,17 +35,21 @@ npm run preview   # http://localhost:8071/
 
 完整作品页大于 700px 时每行两个作品，第二行 Developers/ACGers 通过共享 subgrid 标题轨道对齐封面；700px 及以下按主题单列。截图完整、原色、居中灰底，说明在图片外。首页预览进入对应主题；完整作品页卡片打开背景、功能、技术思路及外链浮窗。ForeArena 是 `forearena.com` 的定时多 Agent 投资研究产品，中文链接为 `/zh`，英文及日文为 `/en`；公开示例面板不构成投资收益证明。AllFeeds 不在当前四件作品范围。
 
-AIGC 独立展厅继承同一系统，有三个锚点房间和待作品提示。`src/content/aigc.ts` 中 `AIGC_ARTWORKS` 按要求保持 `[]`。没有虚构作品、媒体数量、渲染出的播放器、上传功能或后端。未来图片与原生音视频渲染分支已建立，真实素材显示与播放尚未验收。添加已批准素材时使用 `public/aigc/` 和四语言标题/替代文本，见 [添加作品指南](docs/aigc-gallery.md)。
+AIGC 独立展厅继承同一系统。图片展区展示 Blue Archive 合绘（2720 × 1530）和 Sunna 暖光肖像（1728 × 2432），视频、音乐继续待展。高清原稿保留在 Git 忽略的 `aigc-inbox/`，发布的 WebP 合计 1,071,292 字节，转换未缩放或裁切。四语言标题/替代文本与素材来源见 `src/content/aigc.ts`、`public/aigc/sources.json`，添加方式见 [指南](docs/aigc-gallery.md)。竖图按视口限高且完整居中；桌面只有两幅预览时使用 58% 卡片宽度，保持自动滚动。
 
 ## 实现与语言
 
 - 首页/预览：`src/components/portfolio/Portfolio.tsx`、`PreviewStrip.tsx`；完整产品/浮窗：`AgentProjects.tsx`；项目身份、主题、图片尺寸和外链：`src/content/projects.ts`。
 - 共享导航、页脚和语言选择：`src/components/portfolio/SiteChrome.tsx`。详情页可在集合间跳转，About、联系、品牌与返回入口指向同语言首页。语言切换保留当前首页、AI Agent 或 AIGC 页面及锚点。
-- 展厅：`src/components/gallery/`；空注册表：`src/content/aigc.ts`。
+- 展厅：`src/components/gallery/`；作品注册表：`src/content/aigc.ts`。
 - 每种语言当前有 92 条非空文案：`src/i18n/messages/`。路径/偏好：`src/i18n/config.ts`；三种页面元数据：`src/i18n/metadata.ts`。静态 HTML 各有正确 `html lang`、标题、描述、canonical 和 hreflang。指定语言路径优先；默认入口依次使用有效 `?lang=`、手动偏好、浏览器语言，最后回退简中。
 - 截图、Logo、字体来源与许可证保留在 `public/images/`、`public/brand/`、`public/fonts/`。展厅与首页文字使用同族 SC/TC/JP 补充字体，来源见 `localized-sources.json`。
 
-## 验收与发布边界
+## 本次图片接入
+
+当前本地验收材料位于 `.impeccable/review/aigc-intake/`：1440px 桌面、390px 手机和 320px 日文画廊没有页面溢出；两幅图片保持完整比例；四语言切换保留展区锚点；首页两图自动滚动、暂停、手动末端与 Enter 入口已检查。lint、92 条 UI 文案/语言检查、4 项偏好测试、18 页构建和带真实素材的导出检查通过。机械扫描为 0 项主要问题，5 项既有字号文档提示。实体手机、其他浏览器内核和未来音视频播放仍未验证。发布前线上基线为 `45b5d27`，本次发布以 GitHub Actions 与线上素材读回为准。
+
+## 历史验收与发布记录
 
 本轮证据位于 `.impeccable/review/index/`。独立审阅覆盖八张有效截图：桌面/移动首页、320px 日文首页、850px 英文首页、桌面/简中移动 AI Agent、移动展厅和音乐预览末端。音乐图为 390 × 844 中部视口，不是全页。视觉范围符合既有系统；初审要求同步过期文档，最终 disposition 以 `finish-review.md` 为准。
 

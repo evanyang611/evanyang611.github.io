@@ -190,6 +190,9 @@
 .collectionIntro h1 { margin: 0; font-size: clamp(42px,4.7vw,68px); font-weight: 400; line-height: 1.23; letter-spacing: -.035em; }
 .collectionIntro p { max-width: 58ch; margin: 28px 0 0; color: var(--muted); font-size: 19px; line-height: 1.8; }
 .agentPage { padding-bottom: 100px; }
+@media (min-width: 701px) {
+  .previewTrack:has(> article:nth-child(2):last-child) > article { flex-basis: 58%; }
+}
 @media (max-width: 700px) {
   .previewSection { padding: 0 24px; }
   .previewSection + .previewSection, .previewIndex + .previewSection { margin-top: 100px; }

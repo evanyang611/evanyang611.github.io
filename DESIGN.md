@@ -287,7 +287,7 @@ This system governs the independent `personal-portfolio` project and its four la
 - Complete, original-color product images centered on identical gray stages.
 - Two automatic horizontal homepage preview strips with pause/resume and manual browsing; independent detailed AI Agent and AIGC collections.
 - Paired AI Agent works with independent topic headings, aligned covers, captions outside images, and project detail on demand.
-- Truthful empty exhibition rooms until approved media is supplied.
+- User-approved artwork on neutral stages; unsupplied media rooms remain truthfully empty.
 - Native language selection, native scrolling, keyboard-visible focus, and reduced-motion support.
 
 The current extension is the user-directed three-module home index and independent collections. Its fresh review is `.impeccable/review/index/finish-review.md`; the initial material fix was stale documentation, with no material visual fix. The final disposition belongs to that review after this documentation handoff. All eight supplied captures were opened by the reviewer: desktop/mobile home, 320px Japanese home, 850px English home, desktop/Simplified Chinese mobile AI Agent, mobile gallery, and a 390 x 844 music-preview viewport. The music capture is a mid-page viewport, not a full-page image.
@@ -471,3 +471,8 @@ The contact section pairs a regular display heading with a brief introduction, e
 - Don't import the original personal site's visual system or runtime into this independent portfolio.
 - Don't fabricate gallery artworks or autoplay video/audio; automatic preview movement stays controllable and separate from media playback.
 - Don't present the local finish verdict or historical fidelity records as production deployment acceptance or an automated fidelity pass.
+
+
+## Approved AIGC image intake — 2026-10-21
+
+Blue Archive ensemble and Sunna warm-light portrait now populate the image room and home strip; video/music stay empty. Keep original color, complete native aspect ratios, gray stages and captions outside. Exhibition images use `width: auto`, `max-width: 100%` and `max-height: min(75svh, 900px)` so portraits fit the view. With exactly two cards, desktop preview basis is 58%; mobile remains 86%, retaining meaningful native overflow and existing automatic/pause behavior. SC/TC/JP artwork text adds 29/27/15 glyphs in the existing families. Provenance is `public/aigc/sources.json`; local originals remain untouched and unpublished. Current image evidence is `.impeccable/review/aigc-intake/`; earlier empty-registry acceptance above is historical. No color, font identity, navigation or product roster changes.

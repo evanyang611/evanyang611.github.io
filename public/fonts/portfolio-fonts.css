@@ -550,3 +550,138 @@
   src: url(/fonts/notosansjp-index-71f2c7f1a768.woff2) format('woff2');
   unicode-range: U+505c, U+6b62, U+6e1b;
 }
+
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosanssc-artworks-619a379dbe56.woff2) format('woff2');
+  unicode-range: U+4f4d, U+5149, U+516d, U+5750, U+5e18, U+5f69, U+5f71, U+623f, U+6696, U+6c99, U+6d12, U+6d45, U+6e29, U+6f2b, U+73af, U+7740, U+793c, U+7a97, U+7ed8, U+7eff, U+8096, U+8272, U+82b1, U+8eab, U+900f, U+91cc, U+9633, U+9c9c;
+}
+
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosanssc-artworks-619a379dbe56.woff2) format('woff2');
+  unicode-range: U+4f4d, U+5149, U+516d, U+5750, U+5e18, U+5f69, U+5f71, U+623f, U+6696, U+6c99, U+6d12, U+6d45, U+6e29, U+6f2b, U+73af, U+7740, U+793c, U+7a97, U+7ed8, U+7eff, U+8096, U+8272, U+82b1, U+8eab, U+900f, U+91cc, U+9633, U+9c9c;
+}
+
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosanssc-artworks-619a379dbe56.woff2) format('woff2');
+  unicode-range: U+4f4d, U+5149, U+516d, U+5750, U+5e18, U+5f69, U+5f71, U+623f, U+6696, U+6c99, U+6d12, U+6d45, U+6e29, U+6f2b, U+73af, U+7740, U+793c, U+7a97, U+7ed8, U+7eff, U+8096, U+8272, U+82b1, U+8eab, U+900f, U+91cc, U+9633, U+9c9c;
+}
+
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosanstc-artworks-1bb55eeb8e92.woff2) format('woff2');
+  unicode-range: U+4f4d, U+5149, U+516d, U+5750, U+5f69, U+623f, U+6696, U+6c99, U+6dfa, U+6eab, U+6f2b, U+7051, U+79ae, U+7a97, U+7c3e, U+7da0, U+7e6a, U+8096, U+8272, U+82b1, U+8457, U+88e1, U+8eab, U+967d, U+9aee, U+9bae;
+}
+
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosanstc-artworks-1bb55eeb8e92.woff2) format('woff2');
+  unicode-range: U+4f4d, U+5149, U+516d, U+5750, U+5f69, U+623f, U+6696, U+6c99, U+6dfa, U+6eab, U+6f2b, U+7051, U+79ae, U+7a97, U+7c3e, U+7da0, U+7e6a, U+8096, U+8272, U+82b1, U+8457, U+88e1, U+8eab, U+967d, U+9aee, U+9bae;
+}
+
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosanstc-artworks-1bb55eeb8e92.woff2) format('woff2');
+  unicode-range: U+4f4d, U+5149, U+516d, U+5750, U+5f69, U+623f, U+6696, U+6c99, U+6dfa, U+6eab, U+6f2b, U+7051, U+79ae, U+7a97, U+7c3e, U+7da0, U+7e6a, U+8096, U+8272, U+82b1, U+8457, U+88e1, U+8eab, U+967d, U+9aee, U+9bae;
+}
+
+@font-face {
+  font-family: 'Portfolio JP';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosansjp-artworks-b2e958857cda.woff2) format('woff2');
+  unicode-range: U+3050, U+30ad, U+5149, U+5305, U+5c4b, U+5dee, U+5ea7, U+6696, U+7740, U+7dd1, U+8272, U+82b1, U+8d8a, U+967d, U+9aea;
+}
+
+@font-face {
+  font-family: 'Portfolio JP';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosansjp-artworks-b2e958857cda.woff2) format('woff2');
+  unicode-range: U+3050, U+30ad, U+5149, U+5305, U+5c4b, U+5dee, U+5ea7, U+6696, U+7740, U+7dd1, U+8272, U+82b1, U+8d8a, U+967d, U+9aea;
+}
+
+@font-face {
+  font-family: 'Portfolio JP';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosansjp-artworks-b2e958857cda.woff2) format('woff2');
+  unicode-range: U+3050, U+30ad, U+5149, U+5305, U+5c4b, U+5dee, U+5ea7, U+6696, U+7740, U+7dd1, U+8272, U+82b1, U+8d8a, U+967d, U+9aea;
+}
+
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosanssc-artworks-920f796ae8ca.woff2) format('woff2');
+  unicode-range: U+4e03;
+}
+
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosanssc-artworks-920f796ae8ca.woff2) format('woff2');
+  unicode-range: U+4e03;
+}
+
+@font-face {
+  font-family: 'Portfolio CJK';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosanssc-artworks-920f796ae8ca.woff2) format('woff2');
+  unicode-range: U+4e03;
+}
+
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/notosanstc-artworks-9eaa9d801260.woff2) format('woff2');
+  unicode-range: U+4e03;
+}
+
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/notosanstc-artworks-9eaa9d801260.woff2) format('woff2');
+  unicode-range: U+4e03;
+}
+
+@font-face {
+  font-family: 'Portfolio TC';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/notosanstc-artworks-9eaa9d801260.woff2) format('woff2');
+  unicode-range: U+4e03;
+}

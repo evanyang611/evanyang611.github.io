@@ -19,3 +19,7 @@ User narrowed homepage to AI Agent, AIGC and About. Home AI Agent and AIGC each 
 
 ## Automatic preview motion — 2026-10-20
 The user's next instruction explicitly changes both home strips to automatic scrolling. Move at 32 CSS px/s, rest one second at each end and reverse without a reset jump. Pause for pointer hover and keyboard focus, stop for manual interaction until resumed, stop offscreen/background, and disable automatic motion when reduced motion is requested. Keep native manual scrolling, Enter links, an accessible pause/resume control, all four locales and the empty AIGC registry. Motion is restricted to the visible preview track, with no extra libraries or media playback. This supersedes the earlier manual-only preview instruction.
+
+
+## First approved images — 2026-10-21
+User selected only Blue Archive and Sunna from supplied files. Populate the home previews and image room with their supplied native-resolution variants, complete original-color imagery centered on gray. Retain video/music empty states, all locales and automatic preview controls. Cap gallery image height at min(75svh, 900px); with exactly two home cards use 58% desktop basis (86% mobile) so automatic scrolling remains functional. Preserve local intake originals and omit Mutsumi and duplicate variants. This supersedes the earlier wholly-empty content instruction. Evidence: `.impeccable/review/aigc-intake/`.

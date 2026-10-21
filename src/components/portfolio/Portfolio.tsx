@@ -38,7 +38,7 @@ export default function Portfolio({ locale, copy, autoSelectLanguage = false }: 
         {AIGC_ARTWORKS.length ? AIGC_ARTWORKS.map(work => {
           const preview = work.kind === "images" ? work.src : work.kind === "videos" ? work.poster : work.cover?.src;
           const alt = work.kind === "images" ? work.alt[locale] : work.kind === "music" && work.cover ? work.cover.alt[locale] : work.title[locale];
-          return <article key={work.id}>
+          return <article key={work.id} data-artwork-preview={work.id}>
             <a className={styles.previewCard} href={`${surfacePath(locale, "aigc")}#${work.kind}`}>
               <span className={styles.aigcPreviewWall}>{preview ? <Image className={styles.aigcPreviewImage} src={preview} fill alt={alt} sizes="(max-width: 700px) 80vw, 450px" /> : <span>{copy.gallery.categories[work.kind].title}</span>}</span>
               <span className={styles.stripCaption}><span className={styles.stripTitle}>{work.title[locale]}</span></span>

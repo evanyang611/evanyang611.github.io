@@ -25,6 +25,7 @@
 .artwork { margin: 0; min-width: 0; }
 .artworkMedia { display: flex; flex-direction: column; align-items: center; gap: 32px; padding: 48px; background: #eee; }
 .artworkMedia img, .artworkMedia video { display: block; max-width: 100%; height: auto; }
+.artworkMedia img { width: auto; max-height: min(75svh, 900px); object-fit: contain; }
 .artworkMedia video, .artworkMedia audio { width: 100%; }
 .artworkMedia .albumCover { max-width: 240px; }
 .artwork figcaption { margin-top: 24px; }

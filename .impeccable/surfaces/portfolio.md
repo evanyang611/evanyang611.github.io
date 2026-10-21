@@ -107,3 +107,7 @@ Current finish evidence is `.impeccable/review/index/`; source and browser evide
 
 ## Automatic preview refinement — 2026-10-20
 The user then requested automatic scrolling. Both preview strips now advance at 32 CSS px/s, pause for one second at each end and reverse. Track hover/focus temporarily pauses; manual input stops until resumed. A pause/resume button joins the existing 44px controls. Offscreen/background tracks stop; reduced motion disables automatic movement. Existing Enter routes, real screenshots, four-language content and empty AIGC registry remain. This explicitly supersedes the manual-only motion rule above.
+
+
+## First approved images — 2026-10-21
+User selected only Blue Archive and Sunna from supplied files. Populate the home previews and image room with their supplied native-resolution variants, complete original-color imagery centered on gray. Retain video/music empty states, all locales and automatic preview controls. Cap gallery image height at min(75svh, 900px); with exactly two home cards use 58% desktop basis (86% mobile) so automatic scrolling remains functional. Preserve local intake originals and omit Mutsumi and duplicate variants. This supersedes the earlier wholly-empty content instruction. Evidence: `.impeccable/review/aigc-intake/`.

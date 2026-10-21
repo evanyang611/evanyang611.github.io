@@ -13,3 +13,4 @@ next-env.d.ts
 .impeccable/hook.cache.json
 .impeccable/portfolio-content.json
 /assets/
+/aigc-inbox/
