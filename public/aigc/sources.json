@@ -24,5 +24,23 @@
     "bytes": 439264,
     "processing": "cwebp -q 92 -m 6 -metadata icc; no resizing or cropping",
     "approval": "User selected Blue Archive and Sunna only, 2026-10-21"
+  },
+  {
+    "id": "mika-softlight",
+    "source": "mika-softlight-s1701.png",
+    "source_location": "local aigc-inbox (not published)",
+    "source_sha256": "263ce83656b604ffe90d9409f77c1311ccab0dbaa3bbd81c50cfdd3f357fc6db",
+    "file": "images/mika-softlight-7a970f19aba1.webp",
+    "sha256": "7a970f19aba14f68b0283abe6965438ab8831e0e6099539d3f37c56cad8c52a4",
+    "width": 1536,
+    "height": 1152,
+    "bytes": 204366,
+    "processing": "cwebp -q 92 -m 6 -metadata icc; no resizing or cropping",
+    "approval": "User approved the no-LoRA Mika soft-light image and requested its addition to the gallery, 2026-10-29",
+    "generation": {
+      "model": "MOSS-Image-SFT BF16",
+      "seed": 2610291701,
+      "lora": false
+    }
   }
 ]

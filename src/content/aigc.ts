@@ -50,4 +50,23 @@ export const AIGC_ARTWORKS: readonly AigcArtwork[] = [
       ja: "カーテン越しの暖かな日差しが注ぐソファに、緑髪のアニメキャラクターが座っている。",
     },
   },
+  {
+    id: "mika-softlight",
+    kind: "images",
+    src: "/aigc/images/mika-softlight-7a970f19aba1.webp",
+    width: 1536,
+    height: 1152,
+    title: {
+      "zh-CN": "Mika · 柔光肖像",
+      "zh-TW": "Mika · 柔光肖像",
+      en: "Mika · Soft Light",
+      ja: "ミカ · やわらかな光",
+    },
+    alt: {
+      "zh-CN": "《碧蓝档案》的粉发少女 Mika 身着白色制服，倚在象牙白台面旁，在柔和光线中仰头微笑。",
+      "zh-TW": "《蔚藍檔案》的粉髮少女 Mika 身著白色制服，倚在象牙白檯面旁，在柔和光線中仰頭微笑。",
+      en: "Mika from Blue Archive, with pink hair and a white uniform, looks up with a smile beside an ivory vanity in soft light.",
+      ja: "『ブルーアーカイブ』のミカが、ピンクの髪と白い制服姿で象牙色の化粧台に寄り添い、やわらかな光の中で見上げて微笑む。",
+    },
+  },
 ];
