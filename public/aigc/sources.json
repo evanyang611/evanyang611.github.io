@@ -13,19 +13,6 @@
     "approval": "User requested replacement with the remaining Blue Archive image, 2026-10-21"
   },
   {
-    "id": "sunna-warm-cg",
-    "source": "sunna-warm-cg-native-4mp.png",
-    "source_location": "local aigc-inbox (not published)",
-    "source_sha256": "660bc7b91f22a91df4305d42a5575e7978f9d5596b08824e5a6a1921afc85551",
-    "file": "images/sunna-warm-cg.webp",
-    "sha256": "83117ce5f0525a7845131e89b3f37278cdf81e0f792d79cfbeedc51247c64fc4",
-    "width": 1728,
-    "height": 2432,
-    "bytes": 439264,
-    "processing": "cwebp -q 92 -m 6 -metadata icc; no resizing or cropping",
-    "approval": "User selected Blue Archive and Sunna only, 2026-10-21"
-  },
-  {
     "id": "mika-softlight",
     "source": "mika-softlight-s1701.png",
     "source_location": "local aigc-inbox (not published)",

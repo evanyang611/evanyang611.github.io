@@ -2,9 +2,9 @@
 
 Image works have no visible title on the homepage or in the gallery, as requested. Keep localized alt text for accessibility; registry titles remain internal metadata. Optional supplied descriptions/year/tool can still accompany a gallery image.
 
-The registry contains three user-approved images: Blue Archive ensemble, Sunna warm-light portrait, and Mika soft-light portrait. The first two were selected on 2026-10-21; Mika was added on 2026-10-29. Mutsumi and alternate source versions are excluded. Video and music rooms remain intentionally empty.
+The registry contains two user-approved images, in display order: Blue Archive ensemble, then Mika soft-light portrait. Mika was added on 2026-10-29; the user subsequently requested removal of the previous second portrait from the portfolio. Its registry entry and published WebP were removed; the local intake original is preserved. Mutsumi and alternate source versions are excluded. Video and music rooms remain intentionally empty.
 
-Local intake is `aigc-inbox/` (Git-ignored). Preserve supplied originals there; publish only approved, optimized assets under `public/aigc/`. Current WebP images retain the supplied native dimensions (1920 × 1080, 1728 × 2432, and 1536 × 1152), original proportions and colors. `public/aigc/sources.json` records source/output hashes and conversion settings. No generation model, date or prompt is asserted without supplied facts.
+Local intake is `aigc-inbox/` (Git-ignored). Preserve supplied originals there; publish only approved, optimized assets under `public/aigc/`. Current WebP images retain the supplied native dimensions (1920 × 1080 and 1536 × 1152), original proportions and colors. `public/aigc/sources.json` records source/output hashes and conversion settings. No generation model, date or prompt is asserted without supplied facts.
 
 1. Put approved assets under `public/aigc/`, for example `images/`, `videos/` or `music/`. Registry URLs start `/aigc/`; omit `public`. Retain source and rights information with the supplied assets.
 2. Add a unique stable `id`, a supported `kind` (`images`, `videos`, `music`), `src`, and `title` covering `zh-CN`, `zh-TW`, `en`, `ja`. Optional `description` also covers all four locales. `year` and `tool` are optional supplied facts.

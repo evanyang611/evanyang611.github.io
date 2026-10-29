@@ -32,25 +32,6 @@ export const AIGC_ARTWORKS: readonly AigcArtwork[] = [
     },
   },
   {
-    id: "sunna-warm-cg",
-    kind: "images",
-    src: "/aigc/images/sunna-warm-cg.webp",
-    width: 1728,
-    height: 2432,
-    title: {
-      "zh-CN": "Sunna · 暖光肖像",
-      "zh-TW": "Sunna · 暖光肖像",
-      en: "Sunna · Warm Light",
-      ja: "Sunna · 暖かな光",
-    },
-    alt: {
-      "zh-CN": "绿发动漫角色坐在浅色沙发上，窗帘间透入温暖的阳光。",
-      "zh-TW": "綠髮動漫角色坐在淺色沙發上，窗簾間透入溫暖的陽光。",
-      en: "A green-haired anime character sits on a light sofa in warm sunlight filtering through curtains.",
-      ja: "カーテン越しの暖かな日差しが注ぐソファに、緑髪のアニメキャラクターが座っている。",
-    },
-  },
-  {
     id: "mika-softlight",
     kind: "images",
     src: "/aigc/images/mika-softlight-7a970f19aba1.webp",
